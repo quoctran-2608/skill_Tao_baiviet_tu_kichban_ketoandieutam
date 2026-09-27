@@ -28,8 +28,7 @@ Một **Prompt Engine** chạy trong trình duyệt. HTML chỉ làm một việ
 ## Content Map
 
 `content-map.js` hiện có **đủ 32 ngày lấy từ lộ trình thật của Kế Toán Diệu Tâm**:
-- Ngày 1–30: lộ trình/kịch bản 30 ngày đầu.
-- Ngày 31–32: hai chủ đề đầu tiên của giai đoạn tiếp theo được ghi ngay sau ngày 30.
+- Ngày 1–32: khớp với chuỗi production thực tế; các ngày có tiêu đề/scene chi tiết được lấy theo bản production, còn chỗ không có tiêu đề rõ thì dùng tiêu đề từ roadmap cùng chuỗi.
 
 Map lưu:
 - tiêu đề ngày;
@@ -57,7 +56,7 @@ Output hình mặc định:
 - **adaptation 16:9** cho Zalo OA;
 - nếu nội dung cần nhiều bước → TikTok carousel đúng 3 slide.
 
-Nếu AI không giữ được logo/chữ tiếng Việt chính xác, prompt yêu cầu chừa vùng sạch và trả headline riêng thay vì cố tạo sai.
+Nếu AI không giữ được logo/chữ tiếng Việt chính xác, prompt yêu cầu chừa vùng sạch và trả headline riêng thay vì cố tạo sai. Prompt cũng cấm tự dựng lại nhân vật Diệu Tâm khi không có frame/reference đúng người.
 
 ## Triết lý kỹ thuật
 
