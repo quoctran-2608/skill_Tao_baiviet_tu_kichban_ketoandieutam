@@ -137,7 +137,7 @@
           <summary>Bối cảnh series (tùy chọn, không cần chỉnh nếu không biết)</summary>
           <label for="contextSelect">Content Map</label>
           <select id="contextSelect">
-            <option value="">Tự suy luận từ kịch bản</option>
+            <option value="">Tự khớp với bản đồ 32 video (khuyến nghị)</option>
           </select>
           <p class="help">Khi Content Map đủ 32 video, chọn đúng video sẽ giúp AI biết phần nào đã nói, phần nào được phép mở rộng và phần nào phải để dành.</p>
         </details>
@@ -224,11 +224,27 @@
 
       function getContextBlock(){
         var id = contextSelect.value;
-        if (!id || !window.findContentMap) return '';
+        if (!window.findContentMap) return '';
+        if (!id) {
+          return [
+            'BẢN ĐỒ 32 VIDEO CỦA SERIES:',
+            window.SERIES_INDEX_TEXT || '',
+            '',
+            'NHIỆM VỤ KHỚP NGỮ CẢNH:',
+            '- Tự xác định kịch bản được dán gần nhất với slot nào trong bản đồ trên.',
+            '- Không ép khớp nếu nội dung thực tế khác; kịch bản thực tế luôn ưu tiên.',
+            '- Sau khi xác định slot gần nhất, bài ngày sau phải mở rộng theo hướng kế tiếp tự nhiên nhưng KHÔNG được lấy mất luận điểm chính của các slot tương lai.',
+            '- Nếu kịch bản đã bao phủ nhiều slot, coi slot xa nhất đã được nói là mốc hiện tại.'
+          ].join('\n');
+        }
         var c = window.findContentMap(id);
         if (!c) return '';
         return [
-          'CONTENT MAP CHO VIDEO NÀY:',
+          'BẢN ĐỒ 32 VIDEO CỦA SERIES:',
+          window.SERIES_INDEX_TEXT || '',
+          '',
+          'OVERRIDE SLOT DO USER CHỌN:',
+          c.id + ' — ' + c.label,
           'CORE:',
           c.core || '',
           '',
@@ -242,7 +258,9 @@
           listText(c.reserved),
           '',
           'VISUAL DNA:',
-          c.visual || ''
+          c.visual || '',
+          '',
+          'Kịch bản thực tế vẫn có quyền ưu tiên nếu khác map.'
         ].join('\n');
       }
 
@@ -265,7 +283,7 @@
           '1) Không kể lại video và không chép lại lời thoại.',
           '2) Trước khi viết, phải xác định rõ: bài mới thêm giá trị gì mà video chưa nói.',
           '3) Bài mới phải là câu hỏi/góc nhìn tiếp theo mà video tự nhiên gợi ra.',
-          '4) Nếu có CONTENT MAP, tuyệt đối không dùng trước các ý RESERVED.',
+          '4) Dùng bản đồ 32 video để hiểu vị trí của kịch bản trong series; tuyệt đối không lấy trước luận điểm chính của các video tương lai.',
           '5) Bắt đầu từ đời sống thật của người kinh doanh rồi mới dẫn tới kế toán/quản trị.',
           '6) Giọng bình tĩnh, rõ, có chiều sâu; không hù dọa, không khoa trương, không viết kiểu bài giảng khô.',
           '7) CTA mềm; không bán dịch vụ trực diện.',
@@ -291,6 +309,7 @@
           '---',
           '',
           'OUTPUT BẮT BUỘC THEO THỨ TỰ:',
+          '0. SLOT ĐÃ KHỚP — ghi video-XX gần nhất và 1 câu lý do. Nếu không khớp rõ, ghi "custom" và không ép.',
           '1. GÓC MỞ RỘNG — 1–2 câu giải thích bài mới thêm gì so với video.',
           '2. TIKTOK — caption và slide nếu có.',
           '3. FACEBOOK — bài hoàn chỉnh.',
