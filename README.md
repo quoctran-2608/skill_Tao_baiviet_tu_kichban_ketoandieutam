@@ -49,7 +49,15 @@ Nguyên tắc quan trọng nhất:
 
 ## Trạng thái Content Map
 
-Repo hiện được khởi tạo với **một seed từ kịch bản đang có trong project**. Nguồn hiện tại chưa chứa đủ 32 kịch bản riêng biệt, vì vậy không tự bịa 32 mục. Khi có đủ 32 kịch bản, chỉ cần cập nhật `content-map.js`; giao diện không phải viết lại.
+`content-map.js` hiện có **32 slot biên tập hoàn chỉnh**. Đây là một lộ trình nội dung được thiết kế từ chủ đề và DNA của file nguồn hiện có; file nguồn thực tế chỉ chứa một kịch bản được triển khai lại về mặt hình ảnh, không chứa 32 transcript riêng biệt.
+
+Vì vậy hệ thống dùng cơ chế an toàn:
+- kịch bản thực tế user dán luôn là nguồn ưu tiên;
+- AI tự khớp kịch bản với slot gần nhất trong 32-slot map;
+- map dùng để giữ mạch series và tránh "ăn trước" chủ đề tương lai;
+- nếu không khớp rõ, AI được yêu cầu đánh dấu `custom` thay vì ép nội dung vào một slot sai.
+
+User không cần chọn số video; dropdown chỉ là override nâng cao khi muốn ép một slot cụ thể.
 
 ## Nguyên tắc visual mặc định
 
