@@ -1,76 +1,77 @@
 # Kế Toán Diệu Tâm — Video → Bài viết đa nền tảng
 
-Một bộ **Prompt Engine** chạy hoàn toàn trong trình duyệt. HTML chỉ ghép prompt; ChatGPT/Gemini chịu trách nhiệm viết nội dung và tạo/gợi ý hình ảnh.
+Một **Prompt Engine** chạy trong trình duyệt. HTML chỉ làm một việc: ghép kịch bản + Brand DNA + Content Map 32 ngày + quy tắc nền tảng thành một prompt hoàn chỉnh để dùng với ChatGPT / Gemini / Claude.
 
-## Mục tiêu
+## Workflow
 
-Dán kịch bản video đã đăng → tạo một prompt hoàn chỉnh để đưa vào ChatGPT / Gemini / Claude → AI sinh:
-
-- TikTok photo post / carousel
-- Facebook post
-- Zalo OA article/post
-- YouTube Post
-- Visual brief + image prompt để AI tạo/chỉnh ảnh trực tiếp
-
-Nguyên tắc quan trọng nhất:
-
-> Bài viết hôm sau không kể lại video. Nó phải trả lời câu hỏi tiếp theo mà video vừa tạo ra trong đầu người xem, đồng thời không lấy mất luận điểm dành cho các video sau.
-
-## Cách dùng
-
-1. Mở `index.html` trực tiếp trên trình duyệt.
-2. Dán kịch bản video.
+1. Mở `index.html`.
+2. Dán kịch bản/lời thoại video đã đăng.
 3. Bấm **Tạo prompt**.
 4. Copy prompt sang ChatGPT / Gemini / Claude.
-5. Ngay trong ChatGPT/Gemini, có thể upload:
+5. Có thể đính kèm thêm:
    - một frame từ video;
    - logo thương hiệu;
    - cả hai;
-   - hoặc không upload gì.
-6. Prompt yêu cầu AI tự xử lý:
-   - có frame → ưu tiên frame thật làm reference/base;
-   - có logo → dùng logo như tài sản thương hiệu, không tự thiết kế lại;
-   - không có gì → tự tạo cảnh ảnh chân thật phù hợp bài viết.
-7. Nếu môi trường AI hỗ trợ tạo/chỉnh ảnh, AI tạo luôn. Nếu không, AI trả một **IMAGE PROMPT READY** để copy sang công cụ tạo ảnh.
+   - hoặc không đính kèm gì.
+6. AI sinh:
+   - TikTok Photo Post / carousel;
+   - Facebook post;
+   - Zalo OA article/post;
+   - YouTube Post;
+   - visual direction + IMAGE PROMPT READY.
+7. Nếu model đang dùng hỗ trợ tạo/chỉnh ảnh, prompt cho phép tạo primary visual ngay; nếu không, IMAGE PROMPT READY có thể dùng trực tiếp ở công cụ tạo ảnh.
 
-## Triết lý thiết kế
+## Nguyên tắc lõi
+
+> Bài viết xen kẽ không kể lại video. Nó phải bổ sung một giá trị mới, nhưng không được lấy mất luận điểm chính của video ngày kế tiếp.
+
+## Content Map
+
+`content-map.js` hiện có **đủ 32 ngày lấy từ lộ trình thật của Kế Toán Diệu Tâm**:
+- Ngày 1–30: lộ trình/kịch bản 30 ngày đầu.
+- Ngày 31–32: hai chủ đề đầu tiên của giai đoạn tiếp theo được ghi ngay sau ngày 30.
+
+Map lưu:
+- tiêu đề ngày;
+- thông điệp cốt lõi;
+- focus;
+- giai đoạn nội dung;
+- tiêu đề ngày kế tiếp.
+
+Không lưu URL/ID Google Drive vì repo là public.
+
+AI tự khớp kịch bản user dán với map. User **không phải chọn số video**.
+
+## Hình ảnh — mặc định đơn giản
+
+User không chọn format.
+
+AI tự xử lý:
+- có frame → ưu tiên frame thật;
+- có logo → dùng logo như asset khóa, không vẽ lại;
+- có cả hai → frame là visual chính, logo nhỏ;
+- không có gì → tự tạo cảnh chân thật theo nội dung.
+
+Output hình mặc định:
+- **primary 9:16**, giữ chủ thể/headline ở vùng trung tâm để crop an toàn sang Facebook 4:5 và YouTube 1:1;
+- **adaptation 16:9** cho Zalo OA;
+- nếu nội dung cần nhiều bước → TikTok carousel đúng 3 slide.
+
+Nếu AI không giữ được logo/chữ tiếng Việt chính xác, prompt yêu cầu chừa vùng sạch và trả headline riêng thay vì cố tạo sai.
+
+## Triết lý kỹ thuật
 
 - Không API.
 - Không backend.
 - Không database.
-- Không bắt user chọn tone, số chữ, tỷ lệ ảnh, số slide, CTA level...
-- Dùng frame thật từ video làm nguồn hình mặc định.
-- AI chỉ quyết định **góc mở rộng + nội dung + headline visual**.
-- HTML chỉ làm **một việc**: ghép prompt tốt, portable giữa nhiều model.
+- Không bắt user chọn tone, độ dài, CTA level, số slide hay tỷ lệ ảnh.
+- Kịch bản thực tế user dán luôn ưu tiên hơn Content Map.
+- Portable giữa nhiều model.
 
 ## Cấu trúc repo
 
-- `index.html` — giao diện Prompt Builder.
-- `content-map.js` — bản đồ nội dung của series; sẽ bổ sung đủ 32 video khi có nguồn đầy đủ.
+- `index.html` — Prompt Builder.
+- `content-map.js` — Content Map 32 ngày thật.
 - `SKILL.md` — luật biên tập / prompt contract.
-- `research/platform-defaults.md` — cơ sở chọn preset nền tảng.
-
-## Trạng thái Content Map
-
-`content-map.js` hiện có **32 slot biên tập hoàn chỉnh**. Đây là một lộ trình nội dung được thiết kế từ chủ đề và DNA của file nguồn hiện có; file nguồn thực tế chỉ chứa một kịch bản được triển khai lại về mặt hình ảnh, không chứa 32 transcript riêng biệt.
-
-Vì vậy hệ thống dùng cơ chế an toàn:
-- kịch bản thực tế user dán luôn là nguồn ưu tiên;
-- AI tự khớp kịch bản với slot gần nhất trong 32-slot map;
-- map dùng để giữ mạch series và tránh "ăn trước" chủ đề tương lai;
-- nếu không khớp rõ, AI được yêu cầu đánh dấu `custom` thay vì ép nội dung vào một slot sai.
-
-User không cần chọn số video; dropdown chỉ là override nâng cao khi muốn ép một slot cụ thể.
-
-## Nguyên tắc visual mặc định
-
-1. User không phải chọn format.
-2. Ưu tiên frame thật từ video nếu user upload.
-3. Logo là tùy chọn; nếu có thì AI dùng làm tài sản thương hiệu, không tự vẽ lại.
-4. Nếu không có asset, AI tự tạo cảnh ảnh chân thật phù hợp nội dung.
-5. Nếu một luận điểm nói đủ bằng một hình → ảnh đơn.
-6. Nếu cần giải thích quan hệ / nguyên nhân / danh sách → TikTok carousel đúng 3 slide.
-7. Mặc định chỉ cần **2 master visual**:
-   - dọc 9:16, giữ nội dung trong vùng trung tâm an toàn để crop sang Facebook 4:5 và YouTube 1:1;
-   - ngang 16:9 cho Zalo OA.
-8. Nếu model hỗ trợ tạo/chỉnh ảnh, tạo luôn; nếu không, trả IMAGE PROMPT READY.
+- `research/platform-defaults.md` — nguồn và lý do chọn preset nền tảng.
+- `examples/` — fixture dùng để test.
