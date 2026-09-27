@@ -459,13 +459,8 @@
           ctx.fillText('KẾ TOÁN DIỆU TÂM',margin,margin + Math.round(w*.025));
         }
 
-        if (platform === 'zalo'){
-          ctx.strokeStyle = 'rgba(255,255,255,.12)';
-          ctx.lineWidth = 2;
-          var safeW = Math.round(h * 14/9);
-          safeW = Math.min(safeW,w);
-          ctx.strokeRect((w-safeW)/2,0,safeW,h);
-        }
+        // Zalo uses a 16:9 canvas with a 14:9 safe region.
+        // Text margins are intentionally kept inside that region; no guide is drawn into the exported image.
       }
 
       function makeCanvas(spec,frameImg,logoImg,headline,subline,platform){
