@@ -1,7 +1,7 @@
-// Content Map grounded in the attached production file "Copy of Kịch bản video 30 ngày đầu".
-// Important source fact: the production file jumps from Day 10 directly to Day 12.
-// video-11 is therefore retained only as an explicit SOURCE GAP and must never be auto-matched.
-// Day 1 and Day 27 do not have a standalone formal title line; their labels are derived from script thesis.
+// Content Map grounded in the attached production file "Copy of Kịch bản video 30 ngày đầu"
+// plus the user-provided Day 11 subtitle source "Ngay11.srt".
+// Day 1, Day 11 and Day 27 do not have a standalone formal title line; their labels are derived
+// from the central thesis/opening of the actual source material.
 // No private Drive URL/ID is stored here because this repository is public.
 
 window.SERIES_META = {
@@ -9,7 +9,7 @@ window.SERIES_META = {
   theme: "Hiểu hệ thống — hiểu tiền — hiểu cách doanh nghiệp vận hành",
   content_method: "HOOK → GIÁ TRỊ → CHIỀU SÂU → thương hiệu ở cuối",
   voice: "đời thực, dễ hiểu, ít thuật ngữ, điềm tĩnh, có chiều sâu",
-  source_note: "Attached production file contains Days 1–10 and 12–32; Day 11 is absent."
+  source_note: "Days 1–10 and 12–32 come from the production document; Day 11 is restored from the user-provided SRT."
 };
 
 window.CONTENT_MAP = [
@@ -190,7 +190,7 @@ window.CONTENT_MAP = [
       "giai đoạn kinh doanh"
     ],
     "phase": "Hiểu hệ thống",
-    "next_title": "Người giàu nhìn báo cáo tài chính như thế nào?",
+    "next_title": "Bán rất nhiều nhưng tiền vẫn không còn bao nhiêu",
     "provenance": "attached-production-file",
     "matchable": true,
     "source_status": "present_in_production_file",
@@ -199,15 +199,26 @@ window.CONTENT_MAP = [
   {
     "id": "video-11",
     "day": 11,
-    "label": "11 — [SOURCE MISSING]",
-    "title": "[KHÔNG CÓ KỊCH BẢN NGÀY 11 TRONG FILE PRODUCTION]",
-    "core": null,
-    "focus": [],
-    "phase": "Source gap",
+    "label": "11 — Bán rất nhiều nhưng tiền vẫn không còn bao nhiêu",
+    "title": "Bán rất nhiều nhưng tiền vẫn không còn bao nhiêu",
+    "core": "Doanh nghiệp có thể vẫn bán đều và có doanh thu nhưng tiền bị bào mòn từng chút bởi chi phí nhỏ lặp lại, hàng tồn không kiểm soát, công nợ kéo dài, chi tiêu cảm tính, thất thoát nội bộ và các chi phí vô hình không được theo dõi.",
+    "focus": [
+      "bán nhiều nhưng tiền ít",
+      "tiền đi đâu",
+      "chi phí nhỏ lặp lại",
+      "hàng tồn không kiểm soát",
+      "công nợ kéo dài",
+      "chi tiêu cảm tính",
+      "thất thoát nội bộ",
+      "chi phí vô hình",
+      "kiểm soát dòng tiền"
+    ],
+    "phase": "Hiểu chính mình",
     "next_title": "Người giàu nhìn báo cáo tài chính như thế nào?",
-    "provenance": "explicit-gap-in-production-file",
-    "matchable": false,
-    "source_status": "missing_in_attached_production_file"
+    "provenance": "uploaded-srt-day11",
+    "matchable": true,
+    "source_status": "present_in_uploaded_srt",
+    "title_source": "derived-from-opening-thesis"
   },
   {
     "id": "video-12",
@@ -607,9 +618,6 @@ window.CONTENT_MAP = [
 ];
 
 window.SERIES_INDEX_TEXT = window.CONTENT_MAP.map(function(item) {
-  if (item.matchable === false) {
-    return item.id + " | [SOURCE MISSING — DO NOT MATCH]";
-  }
   var next = item.next_title ? " | NGÀY KẾ: " + item.next_title : "";
   return item.id + " | " + item.title + " | CORE: " + item.core + next;
 }).join("\n");
