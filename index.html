@@ -46,7 +46,6 @@
       box-shadow:var(--shadow);
     }
     h2{font-size:20px;margin:0 0 8px}
-    h3{font-size:15px;margin:20px 0 8px}
     p.help{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.5}
     label{display:block;font-size:13px;font-weight:700;margin:14px 0 7px}
     textarea,input,select{
@@ -87,35 +86,8 @@
       line-height:1.5;
       margin-top:14px;
     }
-    details{
-      margin-top:14px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:12px 14px;
-      background:#fafbfa;
-    }
-    summary{cursor:pointer;font-weight:700;font-size:13px}
     .status{font-size:13px;color:var(--muted);margin-top:10px;min-height:20px}
-    .preview-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:14px;
-      margin-top:14px;
-    }
-    .preview{
-      border:1px solid var(--line);
-      border-radius:16px;
-      overflow:hidden;
-      background:#f9faf9;
-    }
-    .preview canvas{width:100%;height:auto;display:block;background:#1a241e}
-    .preview .meta{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
-    .preview .meta span{font-size:12px;color:var(--muted)}
-    .preview .meta button{padding:8px 10px;font-size:12px}
-    .fileline{display:grid;grid-template-columns:1fr;gap:10px}
-    @media(min-width:680px){.fileline{grid-template-columns:1fr 1fr}}
     .footer{margin-top:18px;color:var(--muted);font-size:12px;text-align:center}
-    .hidden{display:none!important}
   </style>
 </head>
 <body>
@@ -132,16 +104,6 @@
         <p class="help">Dùng bản lời thoại thực tế đã đăng nếu có. Nếu khác kịch bản gốc, bản bạn dán luôn được ưu tiên.</p>
 
         <textarea id="scriptInput" placeholder="Dán toàn bộ kịch bản / lời thoại video vào đây..."></textarea>
-
-        <details>
-          <summary>Bối cảnh series (tùy chọn, không cần chỉnh nếu không biết)</summary>
-          <label for="contextSelect">Content Map</label>
-          <select id="contextSelect">
-            <option value="">Tự khớp với bản đồ 32 video (khuyến nghị)</option>
-          </select>
-          <p class="help">Mặc định cứ để “Tự khớp”. Chỉ chọn thủ công video-XX khi bạn biết chắc vị trí của kịch bản trong series.</p>
-        </details>
-
         <div class="row">
           <button id="buildBtn">Tạo prompt</button>
           <button id="clearBtn" class="ghost">Xóa</button>
@@ -151,7 +113,7 @@
 
       <section class="card">
         <h2>2. Copy prompt sang AI</h2>
-        <p class="help">Prompt luôn yêu cầu đủ 4 biến thể: TikTok, Facebook, Zalo OA, YouTube Post + Visual JSON để bước 3 tự đọc.</p>
+        <p class="help">Prompt yêu cầu đủ 4 biến thể nội dung và một kế hoạch hình ảnh tự thích nghi theo asset bạn có hoặc không có.</p>
         <textarea id="promptOutput" class="output" readonly placeholder="Prompt sẽ xuất hiện ở đây..."></textarea>
         <div class="row">
           <button id="copyBtn" class="secondary">Copy prompt</button>
@@ -165,14 +127,14 @@
     
     <section class="card" style="margin-top:18px">
       <h2>3. Dán prompt vào AI và tạo luôn hình ảnh</h2>
-      <p class="help">Bạn không cần dán kết quả AI quay lại HTML. Trong ChatGPT/Gemini, có thể upload thêm logo thương hiệu, một frame từ video, cả hai, hoặc không upload gì. Prompt đã có sẵn logic để AI tự xử lý từng trường hợp.</p>
+      <p class="help">Bạn không cần quay lại HTML. Khi dán prompt vào ChatGPT/Gemini, có thể đính kèm logo, một frame từ video, cả hai, hoặc không đính kèm gì. Prompt tự xử lý theo asset đang có.</p>
       <div class="note">
         <strong>Luồng mặc định:</strong><br>
         1) Copy prompt ở bước 2.<br>
         2) Dán vào ChatGPT/Gemini.<br>
         3) Nếu có frame/logo thì upload cùng lúc; nếu không có cũng không sao.<br>
         4) AI viết 4 phiên bản nội dung và tự tạo/gợi ý bộ hình phù hợp.<br><br>
-        <strong>Visual mặc định:</strong> ưu tiên 1 master dọc 9:16 có vùng an toàn để crop sang Facebook 4:5 và YouTube 1:1, cộng 1 bản ngang 16:9 cho Zalo. Nếu nội dung thật sự cần giải thích nhiều bước, AI tự chuyển TikTok sang carousel 3 slide.
+        <strong>Visual mặc định:</strong> 1 master dọc 9:16 với chủ thể/chữ nằm trong vùng trung tâm an toàn để crop sang Facebook 4:5 và YouTube 1:1; thêm 1 bản ngang 16:9 cho Zalo. Nếu bài cần giải thích nhiều bước, TikTok tự chuyển thành carousel đúng 3 slide.
       </div>
     </section>
 
@@ -184,61 +146,24 @@
     (function(){
       var scriptInput = document.getElementById('scriptInput');
       var promptOutput = document.getElementById('promptOutput');
-      var contextSelect = document.getElementById('contextSelect');
       var buildStatus = document.getElementById('buildStatus');
 
-      var map = Array.isArray(window.CONTENT_MAP) ? window.CONTENT_MAP : [];
-      map.forEach(function(item){
-        var opt = document.createElement('option');
-        opt.value = item.id;
-        opt.textContent = item.label || item.id;
-        contextSelect.appendChild(opt);
-      });
-
-      function listText(arr){
-        return (arr || []).map(function(x){ return '- ' + x; }).join('\n');
-      }
-
       function getContextBlock(){
-        var id = contextSelect.value;
-        if (!window.findContentMap) return '';
-        if (!id) {
-          return [
-            'BẢN ĐỒ 32 VIDEO CỦA SERIES:',
-            window.SERIES_INDEX_TEXT || '',
-            '',
-            'NHIỆM VỤ KHỚP NGỮ CẢNH:',
-            '- Tự xác định kịch bản được dán gần nhất với slot nào trong bản đồ trên theo LUẬN ĐIỂM TRUNG TÂM và ĐỘ SÂU, không match chỉ vì có cùng từ khóa.',
-            '- Một chủ đề chỉ được NHẮC QUA không được coi là đã bao phủ slot chuyên sâu của chủ đề đó.',
-            '- Nếu video là umbrella/giới thiệu nhiều yếu tố của hệ thống nhưng không giải thích sâu, hãy chọn slot umbrella phù hợp nhất (thường là video-01), không nhảy tới slot cuối chỉ vì câu chốt giống nhau.',
-            '- Không ép khớp nếu nội dung thực tế khác; kịch bản thực tế luôn ưu tiên.',
-            '- Sau khi xác định slot gần nhất, bài ngày sau phải mở rộng tự nhiên nhưng KHÔNG được lấy mất luận điểm chính của các slot tương lai.'
-          ].join('\n');
-        }
-        var c = window.findContentMap(id);
-        if (!c) return '';
         return [
-          'BẢN ĐỒ 32 VIDEO CỦA SERIES:',
+          'DNA SERIES:',
+          '- Đối tượng: ' + ((window.SERIES_META && window.SERIES_META.audience) || 'chủ shop, hộ kinh doanh, doanh nghiệp nhỏ'),
+          '- Chủ đề xuyên suốt: ' + ((window.SERIES_META && window.SERIES_META.theme) || 'hiểu hệ thống, hiểu tiền, hiểu doanh nghiệp'),
+          '- Cách làm: ' + ((window.SERIES_META && window.SERIES_META.content_method) || 'HOOK → GIÁ TRỊ → CHIỀU SÂU → thương hiệu ở cuối'),
+          '- Giọng: ' + ((window.SERIES_META && window.SERIES_META.voice) || 'đời thực, dễ hiểu, có chiều sâu'),
+          '',
+          'BẢN ĐỒ 32 VIDEO THẬT CỦA SERIES:',
           window.SERIES_INDEX_TEXT || '',
           '',
-          'OVERRIDE SLOT DO USER CHỌN:',
-          c.id + ' — ' + c.label,
-          'CORE:',
-          c.core || '',
-          '',
-          'COVERED — video đã nói:',
-          listText(c.covered),
-          '',
-          'EXPAND — được phép đào sâu:',
-          listText(c.expand),
-          '',
-          'RESERVED — không được lấy trước:',
-          listText(c.reserved),
-          '',
-          'VISUAL DNA:',
-          c.visual || '',
-          '',
-          'Kịch bản thực tế vẫn có quyền ưu tiên nếu khác map.'
+          'CÁCH DÙNG MAP:',
+          '- Tự xác định kịch bản dán vào gần nhất với ngày nào theo LUẬN ĐIỂM TRUNG TÂM và ĐỘ SÂU.',
+          '- Một ý chỉ được nhắc qua không có nghĩa video đã bao phủ chủ đề chuyên sâu đó.',
+          '- Bài viết ngày sau phải bổ sung giá trị mới nhưng KHÔNG được biến thành luận điểm chính của ngày kế tiếp.',
+          '- Nếu kịch bản thực tế khác map, kịch bản thực tế luôn ưu tiên. Nếu không khớp rõ, ghi custom.'
         ].join('\n');
       }
 
@@ -261,7 +186,7 @@
           '1) Không kể lại video và không chép lại lời thoại.',
           '2) Trước khi viết, phải xác định rõ: bài mới thêm giá trị gì mà video chưa nói.',
           '3) Bài mới phải là câu hỏi/góc nhìn tiếp theo mà video tự nhiên gợi ra.',
-          '4) Dùng bản đồ 32 video để hiểu vị trí của kịch bản trong series. Match theo luận điểm trung tâm + độ sâu; một chủ đề chỉ được nhắc qua không được tính là đã bao phủ video chuyên sâu tương ứng. Tuyệt đối không lấy trước luận điểm chính của các video tương lai.',
+          '4) Dùng bản đồ 32 video THẬT của series để hiểu vị trí kịch bản. Match theo luận điểm trung tâm + độ sâu. Một chủ đề chỉ được nhắc qua không tính là đã bao phủ. Đặc biệt không biến bài xen kẽ thành luận điểm chính của NGÀY KẾ TIẾP.',
           '5) Bắt đầu từ đời sống thật của người kinh doanh rồi mới dẫn tới kế toán/quản trị.',
           '6) Giọng bình tĩnh, rõ, có chiều sâu; không hù dọa, không khoa trương, không viết kiểu bài giảng khô.',
           '7) CTA mềm; không bán dịch vụ trực diện.',
@@ -274,15 +199,15 @@
           '',
           'QUY TẮC HÌNH ẢNH — TỰ XỬ LÝ, KHÔNG HỎI USER:',
           '- Nếu cuộc trò chuyện có FRAME VIDEO được upload: ưu tiên dùng frame đó làm reference/base visual và giữ cảm giác đời thật.',
-          '- Nếu có LOGO được upload: dùng logo như tài sản thương hiệu; không tự thiết kế lại logo. Nếu không thể giữ logo chính xác, để một vùng trống sạch để chèn logo sau thay vì vẽ sai.',
+          '- Nếu có LOGO được upload: coi đó là asset khóa. Không đổi chữ, biểu tượng, tỷ lệ hoặc tự thiết kế lại. Nếu môi trường không thể giữ logo chính xác, hãy bỏ logo khỏi ảnh và chừa vùng trống sạch để chèn sau.',
           '- Nếu có cả frame + logo: dùng frame làm visual chính, logo chỉ xuất hiện nhỏ và tinh tế.',
           '- Nếu không có frame hay logo: tự tạo cảnh ảnh chân thật phù hợp với bài viết và Brand DNA Kế Toán Diệu Tâm; không dùng phong cách stock/cyber quá bóng bẩy.',
           '- Tự quyết single hoặc carousel3; không hỏi lại user.',
           '- Nếu một insight nói đủ bằng một hình: dùng single.',
           '- Nếu cần giải thích quan hệ/nguyên nhân/checklist: TikTok carousel đúng 3 slide.',
           '- Mặc định chỉ cần 2 master visual: (A) dọc 9:16, giữ chủ thể/chữ trong vùng trung tâm an toàn để crop được 4:5 và 1:1; (B) ngang 16:9 cho Zalo.',
-          '- Chữ trên ảnh cực ngắn; ưu tiên hình ảnh mạnh hơn text dài.',
-          '- Sau khi viết xong nội dung, nếu môi trường hiện tại hỗ trợ tạo/chỉnh ảnh thì TẠO ẢNH LUÔN. Nếu không hỗ trợ, xuất prompt ảnh sẵn dùng để user copy sang công cụ tạo ảnh.',
+          '- Chữ trên ảnh cực ngắn. Nếu công cụ không đảm bảo chữ tiếng Việt chính xác, tạo ảnh không chữ với vùng text-safe và trả headline riêng; không cố render chữ sai.',
+          '- Sau khi viết xong nội dung: nếu môi trường hỗ trợ tạo/chỉnh ảnh mà vẫn giữ được phần text trả lời, hãy tạo ảnh chính luôn. Nếu không, chỉ xuất IMAGE PROMPT READY thật đầy đủ để user dùng ngay.',
           '',
           ctx,
           ctx ? '' : '',
@@ -299,10 +224,10 @@
           '4. ZALO OA — tiêu đề + trích dẫn + nội dung + CTA nếu cần.',
           '5. YOUTUBE POST — nội dung ngắn.',
           '6. HÌNH ẢNH — tự quyết định single hay carousel3 và mô tả ngắn logic visual.',
-          '7. IMAGE PROMPT READY — viết prompt tạo ảnh hoàn chỉnh theo 4 trường hợp: có frame, có logo, có cả hai, hoặc không có gì. Không hỏi lại user; tự dùng asset nào đang có trong cuộc trò chuyện.',
-          '8. Nếu môi trường hỗ trợ tạo/chỉnh ảnh: sau phần text, hãy tiến hành tạo hình luôn theo IMAGE PROMPT READY. Nếu không hỗ trợ, chỉ cần trả IMAGE PROMPT READY thật đầy đủ.',
+          '7. IMAGE PROMPT READY — viết MỘT prompt ảnh thích nghi: dùng frame/logo nếu đang được đính kèm; nếu không có asset thì tự dựng cảnh chân thật theo bài. Prompt phải có phiên bản primary 9:16 và adaptation 16:9 Zalo; nêu safe crop cho 4:5 Facebook và 1:1 YouTube.',
+          '8. Nếu môi trường hỗ trợ tạo/chỉnh ảnh và có thể làm mà không làm mất phần bài viết: tạo ảnh primary 9:16. Nếu chỉ tạo được một ảnh mỗi lượt, ưu tiên 9:16 và giữ prompt 16:9 sẵn trong câu trả lời.',
           '',
-          'Trước khi trả lời, tự kiểm tra: có lặp video không, có thêm giá trị mới không, có lấy mất ý RESERVED không, và 4 nền tảng có thực sự khác cách đóng gói không.'
+          'Trước khi trả lời, tự kiểm tra: có lặp video không, có thêm giá trị mới không, có ăn sang luận điểm chính của ngày kế tiếp không, 4 nền tảng có thực sự khác cách đóng gói không, và visual có giữ đúng tinh thần đời thật của thương hiệu không.'
         ].filter(function(x){ return x !== null && x !== undefined; }).join('\n');
 
         promptOutput.value = prompt;
@@ -326,7 +251,6 @@
       document.getElementById('clearBtn').addEventListener('click', function(){
         scriptInput.value = '';
         promptOutput.value = '';
-        contextSelect.value = '';
         buildStatus.textContent = '';
       });
 
