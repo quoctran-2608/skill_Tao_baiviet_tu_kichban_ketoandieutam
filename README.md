@@ -28,9 +28,9 @@ Một **Prompt Engine** chạy trong trình duyệt. HTML chỉ làm một việ
 ## Content Map
 
 `content-map.js` hiện bám theo **file production đính kèm** của Kế Toán Diệu Tâm:
-- Ngày 1–10 và 12–32: có trong file production.
-- Ngày 11: **không tồn tại trong file production**; map giữ `video-11` chỉ như một `SOURCE MISSING` và AI không được match vào đó.
-- Ngày 1 và Ngày 27 không có một dòng tiêu đề formal riêng trong production; label của hai ngày này được rút từ luận điểm chính của script.
+- Ngày 1–10 và 12–32: lấy từ file production.
+- Ngày 11: được bổ sung từ file `Ngay11.srt` do user cung cấp.
+- Ngày 1, Ngày 11 và Ngày 27 không có một dòng tiêu đề formal riêng; label được rút từ luận điểm trung tâm/opening của nguồn thực tế.
 
 Map lưu:
 - tiêu đề ngày;
