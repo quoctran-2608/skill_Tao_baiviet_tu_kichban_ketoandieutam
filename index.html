@@ -231,10 +231,11 @@
             window.SERIES_INDEX_TEXT || '',
             '',
             'NHIỆM VỤ KHỚP NGỮ CẢNH:',
-            '- Tự xác định kịch bản được dán gần nhất với slot nào trong bản đồ trên.',
+            '- Tự xác định kịch bản được dán gần nhất với slot nào trong bản đồ trên theo LUẬN ĐIỂM TRUNG TÂM và ĐỘ SÂU, không match chỉ vì có cùng từ khóa.',
+            '- Một chủ đề chỉ được NHẮC QUA không được coi là đã bao phủ slot chuyên sâu của chủ đề đó.',
+            '- Nếu video là umbrella/giới thiệu nhiều yếu tố của hệ thống nhưng không giải thích sâu, hãy chọn slot umbrella phù hợp nhất (thường là video-01), không nhảy tới slot cuối chỉ vì câu chốt giống nhau.',
             '- Không ép khớp nếu nội dung thực tế khác; kịch bản thực tế luôn ưu tiên.',
-            '- Sau khi xác định slot gần nhất, bài ngày sau phải mở rộng theo hướng kế tiếp tự nhiên nhưng KHÔNG được lấy mất luận điểm chính của các slot tương lai.',
-            '- Nếu kịch bản đã bao phủ nhiều slot, coi slot xa nhất đã được nói là mốc hiện tại.'
+            '- Sau khi xác định slot gần nhất, bài ngày sau phải mở rộng tự nhiên nhưng KHÔNG được lấy mất luận điểm chính của các slot tương lai.'
           ].join('\n');
         }
         var c = window.findContentMap(id);
@@ -283,7 +284,7 @@
           '1) Không kể lại video và không chép lại lời thoại.',
           '2) Trước khi viết, phải xác định rõ: bài mới thêm giá trị gì mà video chưa nói.',
           '3) Bài mới phải là câu hỏi/góc nhìn tiếp theo mà video tự nhiên gợi ra.',
-          '4) Dùng bản đồ 32 video để hiểu vị trí của kịch bản trong series; tuyệt đối không lấy trước luận điểm chính của các video tương lai.',
+          '4) Dùng bản đồ 32 video để hiểu vị trí của kịch bản trong series. Match theo luận điểm trung tâm + độ sâu; một chủ đề chỉ được nhắc qua không được tính là đã bao phủ video chuyên sâu tương ứng. Tuyệt đối không lấy trước luận điểm chính của các video tương lai.',
           '5) Bắt đầu từ đời sống thật của người kinh doanh rồi mới dẫn tới kế toán/quản trị.',
           '6) Giọng bình tĩnh, rõ, có chiều sâu; không hù dọa, không khoa trương, không viết kiểu bài giảng khô.',
           '7) CTA mềm; không bán dịch vụ trực diện.',
@@ -309,7 +310,7 @@
           '---',
           '',
           'OUTPUT BẮT BUỘC THEO THỨ TỰ:',
-          '0. SLOT ĐÃ KHỚP — ghi video-XX gần nhất và 1 câu lý do. Nếu không khớp rõ, ghi "custom" và không ép.',
+          '0. SLOT ĐÃ KHỚP — ghi video-XX gần nhất và 1 câu lý do dựa trên luận điểm trung tâm/độ sâu. Phân biệt rõ "đã giải thích" với "chỉ nhắc qua". Nếu không khớp rõ, ghi "custom" và không ép.',
           '1. GÓC MỞ RỘNG — 1–2 câu giải thích bài mới thêm gì so với video.',
           '2. TIKTOK — caption và slide nếu có.',
           '3. FACEBOOK — bài hoàn chỉnh.',
