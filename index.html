@@ -123,7 +123,7 @@
     <section class="hero">
       <div class="badge">Kế Toán Diệu Tâm · Prompt Engine</div>
       <h1>Video → Bài viết → Ảnh đăng</h1>
-      <p>Dán kịch bản. Hệ thống tự ghép luật thương hiệu, quy tắc 4 nền tảng và visual preset. Không API, không backend, không cần chọn hàng loạt tùy chỉnh.</p>
+      <p>Dán kịch bản. HTML tự ghép một prompt hoàn chỉnh cho bài viết + hình ảnh. Sau đó bạn dán prompt vào ChatGPT/Gemini và upload logo/frame trực tiếp ở đó nếu muốn.</p>
     </section>
 
     <div class="grid two">
@@ -162,39 +162,18 @@
       </section>
     </div>
 
+    
     <section class="card" style="margin-top:18px">
-      <h2>3. Tạo ảnh từ câu trả lời AI</h2>
-      <p class="help">Dán toàn bộ câu trả lời của ChatGPT/Gemini. HTML tự đọc khối &lt;VISUAL_JSON&gt;. Sau đó upload một frame đẹp lấy từ chính video. Không cần chọn kích thước hay bố cục.</p>
-
-      <div class="grid two">
-        <div>
-          <label for="aiOutput">Câu trả lời AI</label>
-          <textarea id="aiOutput" class="small" placeholder="Dán toàn bộ output AI vào đây..."></textarea>
-        </div>
-        <div>
-          <div class="fileline">
-            <div>
-              <label for="frameInput">Frame từ video</label>
-              <input id="frameInput" type="file" accept="image/*" />
-            </div>
-            <div>
-              <label for="logoInput">Logo (không bắt buộc)</label>
-              <input id="logoInput" type="file" accept="image/*" />
-            </div>
-          </div>
-
-          <div class="row">
-            <button id="renderBtn">Đọc & tạo ảnh</button>
-          </div>
-          <div class="status" id="renderStatus"></div>
-
-          <div class="note">
-            Mặc định tự xuất: TikTok 9:16 · Facebook 4:5 · YouTube 1:1 · Zalo 16:9. Nếu AI chọn carousel3, chỉ TikTok tạo 3 slide; ba nền tảng còn lại vẫn dùng 1 hero image để giảm công sản xuất.
-          </div>
-        </div>
+      <h2>3. Dán prompt vào AI và tạo luôn hình ảnh</h2>
+      <p class="help">Bạn không cần dán kết quả AI quay lại HTML. Trong ChatGPT/Gemini, có thể upload thêm logo thương hiệu, một frame từ video, cả hai, hoặc không upload gì. Prompt đã có sẵn logic để AI tự xử lý từng trường hợp.</p>
+      <div class="note">
+        <strong>Luồng mặc định:</strong><br>
+        1) Copy prompt ở bước 2.<br>
+        2) Dán vào ChatGPT/Gemini.<br>
+        3) Nếu có frame/logo thì upload cùng lúc; nếu không có cũng không sao.<br>
+        4) AI viết 4 phiên bản nội dung và tự tạo/gợi ý bộ hình phù hợp.<br><br>
+        <strong>Visual mặc định:</strong> ưu tiên 1 master dọc 9:16 có vùng an toàn để crop sang Facebook 4:5 và YouTube 1:1, cộng 1 bản ngang 16:9 cho Zalo. Nếu nội dung thật sự cần giải thích nhiều bước, AI tự chuyển TikTok sang carousel 3 slide.
       </div>
-
-      <div id="previewGrid" class="preview-grid"></div>
     </section>
 
     <div class="footer">Vanilla HTML/CSS/JS · chạy local · không gửi dữ liệu đi đâu ngoài AI mà bạn tự copy prompt sang.</div>
@@ -207,8 +186,6 @@
       var promptOutput = document.getElementById('promptOutput');
       var contextSelect = document.getElementById('contextSelect');
       var buildStatus = document.getElementById('buildStatus');
-      var renderStatus = document.getElementById('renderStatus');
-      var previewGrid = document.getElementById('previewGrid');
 
       var map = Array.isArray(window.CONTENT_MAP) ? window.CONTENT_MAP : [];
       map.forEach(function(item){
@@ -295,12 +272,17 @@
           '- Zalo OA: có tiêu đề, trích dẫn ngắn, nội dung có cấu trúc, tính ứng dụng cao.',
           '- YouTube Post: cô đọng hơn Facebook, tập trung 1 insight hoặc 1 câu hỏi.',
           '',
-          'QUY TẮC VISUAL:',
+          'QUY TẮC HÌNH ẢNH — TỰ XỬ LÝ, KHÔNG HỎI USER:',
+          '- Nếu cuộc trò chuyện có FRAME VIDEO được upload: ưu tiên dùng frame đó làm reference/base visual và giữ cảm giác đời thật.',
+          '- Nếu có LOGO được upload: dùng logo như tài sản thương hiệu; không tự thiết kế lại logo. Nếu không thể giữ logo chính xác, để một vùng trống sạch để chèn logo sau thay vì vẽ sai.',
+          '- Nếu có cả frame + logo: dùng frame làm visual chính, logo chỉ xuất hiện nhỏ và tinh tế.',
+          '- Nếu không có frame hay logo: tự tạo cảnh ảnh chân thật phù hợp với bài viết và Brand DNA Kế Toán Diệu Tâm; không dùng phong cách stock/cyber quá bóng bẩy.',
           '- Tự quyết single hoặc carousel3; không hỏi lại user.',
-          '- Ưu tiên frame thật từ video làm hình nền.',
-          '- Headline trên ảnh phải ngắn, đọc được trong khoảng 2 giây.',
-          '- Nếu carousel3, chỉ cần 3 slide; không kéo dài.',
-          '- Không mặc định dùng ảnh AI.',
+          '- Nếu một insight nói đủ bằng một hình: dùng single.',
+          '- Nếu cần giải thích quan hệ/nguyên nhân/checklist: TikTok carousel đúng 3 slide.',
+          '- Mặc định chỉ cần 2 master visual: (A) dọc 9:16, giữ chủ thể/chữ trong vùng trung tâm an toàn để crop được 4:5 và 1:1; (B) ngang 16:9 cho Zalo.',
+          '- Chữ trên ảnh cực ngắn; ưu tiên hình ảnh mạnh hơn text dài.',
+          '- Sau khi viết xong nội dung, nếu môi trường hiện tại hỗ trợ tạo/chỉnh ảnh thì TẠO ẢNH LUÔN. Nếu không hỗ trợ, xuất prompt ảnh sẵn dùng để user copy sang công cụ tạo ảnh.',
           '',
           ctx,
           ctx ? '' : '',
@@ -316,32 +298,9 @@
           '3. FACEBOOK — bài hoàn chỉnh.',
           '4. ZALO OA — tiêu đề + trích dẫn + nội dung + CTA nếu cần.',
           '5. YOUTUBE POST — nội dung ngắn.',
-          '6. VISUAL BRIEF — frame nên lấy + headline + subline + lý do single/carousel3.',
-          '7. Cuối cùng bắt buộc có một JSON hợp lệ nằm giữa hai tag <VISUAL_JSON> và </VISUAL_JSON>.',
-          '',
-          'Nếu single, dùng schema:',
-          '<VISUAL_JSON>',
-          '{',
-          '  "mode": "single",',
-          '  "frame_hint": "mô tả frame nên lấy từ video",',
-          '  "hero": {"headline": "headline ngắn", "subline": "subline ngắn"},',
-          '  "slides": []',
-          '}',
-          '</VISUAL_JSON>',
-          '',
-          'Nếu carousel3, dùng schema:',
-          '<VISUAL_JSON>',
-          '{',
-          '  "mode": "carousel3",',
-          '  "frame_hint": "mô tả frame nên lấy từ video",',
-          '  "hero": {"headline": "headline đại diện", "subline": "subline ngắn"},',
-          '  "slides": [',
-          '    {"headline":"...", "body":"..."},',
-          '    {"headline":"...", "body":"..."},',
-          '    {"headline":"...", "body":"..."}',
-          '  ]',
-          '}',
-          '</VISUAL_JSON>',
+          '6. HÌNH ẢNH — tự quyết định single hay carousel3 và mô tả ngắn logic visual.',
+          '7. IMAGE PROMPT READY — viết prompt tạo ảnh hoàn chỉnh theo 4 trường hợp: có frame, có logo, có cả hai, hoặc không có gì. Không hỏi lại user; tự dùng asset nào đang có trong cuộc trò chuyện.',
+          '8. Nếu môi trường hỗ trợ tạo/chỉnh ảnh: sau phần text, hãy tiến hành tạo hình luôn theo IMAGE PROMPT READY. Nếu không hỗ trợ, chỉ cần trả IMAGE PROMPT READY thật đầy đủ.',
           '',
           'Trước khi trả lời, tự kiểm tra: có lặp video không, có thêm giá trị mới không, có lấy mất ý RESERVED không, và 4 nền tảng có thực sự khác cách đóng gói không.'
         ].filter(function(x){ return x !== null && x !== undefined; }).join('\n');
@@ -371,230 +330,6 @@
         buildStatus.textContent = '';
       });
 
-      function parseVisualJSON(text){
-        var m = text.match(/<VISUAL_JSON>\s*([\s\S]*?)\s*<\/VISUAL_JSON>/i);
-        if (!m) throw new Error('Không tìm thấy khối <VISUAL_JSON>.');
-        return JSON.parse(m[1]);
-      }
-
-      function fileToImage(file){
-        return new Promise(function(resolve,reject){
-          if (!file) return resolve(null);
-          var img = new Image();
-          img.onload = function(){ resolve(img); };
-          img.onerror = reject;
-          img.src = URL.createObjectURL(file);
-        });
-      }
-
-      function drawCover(ctx,img,w,h){
-        if (!img){
-          var g = ctx.createLinearGradient(0,0,w,h);
-          g.addColorStop(0,'#1c3428');
-          g.addColorStop(1,'#0d1712');
-          ctx.fillStyle = g;
-          ctx.fillRect(0,0,w,h);
-          return;
-        }
-        var s = Math.max(w/img.width,h/img.height);
-        var nw = img.width*s, nh = img.height*s;
-        var x = (w-nw)/2, y = (h-nh)/2;
-        ctx.drawImage(img,x,y,nw,nh);
-      }
-
-      function wrapLines(ctx,text,maxWidth){
-        var words = String(text || '').trim().split(/\s+/).filter(Boolean);
-        var lines = [];
-        var line = '';
-        words.forEach(function(word){
-          var test = line ? line + ' ' + word : word;
-          if (ctx.measureText(test).width > maxWidth && line){
-            lines.push(line);
-            line = word;
-          } else {
-            line = test;
-          }
-        });
-        if (line) lines.push(line);
-        return lines;
-      }
-
-      function fitFont(ctx,text,maxWidth,start,min){
-        var size = start;
-        while(size > min){
-          ctx.font = '800 ' + size + 'px Arial, sans-serif';
-          if (wrapLines(ctx,text,maxWidth).length <= 4) return size;
-          size -= 4;
-        }
-        return min;
-      }
-
-      function drawTextBlock(ctx,w,h,headline,subline,platform){
-        var margin = Math.round(w * 0.075);
-        var bottom = Math.round(h * 0.10);
-        var maxWidth = w - margin*2;
-        var start = platform === 'zalo' ? 66 : platform === 'youtube' ? 74 : platform === 'facebook' ? 82 : 96;
-        var min = platform === 'zalo' ? 44 : 48;
-
-        var size = fitFont(ctx,headline,maxWidth,start,min);
-        ctx.font = '800 ' + size + 'px Arial, sans-serif';
-        ctx.textAlign = 'left';
-        ctx.textBaseline = 'alphabetic';
-
-        var lines = wrapLines(ctx,headline,maxWidth);
-        var lineHeight = size * 1.06;
-        var subSize = Math.max(28, Math.round(size * .38));
-        var total = lines.length*lineHeight + (subline ? subSize*2.2 : 0);
-        var y = h - bottom - total;
-
-        ctx.fillStyle = '#ffffff';
-        lines.forEach(function(line){
-          ctx.fillText(line,margin,y);
-          y += lineHeight;
-        });
-
-        if (subline){
-          y += subSize*.45;
-          ctx.font = '500 ' + subSize + 'px Arial, sans-serif';
-          ctx.fillStyle = 'rgba(255,255,255,.82)';
-          var subLines = wrapLines(ctx,subline,maxWidth);
-          subLines.slice(0,3).forEach(function(line){
-            ctx.fillText(line,margin,y);
-            y += subSize*1.25;
-          });
-        }
-      }
-
-      function drawBrand(ctx,w,h,logoImg,platform){
-        var margin = Math.round(w*.075);
-        if (logoImg){
-          var maxW = Math.round(w*.22);
-          var maxH = Math.round(h*.065);
-          var s = Math.min(maxW/logoImg.width,maxH/logoImg.height,1);
-          var lw = logoImg.width*s, lh = logoImg.height*s;
-          ctx.drawImage(logoImg,margin,margin,lw,lh);
-        } else {
-          ctx.font = '700 ' + Math.max(18,Math.round(w*.022)) + 'px Arial, sans-serif';
-          ctx.fillStyle = 'rgba(255,255,255,.78)';
-          ctx.fillText('KẾ TOÁN DIỆU TÂM',margin,margin + Math.round(w*.025));
-        }
-
-        // Zalo uses a 16:9 canvas with a 14:9 safe region.
-        // Text margins are intentionally kept inside that region; no guide is drawn into the exported image.
-      }
-
-      function makeCanvas(spec,frameImg,logoImg,headline,subline,platform){
-        var canvas = document.createElement('canvas');
-        canvas.width = spec.w;
-        canvas.height = spec.h;
-        var ctx = canvas.getContext('2d');
-        drawCover(ctx,frameImg,spec.w,spec.h);
-
-        var grd = ctx.createLinearGradient(0,0,0,spec.h);
-        grd.addColorStop(0,'rgba(4,12,8,.18)');
-        grd.addColorStop(.44,'rgba(4,12,8,.20)');
-        grd.addColorStop(1,'rgba(4,12,8,.88)');
-        ctx.fillStyle = grd;
-        ctx.fillRect(0,0,spec.w,spec.h);
-
-        drawBrand(ctx,spec.w,spec.h,logoImg,platform);
-        drawTextBlock(ctx,spec.w,spec.h,headline,subline,platform);
-        return canvas;
-      }
-
-      function addPreview(canvas,label,filename){
-        var box = document.createElement('div');
-        box.className = 'preview';
-        box.appendChild(canvas);
-
-        var meta = document.createElement('div');
-        meta.className = 'meta';
-
-        var txt = document.createElement('span');
-        txt.textContent = label;
-
-        var btn = document.createElement('button');
-        btn.textContent = 'Tải PNG';
-        btn.addEventListener('click',function(){
-          var a = document.createElement('a');
-          a.download = filename;
-          a.href = canvas.toDataURL('image/png');
-          a.click();
-        });
-
-        meta.appendChild(txt);
-        meta.appendChild(btn);
-        box.appendChild(meta);
-        previewGrid.appendChild(box);
-      }
-
-      async function renderAssets(){
-        previewGrid.innerHTML = '';
-        renderStatus.textContent = '';
-        var raw = document.getElementById('aiOutput').value.trim();
-        if (!raw){
-          renderStatus.textContent = 'Hãy dán câu trả lời AI.';
-          return;
-        }
-
-        var data;
-        try{
-          data = parseVisualJSON(raw);
-        }catch(e){
-          renderStatus.textContent = 'Lỗi: ' + e.message;
-          return;
-        }
-
-        var frameFile = document.getElementById('frameInput').files[0] || null;
-        var logoFile = document.getElementById('logoInput').files[0] || null;
-
-        try{
-          var imgs = await Promise.all([fileToImage(frameFile),fileToImage(logoFile)]);
-          var frameImg = imgs[0], logoImg = imgs[1];
-          var hero = data.hero || {};
-          var heroHeadline = hero.headline || 'KẾ TOÁN DIỆU TÂM';
-          var heroSubline = hero.subline || '';
-
-          var specs = {
-            facebook:{w:1080,h:1350},
-            youtube:{w:1080,h:1080},
-            zalo:{w:1280,h:720},
-            tiktok:{w:1080,h:1920}
-          };
-
-          if (data.mode === 'carousel3' && Array.isArray(data.slides) && data.slides.length >= 3){
-            data.slides.slice(0,3).forEach(function(slide,idx){
-              var c = makeCanvas(
-                specs.tiktok,frameImg,logoImg,
-                slide.headline || heroHeadline,
-                slide.body || '',
-                'tiktok'
-              );
-              addPreview(c,'TikTok · slide ' + (idx+1),'ketoandieutam-tiktok-slide-' + (idx+1) + '.png');
-            });
-          } else {
-            var ct = makeCanvas(specs.tiktok,frameImg,logoImg,heroHeadline,heroSubline,'tiktok');
-            addPreview(ct,'TikTok · 9:16','ketoandieutam-tiktok.png');
-          }
-
-          var cf = makeCanvas(specs.facebook,frameImg,logoImg,heroHeadline,heroSubline,'facebook');
-          addPreview(cf,'Facebook · 4:5','ketoandieutam-facebook.png');
-
-          var cy = makeCanvas(specs.youtube,frameImg,logoImg,heroHeadline,heroSubline,'youtube');
-          addPreview(cy,'YouTube Post · 1:1','ketoandieutam-youtube.png');
-
-          var cz = makeCanvas(specs.zalo,frameImg,logoImg,heroHeadline,heroSubline,'zalo');
-          addPreview(cz,'Zalo OA · 16:9','ketoandieutam-zalo.png');
-
-          renderStatus.textContent = frameImg
-            ? 'Đã tạo ảnh từ frame video. Tải từng file PNG bên dưới.'
-            : 'Đã tạo typography card. Để đồng nhất series hơn, nên upload một frame thật từ video.';
-        }catch(e){
-          renderStatus.textContent = 'Không thể render ảnh: ' + e.message;
-        }
-      }
-
-      document.getElementById('renderBtn').addEventListener('click',renderAssets);
     })();
   </script>
 </body>
