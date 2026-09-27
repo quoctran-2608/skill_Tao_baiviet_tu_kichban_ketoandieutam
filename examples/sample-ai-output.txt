@@ -1,56 +1,71 @@
 SLOT ĐÃ KHỚP
-video-05 — Doanh thu không phải tiền.
-Lý do: kịch bản tập trung vào việc người kinh doanh nhìn doanh thu và nhầm đó là phần tiền thực sự còn lại.
+video-05 — Doanh thu không phải là tiền của bạn.
+Lý do: luận điểm trung tâm là phân biệt doanh thu nhìn thấy với lượng tiền thực sự còn lại.
 
 GÓC MỞ RỘNG
-Video đã phá nhầm lẫn “doanh thu = tiền”. Bài xen kẽ đào sâu một tình huống đời thật: doanh thu tăng nhưng cuối tháng vẫn thấy thiếu tiền, nhưng không đi sang chủ đề chính của ngày 06.
+Bài xen kẽ không kể lại khái niệm “doanh thu không phải tiền”, mà đưa người đọc vào một tình huống cụ thể: bán tốt nhưng cuối tháng vẫn thấy tài khoản mỏng. Không đi sang luận điểm chính của ngày 06.
 
-TIKTOK
-Caption:
+[LƯỢT 1]
+
+:::writing{variant="social_post" id="42173" title="TikTok — Doanh thu tăng, tiền đâu?"}
 Doanh thu tăng mà cuối tháng vẫn thấy thiếu tiền — chuyện này không hề lạ.
 
-Slide 1:
+Slide 1
 DOANH THU TĂNG
 TIỀN ĐÂU?
 
-Slide 2:
-Tiền còn phải đi qua:
-chi phí · hàng hóa · nghĩa vụ phải trả
+Slide 2
+Tiền có thể đang nằm ở:
+• hàng tồn
+• công nợ
+• những khoản chi đã phát sinh
 
-Slide 3:
-ĐỪNG CHỈ NHÌN DOANH THU
-HÃY NHÌN ĐƯỜNG ĐI CỦA TIỀN
+Slide 3
+ĐỪNG CHỈ NHÌN DOANH THU.
+HÃY NHÌN ĐƯỜNG ĐI CỦA TIỀN.
+:::
 
-FACEBOOK
-[Bài Facebook hoàn chỉnh theo cùng góc mở rộng, không chép lại lời video.]
+:::writing{variant="social_post" id="58314" title="Facebook — Bán tốt nhưng tài khoản vẫn mỏng"}
+[Bài Facebook hoàn chỉnh, chỉ chứa nội dung để đăng.]
+:::
 
-ZALO OA
-Tiêu đề:
-Doanh thu tăng nhưng tiền không tăng theo — vì sao?
+:::writing{variant="document" id="73620" title="Zalo OA — Doanh thu tăng nhưng tiền không tăng theo"}
+Tiêu đề: Doanh thu tăng nhưng tiền không tăng theo — vì sao?
 
-Trích dẫn:
-Một con số doanh thu đẹp chưa trả lời được câu hỏi doanh nghiệp đang thật sự còn bao nhiêu tiền.
+Trích dẫn: Một con số doanh thu đẹp chưa trả lời được doanh nghiệp đang thật sự còn bao nhiêu tiền.
 
-[Nội dung Zalo OA...]
+[Nội dung Zalo OA hoàn chỉnh.]
+:::
 
-YOUTUBE POST
-Doanh thu tăng nhưng số dư không tăng tương ứng. Theo bạn, tiền thường “kẹt” ở đâu trong doanh nghiệp?
+Gõ TIẾP để nhận YouTube Post + Prompt tạo ảnh.
 
-HÌNH ẢNH
-Mode: carousel3 cho TikTok.
-Ưu tiên frame thật: chủ shop nhìn màn hình doanh thu/cuối ngày.
-Headline chính: DOANH THU TĂNG. TIỀN ĐÂU?
-Nếu có logo: dùng logo thật nhỏ ở vùng an toàn; không vẽ lại.
-Nếu không có frame: dựng cảnh shop nhỏ, ánh sáng đời thật, không cyber.
+[LƯỢT 2 — SAU KHI USER GÕ TIẾP]
 
-IMAGE PROMPT READY
-Tạo visual social cho thương hiệu Kế Toán Diệu Tâm. Nếu cuộc trò chuyện có frame video đính kèm, dùng frame đó làm base/reference và giữ cảm giác chân thật; nếu có logo thật, giữ nguyên logo như asset khóa, không đổi chữ, biểu tượng hoặc tỷ lệ. Nếu không có asset, dựng cảnh một chủ shop nhỏ cuối ngày nhìn màn hình doanh thu và điện thoại ngân hàng, ánh sáng tự nhiên/cinematic nhẹ, đời thật, không stock bóng bẩy, không cyber.
+:::writing{variant="social_post" id="19482" title="YouTube Post — Doanh thu và tiền"}
+Doanh thu tăng nhưng số dư không tăng tương ứng.
 
-Primary 9:16: chủ thể và toàn bộ vùng headline nằm trong center-safe area để crop được 4:5 và 1:1. Headline cực ngắn: “DOANH THU TĂNG. TIỀN ĐÂU?”. Nếu không thể render chữ Việt chính xác, bỏ chữ khỏi ảnh và chừa vùng sạch cho text overlay.
+Theo bạn, tiền thường “kẹt” ở đâu trong doanh nghiệp?
+:::
 
-TikTok carousel đúng 3 slide:
-1) DOANH THU TĂNG / TIỀN ĐÂU?
-2) visual gợi tiền đang đi qua chi phí, hàng hóa, nghĩa vụ phải trả
-3) visual chốt “nhìn đường đi của tiền”, tối giản
+:::writing{variant="standard" id="30561" title="Prompt tạo ảnh — Doanh thu tăng, tiền đâu?"}
+Tạo hình ảnh social cho thương hiệu Kế Toán Diệu Tâm dựa trên chủ đề “doanh thu tăng nhưng tiền thực có không tăng tương ứng”.
 
-Adaptation Zalo 16:9: cùng scene, bố cục ngang, giữ nội dung quan trọng trong vùng an toàn trung tâm. Không thêm chi tiết mới.
+Nếu trong tin nhắn này có frame video đính kèm, dùng frame đó làm base/reference chính và giữ cảm giác đời thật của series. Nếu có logo thật, coi logo là asset khóa: không thay đổi chữ, biểu tượng, màu hoặc tỷ lệ. Nếu không thể tái hiện logo chính xác, không vẽ lại logo; để vùng sạch để chèn sau. Nếu không có frame hay logo, tự dựng cảnh một chủ shop/doanh nghiệp nhỏ Việt Nam cuối ngày, nhìn màn hình doanh thu và điện thoại ngân hàng, ánh sáng tự nhiên cinematic nhẹ, chân thật, không stock bóng bẩy, không cyber.
+
+Visual mode: carousel 3 slide dọc cho TikTok.
+
+Slide 1: cảm giác nghịch lý — bán tốt nhưng tiền còn ít.
+Headline riêng: “DOANH THU TĂNG. TIỀN ĐÂU?”
+
+Slide 2: trực quan tiền đang bị giữ ở hàng tồn, công nợ và các khoản chi.
+
+Slide 3: kết luận trực quan về việc phải nhìn đường đi của tiền, tối giản.
+
+Thiết kế primary 9:16. Giữ chủ thể và vùng headline trong center-safe area để có thể crop sang Facebook 4:5 và YouTube 1:1. Đồng thời tạo adaptation 16:9 cho Zalo OA với cùng concept, không thêm luận điểm mới.
+
+Không tự tạo nhân vật Diệu Tâm nếu không có reference đúng người. Không dùng label tên nhân vật. Nếu không đảm bảo chữ tiếng Việt chính xác, tạo ảnh không chữ nhưng chừa vùng text-safe và giữ headline trên như nội dung overlay riêng.
+
+Tiến hành tạo ảnh theo hướng dẫn trên.
+:::
+
+Copy block Prompt tạo ảnh, đính kèm frame/logo nếu có, rồi dán lại ngay trong chat này để tạo ảnh.
