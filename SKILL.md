@@ -121,3 +121,14 @@ Nếu là carousel:
 - Có vô tình dùng chủ đề RESERVED không?
 - 4 phiên bản có cùng tư tưởng nhưng thực sự khác cách đóng gói không?
 - Headline trên ảnh có ngắn và đọc được trong 2 giây không?
+
+
+## 8. Quy tắc khớp với Content Map 32 video
+
+Khi prompt có bản đồ 32 video:
+- Khớp theo **luận điểm trung tâm** và **mức độ giải thích**, không khớp chỉ vì từ khóa xuất hiện.
+- Một chủ đề chỉ được nhắc tên hoặc liệt kê không có nghĩa video đã bao phủ slot chuyên sâu của chủ đề đó.
+- Video umbrella có thể nhắc thuế, ngân hàng, dòng tiền, hóa đơn, kế toán cùng lúc nhưng vẫn thuộc slot mở đầu nếu mục tiêu thật sự là giúp người xem nhận ra "mình đang ở trong một hệ thống".
+- Câu chốt mang tính triết lý giống video cuối không đủ để đẩy video sang slot cuối.
+- Kịch bản user dán luôn có độ ưu tiên cao hơn Content Map.
+- Nếu không có slot phù hợp rõ ràng, dùng `custom`; không ép.
