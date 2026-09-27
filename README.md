@@ -1,6 +1,6 @@
 # Kế Toán Diệu Tâm — Video → Bài viết đa nền tảng
 
-Một bộ **Prompt Engine + Visual Preset** chạy hoàn toàn trong trình duyệt.
+Một bộ **Prompt Engine** chạy hoàn toàn trong trình duyệt. HTML chỉ ghép prompt; ChatGPT/Gemini chịu trách nhiệm viết nội dung và tạo/gợi ý hình ảnh.
 
 ## Mục tiêu
 
@@ -10,7 +10,7 @@ Dán kịch bản video đã đăng → tạo một prompt hoàn chỉnh để �
 - Facebook post
 - Zalo OA article/post
 - YouTube Post
-- Visual brief có cấu trúc để HTML tự tạo ảnh theo preset
+- Visual brief + image prompt để AI tạo/chỉnh ảnh trực tiếp
 
 Nguyên tắc quan trọng nhất:
 
@@ -22,13 +22,16 @@ Nguyên tắc quan trọng nhất:
 2. Dán kịch bản video.
 3. Bấm **Tạo prompt**.
 4. Copy prompt sang ChatGPT / Gemini / Claude.
-5. Copy toàn bộ câu trả lời của AI về ô **Tạo ảnh**.
-6. Upload một frame đẹp lấy từ chính video (không bắt buộc).
-7. HTML tự đọc `VISUAL_JSON` và xuất:
-   - TikTok: 1080×1920 (9:16), 1 hoặc 3 slide tùy nội dung.
-   - Facebook: 1080×1350 (4:5).
-   - YouTube Post: 1080×1080 (1:1).
-   - Zalo OA: 1280×720 (16:9), giữ nội dung chính trong vùng an toàn.
+5. Ngay trong ChatGPT/Gemini, có thể upload:
+   - một frame từ video;
+   - logo thương hiệu;
+   - cả hai;
+   - hoặc không upload gì.
+6. Prompt yêu cầu AI tự xử lý:
+   - có frame → ưu tiên frame thật làm reference/base;
+   - có logo → dùng logo như tài sản thương hiệu, không tự thiết kế lại;
+   - không có gì → tự tạo cảnh ảnh chân thật phù hợp bài viết.
+7. Nếu môi trường AI hỗ trợ tạo/chỉnh ảnh, AI tạo luôn. Nếu không, AI trả một **IMAGE PROMPT READY** để copy sang công cụ tạo ảnh.
 
 ## Triết lý thiết kế
 
@@ -38,11 +41,11 @@ Nguyên tắc quan trọng nhất:
 - Không bắt user chọn tone, số chữ, tỷ lệ ảnh, số slide, CTA level...
 - Dùng frame thật từ video làm nguồn hình mặc định.
 - AI chỉ quyết định **góc mở rộng + nội dung + headline visual**.
-- HTML chỉ làm hai việc: **ghép prompt** và **render ảnh theo preset**.
+- HTML chỉ làm **một việc**: ghép prompt tốt, portable giữa nhiều model.
 
 ## Cấu trúc repo
 
-- `index.html` — giao diện Prompt Builder + Visual Renderer.
+- `index.html` — giao diện Prompt Builder.
 - `content-map.js` — bản đồ nội dung của series; sẽ bổ sung đủ 32 video khi có nguồn đầy đủ.
 - `SKILL.md` — luật biên tập / prompt contract.
 - `research/platform-defaults.md` — cơ sở chọn preset nền tảng.
@@ -61,8 +64,13 @@ User không cần chọn số video; dropdown chỉ là override nâng cao khi m
 
 ## Nguyên tắc visual mặc định
 
-1. Ưu tiên frame thật từ video.
-2. Nếu một luận điểm nói đủ bằng một câu → ảnh đơn.
-3. Nếu cần giải thích quan hệ / nguyên nhân / danh sách → TikTok carousel 3 slide.
-4. Facebook, YouTube và Zalo luôn có một hero image để thao tác đăng nhanh.
-5. Không dùng ảnh AI mặc định; chỉ tạo prompt ảnh AI khi thật sự không có frame phù hợp.
+1. User không phải chọn format.
+2. Ưu tiên frame thật từ video nếu user upload.
+3. Logo là tùy chọn; nếu có thì AI dùng làm tài sản thương hiệu, không tự vẽ lại.
+4. Nếu không có asset, AI tự tạo cảnh ảnh chân thật phù hợp nội dung.
+5. Nếu một luận điểm nói đủ bằng một hình → ảnh đơn.
+6. Nếu cần giải thích quan hệ / nguyên nhân / danh sách → TikTok carousel đúng 3 slide.
+7. Mặc định chỉ cần **2 master visual**:
+   - dọc 9:16, giữ nội dung trong vùng trung tâm an toàn để crop sang Facebook 4:5 và YouTube 1:1;
+   - ngang 16:9 cho Zalo OA.
+8. Nếu model hỗ trợ tạo/chỉnh ảnh, tạo luôn; nếu không, trả IMAGE PROMPT READY.
