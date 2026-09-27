@@ -95,7 +95,7 @@
     <section class="hero">
       <div class="badge">Kế Toán Diệu Tâm · Prompt Engine</div>
       <h1>Video → Bài viết → Ảnh đăng</h1>
-      <p>Dán kịch bản. HTML tự ghép một prompt hoàn chỉnh cho bài viết + hình ảnh. Sau đó bạn dán prompt vào ChatGPT/Gemini và upload logo/frame trực tiếp ở đó nếu muốn.</p>
+      <p>Dán kịch bản. HTML tạo prompt để ChatGPT trả từng nền tảng trong writing block riêng. Prompt tạo ảnh cũng là một block riêng để bạn chủ động copy và chạy sau.</p>
     </section>
 
     <div class="grid two">
@@ -113,7 +113,7 @@
 
       <section class="card">
         <h2>2. Copy prompt sang AI</h2>
-        <p class="help">Prompt yêu cầu đủ 4 biến thể nội dung và một kế hoạch hình ảnh tự thích nghi theo asset bạn có hoặc không có.</p>
+        <p class="help">Prompt yêu cầu mỗi nền tảng nằm trong writing block riêng; prompt tạo ảnh được tách riêng để copy dùng ở lượt sau.</p>
         <textarea id="promptOutput" class="output" readonly placeholder="Prompt sẽ xuất hiện ở đây..."></textarea>
         <div class="row">
           <button id="copyBtn" class="secondary">Copy prompt</button>
@@ -126,15 +126,12 @@
 
     
     <section class="card" style="margin-top:18px">
-      <h2>3. Dán prompt vào AI và tạo luôn hình ảnh</h2>
-      <p class="help">Bạn không cần quay lại HTML. Khi dán prompt vào ChatGPT/Gemini, có thể đính kèm logo, một frame từ video, cả hai, hoặc không đính kèm gì. Prompt tự xử lý theo asset đang có.</p>
+      <h2>3. Dán prompt vào ChatGPT</h2>
+      <p class="help">ChatGPT trả nội dung thành các writing block riêng để bạn copy nhanh. Hình ảnh chưa được tạo ở lượt này.</p>
       <div class="note">
-        <strong>Luồng mặc định:</strong><br>
-        1) Copy prompt ở bước 2.<br>
-        2) Dán vào ChatGPT/Gemini.<br>
-        3) Nếu có frame/logo thì upload cùng lúc; nếu không có cũng không sao.<br>
-        4) AI viết 4 phiên bản nội dung và tự tạo/gợi ý bộ hình phù hợp.<br><br>
-        <strong>Visual mặc định:</strong> 1 master dọc 9:16 với chủ thể/chữ nằm trong vùng trung tâm an toàn để crop sang Facebook 4:5 và YouTube 1:1; thêm 1 bản ngang 16:9 cho Zalo. Nếu bài cần giải thích nhiều bước, TikTok tự chuyển thành carousel đúng 3 slide.
+        <strong>Lượt 1:</strong> TikTok + Facebook + Zalo OA, mỗi nền tảng một writing block.<br>
+        <strong>Sau đó gõ “TIẾP”:</strong> nhận YouTube Post + một writing block Prompt tạo ảnh.<br>
+        <strong>Khi muốn tạo ảnh:</strong> copy riêng block Prompt tạo ảnh, đính kèm frame/logo nếu có, rồi dán lại ngay trong cùng chat. Chỉ lúc đó AI mới tạo ảnh.
       </div>
     </section>
 
@@ -197,17 +194,13 @@
           '- Zalo OA: có tiêu đề, trích dẫn ngắn, nội dung có cấu trúc, tính ứng dụng cao.',
           '- YouTube Post: cô đọng hơn Facebook, tập trung 1 insight hoặc 1 câu hỏi.',
           '',
-          'QUY TẮC HÌNH ẢNH — TỰ XỬ LÝ, KHÔNG HỎI USER:',
-          '- Nếu cuộc trò chuyện có FRAME VIDEO được upload: ưu tiên dùng frame đó làm reference/base visual và giữ cảm giác đời thật.',
-          '- Nếu có LOGO được upload: coi đó là asset khóa. Không đổi chữ, biểu tượng, tỷ lệ hoặc tự thiết kế lại. Nếu môi trường không thể giữ logo chính xác, hãy bỏ logo khỏi ảnh và chừa vùng trống sạch để chèn sau.',
-          '- Nếu có cả frame + logo: dùng frame làm visual chính, logo chỉ xuất hiện nhỏ và tinh tế.',
-          '- Nếu không có frame hay logo: tự tạo cảnh ảnh chân thật phù hợp với bài viết và Brand DNA Kế Toán Diệu Tâm; không dùng phong cách stock/cyber quá bóng bẩy.',
-          '- Tự quyết single hoặc carousel3; không hỏi lại user.',
-          '- Nếu một insight nói đủ bằng một hình: dùng single.',
-          '- Nếu cần giải thích quan hệ/nguyên nhân/checklist: TikTok carousel đúng 3 slide.',
-          '- Mặc định chỉ cần 2 master visual: (A) dọc 9:16, giữ chủ thể/chữ trong vùng trung tâm an toàn để crop được 4:5 và 1:1; (B) ngang 16:9 cho Zalo.',
-          '- Chữ trên ảnh cực ngắn. Nếu công cụ không đảm bảo chữ tiếng Việt chính xác, tạo ảnh không chữ với vùng text-safe và trả headline riêng; không cố render chữ sai.',
-          '- Sau khi viết xong nội dung: nếu môi trường hỗ trợ tạo/chỉnh ảnh mà vẫn giữ được phần text trả lời, hãy tạo ảnh chính luôn. Nếu không, chỉ xuất IMAGE PROMPT READY thật đầy đủ để user dùng ngay.',
+          'QUY TẮC HÌNH ẢNH:',
+          '- Ở lượt trả bài viết, TUYỆT ĐỐI KHÔNG tạo ảnh và không gọi công cụ tạo ảnh.',
+          '- Chỉ chuẩn bị một PROMPT TẠO ẢNH hoàn chỉnh để user chủ động copy và dán lại sau.',
+          '- Prompt ảnh phải tự xử lý 4 trường hợp: có frame, có logo, có cả hai, hoặc không có asset.',
+          '- Tự quyết single hoặc carousel3; không hỏi user.',
+          '- Primary 9:16; safe crop 4:5 Facebook và 1:1 YouTube; adaptation 16:9 Zalo.',
+          '- Không tự vẽ sai logo, không tự tạo nhân vật Diệu Tâm khi thiếu reference, không cố render chữ Việt nếu không chắc.',
           '',
           ctx,
           ctx ? '' : '',
@@ -216,18 +209,24 @@
           script,
           '---',
           '',
-          'OUTPUT BẮT BUỘC THEO THỨ TỰ:',
-          '0. SLOT ĐÃ KHỚP — ghi video-XX gần nhất và 1 câu lý do dựa trên luận điểm trung tâm/độ sâu. Phân biệt rõ "đã giải thích" với "chỉ nhắc qua". Nếu không khớp rõ, ghi "custom" và không ép.',
-          '1. GÓC MỞ RỘNG — 1–2 câu giải thích bài mới thêm gì so với video.',
-          '2. TIKTOK — caption và slide nếu có.',
-          '3. FACEBOOK — bài hoàn chỉnh.',
-          '4. ZALO OA — tiêu đề + trích dẫn + nội dung + CTA nếu cần.',
-          '5. YOUTUBE POST — nội dung ngắn.',
-          '6. HÌNH ẢNH — tự quyết định single hay carousel3 và mô tả ngắn logic visual.',
-          '7. IMAGE PROMPT READY — viết MỘT prompt ảnh thích nghi: dùng frame/logo nếu đang được đính kèm; nếu không có asset thì tự dựng cảnh chân thật theo bài. Prompt phải có phiên bản primary 9:16 và adaptation 16:9 Zalo; nêu safe crop cho 4:5 Facebook và 1:1 YouTube.',
-          '8. Nếu môi trường hỗ trợ tạo/chỉnh ảnh và có thể làm mà không làm mất phần bài viết: tạo ảnh primary 9:16. Nếu chỉ tạo được một ảnh mỗi lượt, ưu tiên 9:16 và giữ prompt 16:9 sẵn trong câu trả lời.',
+          'OUTPUT / WRITING BLOCK CONTRACT:',
+          'A. LƯỢT 1:',
+          '0) Trước writing blocks, ghi ngắn: SLOT ĐÃ KHỚP + GÓC MỞ RỘNG.',
+          '1) TikTok trong một writing block riêng: variant="social_post". Chỉ nội dung để copy đăng.',
+          '2) Facebook trong một writing block riêng: variant="social_post". Chỉ bài hoàn chỉnh.',
+          '3) Zalo OA trong một writing block riêng: variant="document". Chỉ tiêu đề + trích dẫn + bài hoàn chỉnh.',
+          '4) Sau 3 block, chỉ ghi: “Gõ TIẾP để nhận YouTube Post + Prompt tạo ảnh.”',
+          '5) KHÔNG tạo ảnh. KHÔNG trả prompt ảnh ở lượt 1.',
           '',
-          'Trước khi trả lời, tự kiểm tra: có lặp video không, có thêm giá trị mới không, có ăn sang luận điểm chính của ngày kế tiếp không, 4 nền tảng có thực sự khác cách đóng gói không, và visual có giữ đúng tinh thần đời thật của thương hiệu không.'
+          'B. KHI USER GỬI “TIẾP”:',
+          '1) YouTube Post trong một writing block riêng: variant="social_post".',
+          '2) Prompt tạo ảnh trong một writing block riêng: variant="standard".',
+          '3) Prompt ảnh phải độc lập, copy là chạy được ngay; dùng asset đính kèm nếu có và kết thúc bằng yêu cầu tiến hành tạo ảnh.',
+          '4) Sau block prompt ảnh, ghi ngắn: “Copy block Prompt tạo ảnh, đính kèm frame/logo nếu có, rồi dán lại ngay trong chat này để tạo ảnh.”',
+          '',
+          'Mỗi writing block phải có title riêng và id 5 chữ số. Không trộn hai nền tảng vào cùng một block.',
+          'Nếu môi trường không hỗ trợ writing block, fallback mỗi artifact thành một code block riêng.',
+          'Trước khi trả lời, tự kiểm tra: có lặp video không, có thêm giá trị mới không, có ăn sang ngày kế tiếp không, mỗi nền tảng có đúng writing block riêng không, và có vô tình tạo ảnh ở lượt nội dung không. Nếu có thì sửa trước khi trả lời.'
         ].filter(function(x){ return x !== null && x !== undefined; }).join('\n');
 
         promptOutput.value = prompt;
