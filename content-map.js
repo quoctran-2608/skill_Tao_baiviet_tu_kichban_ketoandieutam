@@ -1,6 +1,6 @@
-// Content Map grounded in the user's KTDT roadmap on Google Drive.
-// Days 1-30 come from the first 30-day roadmap/scripts.
-// Days 31-32 come from the documented continuation immediately after day 30.
+// Content Map grounded in the user's detailed KTDT production scripts and roadmap.
+// Days 1-32 are mapped to the actual production sequence; where a day has no explicit title
+// in the production document, the roadmap title is used.
 // No Drive URL/ID is stored here because this repository is public.
 
 window.SERIES_META = {
@@ -100,20 +100,20 @@ window.CONTENT_MAP = [
       "lời lỗ không rõ"
     ],
     "phase": "Hiểu hệ thống",
-    "next_title": "Kế toán là ngôn ngữ doanh nghiệp",
+    "next_title": "Kế toán không phải để nộp thuế",
     "provenance": "source-roadmap"
   },
   {
     "id": "video-07",
     "day": 7,
-    "label": "07 — Kế toán là ngôn ngữ doanh nghiệp",
-    "title": "Kế toán là ngôn ngữ doanh nghiệp",
-    "core": "Kế toán không chỉ để nộp thuế; số liệu giúp người chủ đọc doanh nghiệp và hiểu điều đang xảy ra phía sau hoạt động bán hàng.",
+    "label": "07 — Kế toán không phải để nộp thuế",
+    "title": "Kế toán không phải để nộp thuế",
+    "core": "Kế toán không chỉ phục vụ nộp thuế; số liệu kế toán giúp người chủ đọc và hiểu doanh nghiệp đang vận hành ra sao.",
     "focus": [
       "kế toán",
+      "không chỉ nộp thuế",
       "số liệu",
-      "ngôn ngữ doanh nghiệp",
-      "không chỉ kê khai"
+      "hiểu doanh nghiệp"
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Công ty là gì?",
@@ -176,19 +176,22 @@ window.CONTENT_MAP = [
       "quản lý tiền"
     ],
     "phase": "Hiểu chính mình",
-    "next_title": "Người kinh doanh giỏi nhìn báo cáo thế nào?",
+    "next_title": "Người giàu nhìn báo cáo tài chính như thế nào?",
     "provenance": "source-roadmap"
   },
   {
     "id": "video-12",
     "day": 12,
-    "label": "12 — Người kinh doanh giỏi nhìn báo cáo thế nào?",
-    "title": "Người kinh doanh giỏi nhìn báo cáo thế nào?",
-    "core": "Báo cáo không chỉ là bảng số; nó phản ánh sức khỏe, xu hướng và vấn đề của doanh nghiệp.",
+    "label": "12 — Người giàu nhìn báo cáo tài chính như thế nào?",
+    "title": "Người giàu nhìn báo cáo tài chính như thế nào?",
+    "core": "Báo cáo tài chính không chỉ là những con số; người biết đọc số nhìn thấy sức khỏe, xu hướng và vấn đề của doanh nghiệp.",
     "focus": [
-      "báo cáo",
+      "báo cáo tài chính",
       "sức khỏe doanh nghiệp",
-      "đọc số để hiểu doanh nghiệp"
+      "dòng tiền",
+      "chi phí",
+      "lợi nhuận",
+      "công nợ"
     ],
     "phase": "Hiểu chính mình",
     "next_title": "Có doanh thu vẫn chết",
@@ -207,18 +210,18 @@ window.CONTENT_MAP = [
       "vận hành"
     ],
     "phase": "Hiểu chính mình",
-    "next_title": "Điều đầu tiên chủ doanh nghiệp phải học",
+    "next_title": "Điều đầu tiên nên học trước khi thuê kế toán",
     "provenance": "source-roadmap"
   },
   {
     "id": "video-14",
     "day": 14,
-    "label": "14 — Điều đầu tiên chủ doanh nghiệp phải học",
-    "title": "Điều đầu tiên chủ doanh nghiệp phải học",
-    "core": "Không thể chỉ thuê kế toán rồi giao hết; người chủ trước tiên phải hiểu những nguyên tắc tài chính và số liệu cơ bản của doanh nghiệp mình.",
+    "label": "14 — Điều đầu tiên nên học trước khi thuê kế toán",
+    "title": "Điều đầu tiên nên học trước khi thuê kế toán",
+    "core": "Thuê kế toán không thay thế trách nhiệm hiểu tiền và số liệu của người chủ; trước hết cần nắm những nguyên tắc tài chính cơ bản của chính doanh nghiệp mình.",
     "focus": [
-      "chủ phải hiểu số",
-      "vai trò kế toán",
+      "trước khi thuê kế toán",
+      "chủ phải hiểu tiền",
       "không phó mặc"
     ],
     "phase": "Hiểu chính mình",
@@ -237,19 +240,20 @@ window.CONTENT_MAP = [
       "vận hành"
     ],
     "phase": "Hiểu chính mình",
-    "next_title": "Không hiểu thuế mới đáng sợ",
+    "next_title": "Thuế không đáng sợ bằng việc không hiểu thuế",
     "provenance": "source-roadmap"
   },
   {
     "id": "video-16",
     "day": 16,
-    "label": "16 — Không hiểu thuế mới đáng sợ",
-    "title": "Không hiểu thuế mới đáng sợ",
-    "core": "Điều đáng sợ không phải bản thân thuế mà là kinh doanh trong mơ hồ, không biết nghĩa vụ và rủi ro của mình.",
+    "label": "16 — Thuế không đáng sợ bằng việc không hiểu thuế",
+    "title": "Thuế không đáng sợ bằng việc không hiểu thuế",
+    "core": "Rủi ro lớn không nằm ở việc có thuế, mà ở chỗ kinh doanh trong mơ hồ và không hiểu nghĩa vụ, dữ liệu hay sai sót của mình.",
     "focus": [
-      "sợ thuế",
       "hiểu thuế",
-      "chủ động thay vì né tránh"
+      "rủi ro",
+      "chủ động",
+      "không sợ mơ hồ"
     ],
     "phase": "Hiểu chính mình",
     "next_title": "3 thứ phải kiểm tra mỗi ngày",
@@ -282,19 +286,20 @@ window.CONTENT_MAP = [
       "chủ doanh nghiệp phải nắm số"
     ],
     "phase": "Hiểu chính mình",
-    "next_title": "Người kinh doanh giỏi là ai?",
+    "next_title": "Người kinh doanh giỏi không chỉ biết bán hàng",
     "provenance": "source-roadmap"
   },
   {
     "id": "video-19",
     "day": 19,
-    "label": "19 — Người kinh doanh giỏi là ai?",
-    "title": "Người kinh doanh giỏi là ai?",
-    "core": "Người kinh doanh giỏi không chỉ bán hàng tốt mà còn hiểu số liệu, rủi ro, dòng tiền và cách doanh nghiệp vận hành.",
+    "label": "19 — Người kinh doanh giỏi không chỉ biết bán hàng",
+    "title": "Người kinh doanh giỏi không chỉ biết bán hàng",
+    "core": "Bán hàng giỏi chưa chắc quản trị giỏi; người kinh doanh đi đường dài còn phải hiểu số, tiền, rủi ro và vận hành.",
     "focus": [
       "bán hàng",
       "quản trị",
       "hiểu số",
+      "dòng tiền",
       "rủi ro"
     ],
     "phase": "Hiểu chính mình",
@@ -419,19 +424,20 @@ window.CONTENT_MAP = [
       "không chỉ doanh thu"
     ],
     "phase": "Trưởng thành trong kinh doanh",
-    "next_title": "Điều làm doanh nghiệp chết nhanh nhất",
+    "next_title": "Điều khiến doanh nghiệp chết nhanh nhất là gì?",
     "provenance": "source-roadmap"
   },
   {
     "id": "video-28",
     "day": 28,
-    "label": "28 — Điều làm doanh nghiệp chết nhanh nhất",
-    "title": "Điều làm doanh nghiệp chết nhanh nhất",
-    "core": "Rủi ro lớn là doanh nghiệp mất kiểm soát mà người chủ không nhận ra kịp thời, hơn là chỉ tăng trưởng chậm.",
+    "label": "28 — Điều khiến doanh nghiệp chết nhanh nhất là gì?",
+    "title": "Điều khiến doanh nghiệp chết nhanh nhất là gì?",
+    "core": "Điều nguy hiểm là doanh nghiệp dần mất kiểm soát nhưng người chủ không nhận ra đủ sớm để xử lý.",
     "focus": [
       "mất kiểm soát",
       "dấu hiệu nguy hiểm",
-      "chủ không nhận ra"
+      "chủ không nhận ra",
+      "quản trị"
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Muốn đi đường dài, phải hiểu luật chơi",
@@ -468,35 +474,38 @@ window.CONTENT_MAP = [
       "kinh doanh bền"
     ],
     "phase": "Trưởng thành trong kinh doanh",
-    "next_title": "Vì sao nhiều người nhìn doanh thu rồi tưởng mình đang lời?",
+    "next_title": "Điều tra kế toán",
     "provenance": "source-roadmap"
   },
   {
     "id": "video-31",
     "day": 31,
-    "label": "31 — Vì sao nhiều người nhìn doanh thu rồi tưởng mình đang lời?",
-    "title": "Vì sao nhiều người nhìn doanh thu rồi tưởng mình đang lời?",
-    "core": "Bước sang giai đoạn nỗi đau thực tế: bóc nhầm lẫn giữa doanh thu nhìn thấy và phần lợi nhuận thực sự còn lại.",
+    "label": "31 — Điều tra kế toán",
+    "title": "Điều tra kế toán",
+    "core": "Dùng một case điều tra: doanh thu cao nhưng tiền còn rất ít; thay vì đoán, lần theo số liệu để xác định tiền đang nằm hoặc chảy ở đâu.",
     "focus": [
-      "doanh thu",
-      "tưởng lời",
-      "lợi nhuận thực"
+      "điều tra kế toán",
+      "doanh thu cao tiền thấp",
+      "lần theo dòng tiền",
+      "kiểm tra dữ liệu"
     ],
     "phase": "Nỗi đau thực tế",
-    "next_title": "Lỗ âm thầm là kiểu lỗ nguy hiểm nhất",
+    "next_title": "Doanh thu tăng nhưng tiền giảm",
     "provenance": "source-roadmap"
   },
   {
     "id": "video-32",
     "day": 32,
-    "label": "32 — Lỗ âm thầm là kiểu lỗ nguy hiểm nhất",
-    "title": "Lỗ âm thầm là kiểu lỗ nguy hiểm nhất",
-    "core": "Tập trung vào những khoản lỗ khó thấy như chi phí nhỏ lặp lại, thất thoát và việc không theo dõi tiền.",
+    "label": "32 — Doanh thu tăng nhưng tiền giảm",
+    "title": "Doanh thu tăng nhưng tiền giảm",
+    "core": "Phân tích nghịch lý bán tăng nhưng tiền giảm: doanh thu đi lên không đảm bảo tiền mặt đi lên; cần lần theo hàng tồn, công nợ, chi phí và các dòng tiền khác để hiểu nguyên nhân.",
     "focus": [
-      "chi phí nhỏ",
-      "thất thoát",
-      "không theo dõi tiền",
-      "lỗ âm thầm"
+      "doanh thu tăng",
+      "tiền giảm",
+      "dòng tiền",
+      "hàng tồn",
+      "công nợ",
+      "chi phí"
     ],
     "phase": "Nỗi đau thực tế",
     "next_title": null,
