@@ -59,16 +59,21 @@ Bài viết phải:
 ## 5. Logic visual — không hỏi user chọn
 
 AI tự quyết:
-- `single`: một luận điểm có thể hiểu trọn bằng một hero statement.
+- `single`: một luận điểm có thể hiểu trọn bằng một visual.
 - `carousel3`: cần 2–3 bước để hiểu quan hệ, nguyên nhân, phân biệt hoặc checklist.
 
-Nguồn ảnh ưu tiên:
-1. Frame thật từ video.
-2. Ảnh thật do thương hiệu có.
-3. Card typography nền tối giản.
-4. Chỉ đề xuất ảnh AI nếu 1–3 không thể diễn đạt tốt.
+Xử lý asset theo thứ tự:
+1. Nếu có frame video trong cuộc trò chuyện: ưu tiên frame làm base/reference, giữ cảm giác đời thật.
+2. Nếu có logo: dùng như tài sản thương hiệu; không tự thiết kế lại. Nếu không thể giữ chính xác, để vùng trống sạch thay vì vẽ logo sai.
+3. Nếu có cả frame + logo: frame là visual chính, logo nhỏ và tinh tế.
+4. Nếu không có asset: tự tạo ảnh chân thật phù hợp nội dung và Brand DNA; tránh stock/cyber quá bóng bẩy.
 
-Không tạo quá 3 slide.
+Đầu ra visual mặc định:
+- một master dọc 9:16, bố cục trung tâm đủ an toàn để crop 4:5 và 1:1;
+- một master ngang 16:9 cho Zalo;
+- nếu cần carousel: đúng 3 slide dọc.
+
+Nếu môi trường hỗ trợ tạo/chỉnh ảnh, tạo luôn. Nếu không, xuất IMAGE PROMPT READY.
 
 ## 6. Output bắt buộc
 
@@ -80,39 +85,9 @@ Trả theo thứ tự:
 4. **ZALO OA** — tiêu đề + trích dẫn + nội dung + CTA nếu cần.
 5. **YOUTUBE POST** — nội dung ngắn.
 6. **VISUAL BRIEF** — frame nên lấy, headline, subline, lý do chọn single/carousel3.
-7. **VISUAL_JSON** — JSON hợp lệ theo schema dưới đây, không có markdown bên trong tag.
-
-Schema:
-
-<VISUAL_JSON>
-{
-  "mode": "single",
-  "frame_hint": "mô tả frame nên lấy từ video",
-  "hero": {
-    "headline": "headline ngắn",
-    "subline": "subline ngắn"
-  },
-  "slides": []
-}
-</VISUAL_JSON>
-
-Nếu là carousel:
-
-<VISUAL_JSON>
-{
-  "mode": "carousel3",
-  "frame_hint": "mô tả frame nên lấy từ video",
-  "hero": {
-    "headline": "headline đại diện cho Facebook/YouTube/Zalo",
-    "subline": "subline ngắn"
-  },
-  "slides": [
-    {"headline":"...", "body":"..."},
-    {"headline":"...", "body":"..."},
-    {"headline":"...", "body":"..."}
-  ]
-}
-</VISUAL_JSON>
+7. **HÌNH ẢNH** — quyết định single/carousel3, nêu frame/scene phù hợp và headline cực ngắn.
+8. **IMAGE PROMPT READY** — prompt tạo ảnh hoàn chỉnh, tự thích nghi theo asset user đã upload.
+9. Nếu môi trường hỗ trợ tạo/chỉnh ảnh, tiến hành tạo ảnh sau khi hoàn tất phần text.
 
 ## 7. Kiểm tra trước khi trả lời
 
