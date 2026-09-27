@@ -1,0 +1,33 @@
+GÓC MỞ RỘNG
+Video nói kế toán là ngôn ngữ của doanh nghiệp. Bài kế tiếp mở rộng bằng một tình huống cụ thể: doanh thu tăng nhưng tiền mặt không tăng tương ứng.
+
+TIKTOK
+Caption: Doanh thu tăng nhưng tài khoản vẫn mỏng. Tiền đang nằm ở đâu?
+
+FACEBOOK
+[Ví dụ nội dung...]
+
+ZALO OA
+[Ví dụ nội dung...]
+
+YOUTUBE POST
+[Ví dụ nội dung...]
+
+VISUAL BRIEF
+Ưu tiên frame chủ shop nhìn màn hình doanh thu cuối ngày.
+
+<VISUAL_JSON>
+{
+  "mode": "carousel3",
+  "frame_hint": "Chủ shop nhìn màn hình doanh thu cuối ngày, ánh sáng thật, ít diễn.",
+  "hero": {
+    "headline": "DOANH THU TĂNG, TIỀN ĐÂU?",
+    "subline": "Đừng nhầm doanh thu với dòng tiền."
+  },
+  "slides": [
+    {"headline":"DOANH THU TĂNG", "body":"Nhưng tài khoản không tăng theo?"},
+    {"headline":"TIỀN CÓ THỂ ĐANG NẰM Ở", "body":"Tồn kho · công nợ · chi phí"},
+    {"headline":"DOANH THU ≠ DÒNG TIỀN", "body":"Hãy nhìn cả đường đi của tiền."}
+  ]
+}
+</VISUAL_JSON>
