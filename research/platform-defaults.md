@@ -1,49 +1,42 @@
-# Platform defaults — nghiên cứu để khóa preset
+# Platform defaults — cơ sở chọn preset
 
 Cập nhật: 2026-09-27.
 
-Mục tiêu của file này không phải tuyên bố một kích thước "tốt nhất tuyệt đối", mà chọn **preset vận hành mặc định** để user không phải cân nhắc mỗi lần.
+Mục tiêu: chọn **preset vận hành mặc định**, không tuyên bố một kích thước là “tốt nhất tuyệt đối”.
 
-## TikTok
+## TikTok Photo Post
 
-Nguồn chính thức:
-- TikTok Help Center xác nhận photo post và cho phép tối đa 35 ảnh trong một bài.
-- TikTok for Developers cho biết ảnh JPEG/WebP, tối đa 1080p và 20 MB/ảnh.
-- TikTok for Business dùng 9:16 làm hướng creative native/full-screen.
+TikTok hiện hỗ trợ photo posts; Content Posting API cho phép tối đa 35 ảnh trong một photo post. Tài liệu media transfer nêu JPEG/WebP, tối đa 1080p và 20 MB mỗi ảnh.
 
-Preset:
-- **1080×1920 (9:16)**.
-- Tối đa 3 slide cho workflow này dù nền tảng cho phép nhiều hơn.
-- Lý do: ưu tiên trải nghiệm dọc, giảm công sản xuất.
+TikTok không công bố trong các tài liệu này rằng organic photo post **bắt buộc** phải 9:16. Vì vậy 9:16 ở project này là **preset thiết kế**, dựa trên trải nghiệm dọc/full-screen quen thuộc của TikTok và hướng creative 9:16 của TikTok for Business.
+
+Preset project:
+- primary visual: **9:16**;
+- nếu cần carousel: tối đa **3 slide** để giảm workload.
 
 Nguồn:
-- https://support.tiktok.com/sv/using-tiktok/creating-videos/making-a-post
+- https://developers.tiktok.com/docs/en/content-posting-api-reference-photo-post
 - https://developers.tiktok.com/docs/en/content-posting-api-media-transfer-guide
 - https://www.tiktok.com/business/library/Top_Tips_One_Pager_SMB.pdf
 
 ## Facebook
 
-Meta không công bố một kích thước duy nhất cho organic feed photo theo cách đủ rõ để gọi là chuẩn bắt buộc. Các hướng dẫn thực hành 2026 nhất quán dùng portrait 4:5 vì chiếm nhiều diện tích mobile mà không cần thiết kế full-screen.
+Không dùng 4:5 như một “quy định bắt buộc” của Meta. Project chọn **4:5** làm target crop vận hành vì portrait chiếm diện tích feed mobile tốt và có thể lấy từ master dọc.
 
-Preset vận hành:
-- **1080×1350 (4:5)** cho hero image.
-- Đây là convention vận hành, không phải "quy định bắt buộc" của Meta.
-
-Tham khảo:
-- https://postproxy.dev/blog/facebook-image-sizes/
-- https://socialmagnum.com/blog/facebook-post-size
+Preset project:
+- target crop: **4:5**;
+- không cần tạo một visual concept khác; crop từ master 9:16 nếu bố cục an toàn.
 
 ## YouTube Posts
 
-Nguồn chính thức YouTube:
-- Upload tối đa 10 ảnh.
-- JPG/PNG/GIF/WEBP, tối đa 16 MB.
-- YouTube **đề xuất 1:1** vì đó là cách ảnh hiển thị trong feed.
-- Từ 2026, image posts/carousels có thể xuất hiện trong Shorts feed ở các rollout đủ điều kiện.
+YouTube chính thức:
+- cho upload tối đa 10 ảnh;
+- hỗ trợ JPG/PNG/GIF/WEBP, tối đa 16 MB;
+- **đề xuất 1:1** vì ảnh hiển thị theo tỷ lệ đó trong feed;
+- image posts/carousels có thể xuất hiện trong Shorts feed với rollout đủ điều kiện.
 
-Preset:
-- **1080×1080 (1:1)**.
-- Dùng hero image; không bắt user tạo thêm carousel trừ khi sau này có lý do rõ.
+Preset project:
+- target crop: **1:1** từ master dọc, với subject/headline nằm trong center-safe area.
 
 Nguồn:
 - https://support.google.com/youtube/answer/7124474
@@ -51,31 +44,28 @@ Nguồn:
 
 ## Zalo OA
 
-Nguồn chính thức:
-- Bài viết có tiêu đề tối đa 150 ký tự, trích dẫn tối đa 300 ký tự.
-- Ảnh chèn trong nội dung: PNG/JPG 500×320, tối đa 1 MB.
-- Ảnh đại diện bài viết: nên **16:9**, vùng hiển thị an toàn **14:9**.
+Zalo OA chính thức:
+- tiêu đề bài viết tối đa 150 ký tự;
+- trích dẫn tối đa 300 ký tự;
+- ảnh trong nội dung: PNG/JPG 500×320, tối đa 1 MB;
+- ảnh đại diện nên **16:9**, vùng hiển thị an toàn **14:9**.
 
-Preset:
-- Hero/ảnh đại diện **1280×720 (16:9)**.
-- Giữ headline/logo trong vùng trung tâm tương đương 14:9 để tránh mất chữ khi crop.
-- Nếu cần chèn ảnh body theo đúng trình soạn thảo OA, resize riêng về 500×320.
+Preset project:
+- adaptation/hero: **16:9**;
+- giữ nội dung quan trọng trong vùng an toàn trung tâm;
+- nếu cần ảnh body đúng trình soạn OA, resize riêng về 500×320.
 
 Nguồn:
 - https://oa.zalo.me/home/documents/vie/guides/tao-bai-viet_5
 
 ## Kết luận sản phẩm
 
-User **không chọn tỷ lệ**.
+User không chọn tỷ lệ.
 
-Một visual concept được hệ thống tự render thành:
-- TikTok 9:16
-- Facebook 4:5
-- YouTube 1:1
-- Zalo 16:9
+AI nhận một visual concept rồi:
+1. tạo/đề xuất **primary 9:16**;
+2. giữ bố cục center-safe cho crop **4:5 Facebook** và **1:1 YouTube**;
+3. tạo/đề xuất một **adaptation 16:9 Zalo**;
+4. nếu nội dung cần giải thích nhiều bước, TikTok dùng carousel đúng 3 slide.
 
-Nếu AI chọn carousel3:
-- Chỉ TikTok tạo 3 slide.
-- Facebook / YouTube / Zalo vẫn xuất hero duy nhất.
-
-Cách này giữ workload thấp nhưng vẫn tôn trọng cách hiển thị của từng nền tảng.
+HTML **không render ảnh**. Nó chỉ tạo prompt; việc tạo/chỉnh ảnh thuộc model mà user dán prompt vào.
