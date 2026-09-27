@@ -84,10 +84,9 @@ Trả theo thứ tự:
 3. **FACEBOOK** — bài hoàn chỉnh.
 4. **ZALO OA** — tiêu đề + trích dẫn + nội dung + CTA nếu cần.
 5. **YOUTUBE POST** — nội dung ngắn.
-6. **VISUAL BRIEF** — frame nên lấy, headline, subline, lý do chọn single/carousel3.
-7. **HÌNH ẢNH** — quyết định single/carousel3, nêu frame/scene phù hợp và headline cực ngắn.
-8. **IMAGE PROMPT READY** — prompt tạo ảnh hoàn chỉnh, tự thích nghi theo asset user đã upload.
-9. Nếu môi trường hỗ trợ tạo/chỉnh ảnh, tiến hành tạo ảnh sau khi hoàn tất phần text.
+6. **HÌNH ẢNH** — tự quyết single/carousel3; nêu scene/frame nên dùng, headline cực ngắn và cách dùng asset đang có.
+7. **IMAGE PROMPT READY** — prompt tạo ảnh hoàn chỉnh, tự thích nghi theo 4 trường hợp: có frame, có logo, có cả hai, hoặc không có asset.
+8. Nếu môi trường hỗ trợ tạo/chỉnh ảnh, tiến hành tạo ảnh sau khi hoàn tất phần text.
 
 ## 7. Kiểm tra trước khi trả lời
 
