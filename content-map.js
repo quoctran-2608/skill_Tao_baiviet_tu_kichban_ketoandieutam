@@ -24,7 +24,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Một đơn hàng đi qua những ai?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-02",
@@ -39,7 +39,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Vì sao nhà nước thu thuế?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-03",
@@ -54,7 +54,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Dòng tiền là gì?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-04",
@@ -70,7 +70,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Doanh thu không phải tiền",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-05",
@@ -86,7 +86,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Vì sao càng bán càng mệt?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-06",
@@ -101,7 +101,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Kế toán không phải để nộp thuế",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-07",
@@ -117,7 +117,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Công ty là gì?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-08",
@@ -132,7 +132,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Hộ kinh doanh và công ty",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-09",
@@ -147,7 +147,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Đừng mở công ty theo phong trào",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-10",
@@ -162,7 +162,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu hệ thống",
     "next_title": "Tiền đang đi đâu trong doanh nghiệp của bạn?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-11",
@@ -177,7 +177,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu chính mình",
     "next_title": "Người giàu nhìn báo cáo tài chính như thế nào?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-12",
@@ -195,7 +195,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu chính mình",
     "next_title": "Có doanh thu vẫn chết",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-13",
@@ -211,7 +211,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu chính mình",
     "next_title": "Điều đầu tiên nên học trước khi thuê kế toán",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-14",
@@ -226,7 +226,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu chính mình",
     "next_title": "Kinh doanh hay quản trị?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-15",
@@ -241,7 +241,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu chính mình",
     "next_title": "Thuế không đáng sợ bằng việc không hiểu thuế",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-16",
@@ -257,7 +257,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu chính mình",
     "next_title": "3 thứ phải kiểm tra mỗi ngày",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-17",
@@ -273,7 +273,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu chính mình",
     "next_title": "Đừng giao hết tài chính cho người khác",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-18",
@@ -287,7 +287,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu chính mình",
     "next_title": "Người kinh doanh giỏi không chỉ biết bán hàng",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-19",
@@ -304,7 +304,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu chính mình",
     "next_title": "Vì sao nhiều người sợ cơ quan thuế?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-20",
@@ -319,7 +319,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Hiểu chính mình",
     "next_title": "Hóa đơn dùng để làm gì?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-21",
@@ -335,7 +335,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Tài khoản cá nhân và tài khoản doanh nghiệp",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-22",
@@ -350,7 +350,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Đừng đợi bị kiểm tra mới học",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-23",
@@ -365,7 +365,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Kinh doanh không chỉ là bán hàng",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-24",
@@ -380,7 +380,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Kiếm được tiền nhưng không giữ được tiền",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-25",
@@ -395,7 +395,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Càng bận càng phải hiểu số",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-26",
@@ -410,7 +410,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Doanh nghiệp lớn lên bằng quản trị",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-27",
@@ -425,7 +425,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Điều khiến doanh nghiệp chết nhanh nhất là gì?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-28",
@@ -441,7 +441,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Muốn đi đường dài, phải hiểu luật chơi",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-29",
@@ -459,7 +459,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Kế Toán Diệu Tâm thật sự muốn giúp điều gì?",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-30",
@@ -475,7 +475,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Trưởng thành trong kinh doanh",
     "next_title": "Điều tra kế toán",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-31",
@@ -491,7 +491,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Nỗi đau thực tế",
     "next_title": "Doanh thu tăng nhưng tiền giảm",
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   },
   {
     "id": "video-32",
@@ -509,7 +509,7 @@ window.CONTENT_MAP = [
     ],
     "phase": "Nỗi đau thực tế",
     "next_title": null,
-    "provenance": "source-roadmap"
+    "provenance": "production-script-or-roadmap"
   }
 ];
 
