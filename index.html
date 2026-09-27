@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kế Toán Diệu Tâm — Video → Bài viết</title>
+  <style>
+    :root{
+      --bg:#f3f1eb;
+      --panel:#ffffff;
+      --ink:#1b211d;
+      --muted:#68726b;
+      --line:#dfe4df;
+      --accent:#244b37;
+      --accent2:#dfe9e2;
+      --danger:#9c3d31;
+      --shadow:0 12px 34px rgba(25,40,30,.08);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 64px}
+    .hero{
+      padding:28px;
+      background:linear-gradient(135deg,#183426,#2a563f);
+      color:white;
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      margin-bottom:18px;
+    }
+    .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,48px);line-height:1.05}
+    .hero p{margin:0;max-width:760px;color:#dce8df;line-height:1.55}
+    .badge{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;color:#cbe0d1}
+    .grid{display:grid;grid-template-columns:1fr;gap:18px}
+    @media(min-width:900px){.grid.two{grid-template-columns:1fr 1fr}}
+    .card{
+      background:var(--panel);
+      border:1px solid rgba(40,60,48,.08);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    h2{font-size:20px;margin:0 0 8px}
+    h3{font-size:15px;margin:20px 0 8px}
+    p.help{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.5}
+    label{display:block;font-size:13px;font-weight:700;margin:14px 0 7px}
+    textarea,input,select{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fbfcfb;
+      color:var(--ink);
+      padding:13px 14px;
+      font:inherit;
+      outline:none;
+    }
+    textarea{min-height:260px;resize:vertical;line-height:1.5}
+    textarea.small{min-height:150px}
+    textarea.output{min-height:310px;background:#f7f9f7}
+    textarea:focus,input:focus,select:focus{border-color:#7ea18d;box-shadow:0 0 0 3px rgba(60,110,80,.09)}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    button{
+      appearance:none;
+      border:0;
+      border-radius:13px;
+      padding:12px 16px;
+      font-weight:800;
+      cursor:pointer;
+      background:var(--accent);
+      color:white;
+    }
+    button.secondary{background:var(--accent2);color:var(--accent)}
+    button.ghost{background:#f3f5f3;color:var(--ink)}
+    button:disabled{opacity:.5;cursor:not-allowed}
+    .note{
+      border-left:4px solid var(--accent);
+      background:#f5f9f6;
+      border-radius:10px;
+      padding:12px 14px;
+      color:#395245;
+      font-size:13px;
+      line-height:1.5;
+      margin-top:14px;
+    }
+    details{
+      margin-top:14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 14px;
+      background:#fafbfa;
+    }
+    summary{cursor:pointer;font-weight:700;font-size:13px}
+    .status{font-size:13px;color:var(--muted);margin-top:10px;min-height:20px}
+    .preview-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+      margin-top:14px;
+    }
+    .preview{
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      background:#f9faf9;
+    }
+    .preview canvas{width:100%;height:auto;display:block;background:#1a241e}
+    .preview .meta{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .preview .meta span{font-size:12px;color:var(--muted)}
+    .preview .meta button{padding:8px 10px;font-size:12px}
+    .fileline{display:grid;grid-template-columns:1fr;gap:10px}
+    @media(min-width:680px){.fileline{grid-template-columns:1fr 1fr}}
+    .footer{margin-top:18px;color:var(--muted);font-size:12px;text-align:center}
+    .hidden{display:none!important}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="badge">Kế Toán Diệu Tâm · Prompt Engine</div>
+      <h1>Video → Bài viết → Ảnh đăng</h1>
+      <p>Dán kịch bản. Hệ thống tự ghép luật thương hiệu, quy tắc 4 nền tảng và visual preset. Không API, không backend, không cần chọn hàng loạt tùy chỉnh.</p>
+    </section>
+
+    <div class="grid two">
+      <section class="card">
+        <h2>1. Dán kịch bản video</h2>
+        <p class="help">Dùng bản lời thoại thực tế đã đăng nếu có. Nếu khác kịch bản gốc, bản bạn dán luôn được ưu tiên.</p>
+
+        <textarea id="scriptInput" placeholder="Dán toàn bộ kịch bản / lời thoại video vào đây..."></textarea>
+
+        <details>
+          <summary>Bối cảnh series (tùy chọn, không cần chỉnh nếu không biết)</summary>
+          <label for="contextSelect">Content Map</label>
+          <select id="contextSelect">
+            <option value="">Tự suy luận từ kịch bản</option>
+          </select>
+          <p class="help">Khi Content Map đủ 32 video, chọn đúng video sẽ giúp AI biết phần nào đã nói, phần nào được phép mở rộng và phần nào phải để dành.</p>
+        </details>
+
+        <div class="row">
+          <button id="buildBtn">Tạo prompt</button>
+          <button id="clearBtn" class="ghost">Xóa</button>
+        </div>
+        <div class="status" id="buildStatus"></div>
+      </section>
+
+      <section class="card">
+        <h2>2. Copy prompt sang AI</h2>
+        <p class="help">Prompt luôn yêu cầu đủ 4 biến thể: TikTok, Facebook, Zalo OA, YouTube Post + Visual JSON để bước 3 tự đọc.</p>
+        <textarea id="promptOutput" class="output" readonly placeholder="Prompt sẽ xuất hiện ở đây..."></textarea>
+        <div class="row">
+          <button id="copyBtn" class="secondary">Copy prompt</button>
+        </div>
+        <div class="note">
+          Luật chính: bài mới phải thêm giá trị so với video, không kể lại video và không lấy mất luận điểm dành cho các video sau.
+        </div>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:18px">
+      <h2>3. Tạo ảnh từ câu trả lời AI</h2>
+      <p class="help">Dán toàn bộ câu trả lời của ChatGPT/Gemini. HTML tự đọc khối &lt;VISUAL_JSON&gt;. Sau đó upload một frame đẹp lấy từ chính video. Không cần chọn kích thước hay bố cục.</p>
+
+      <div class="grid two">
+        <div>
+          <label for="aiOutput">Câu trả lời AI</label>
+          <textarea id="aiOutput" class="small" placeholder="Dán toàn bộ output AI vào đây..."></textarea>
+        </div>
+        <div>
+          <div class="fileline">
+            <div>
+              <label for="frameInput">Frame từ video</label>
+              <input id="frameInput" type="file" accept="image/*" />
+            </div>
+            <div>
+              <label for="logoInput">Logo (không bắt buộc)</label>
+              <input id="logoInput" type="file" accept="image/*" />
+            </div>
+          </div>
+
+          <div class="row">
+            <button id="renderBtn">Đọc & tạo ảnh</button>
+          </div>
+          <div class="status" id="renderStatus"></div>
+
+          <div class="note">
+            Mặc định tự xuất: TikTok 9:16 · Facebook 4:5 · YouTube 1:1 · Zalo 16:9. Nếu AI chọn carousel3, chỉ TikTok tạo 3 slide; ba nền tảng còn lại vẫn dùng 1 hero image để giảm công sản xuất.
+          </div>
+        </div>
+      </div>
+
+      <div id="previewGrid" class="preview-grid"></div>
+    </section>
+
+    <div class="footer">Vanilla HTML/CSS/JS · chạy local · không gửi dữ liệu đi đâu ngoài AI mà bạn tự copy prompt sang.</div>
+  </div>
+
+  <script src="content-map.js"></script>
+  <script>
+    (function(){
+      var scriptInput = document.getElementById('scriptInput');
+      var promptOutput = document.getElementById('promptOutput');
+      var contextSelect = document.getElementById('contextSelect');
+      var buildStatus = document.getElementById('buildStatus');
+      var renderStatus = document.getElementById('renderStatus');
+      var previewGrid = document.getElementById('previewGrid');
+
+      var map = Array.isArray(window.CONTENT_MAP) ? window.CONTENT_MAP : [];
+      map.forEach(function(item){
+        var opt = document.createElement('option');
+        opt.value = item.id;
+        opt.textContent = item.label || item.id;
+        contextSelect.appendChild(opt);
+      });
+
+      function listText(arr){
+        return (arr || []).map(function(x){ return '- ' + x; }).join('\n');
+      }
+
+      function getContextBlock(){
+        var id = contextSelect.value;
+        if (!id || !window.findContentMap) return '';
+        var c = window.findContentMap(id);
+        if (!c) return '';
+        return [
+          'CONTENT MAP CHO VIDEO NÀY:',
+          'CORE:',
+          c.core || '',
+          '',
+          'COVERED — video đã nói:',
+          listText(c.covered),
+          '',
+          'EXPAND — được phép đào sâu:',
+          listText(c.expand),
+          '',
+          'RESERVED — không được lấy trước:',
+          listText(c.reserved),
+          '',
+          'VISUAL DNA:',
+          c.visual || ''
+        ].join('\n');
+      }
+
+      function buildPrompt(){
+        var script = scriptInput.value.trim();
+        if (!script){
+          buildStatus.textContent = 'Hãy dán kịch bản trước.';
+          return;
+        }
+
+        var ctx = getContextBlock();
+
+        var prompt = [
+          'Bạn là biên tập viên nội dung của Kế Toán Diệu Tâm.',
+          '',
+          'MỤC TIÊU:',
+          'Từ video đã đăng dưới đây, hãy tạo bài đăng cho ngày kế tiếp trên TikTok, Facebook, Zalo OA và YouTube Posts.',
+          '',
+          'LUẬT VÀNG:',
+          '1) Không kể lại video và không chép lại lời thoại.',
+          '2) Trước khi viết, phải xác định rõ: bài mới thêm giá trị gì mà video chưa nói.',
+          '3) Bài mới phải là câu hỏi/góc nhìn tiếp theo mà video tự nhiên gợi ra.',
+          '4) Nếu có CONTENT MAP, tuyệt đối không dùng trước các ý RESERVED.',
+          '5) Bắt đầu từ đời sống thật của người kinh doanh rồi mới dẫn tới kế toán/quản trị.',
+          '6) Giọng bình tĩnh, rõ, có chiều sâu; không hù dọa, không khoa trương, không viết kiểu bài giảng khô.',
+          '7) CTA mềm; không bán dịch vụ trực diện.',
+          '',
+          'QUY TẮC NỀN TẢNG:',
+          '- TikTok Photo Post: hook nhanh, caption ngắn. Nếu ý cần 2–3 bước để hiểu thì tạo đúng 3 slide; nếu một câu đã đủ thì 1 ảnh.',
+          '- Facebook: hook 1–2 dòng đầu, triển khai tự nhiên như chia sẻ cho chủ doanh nghiệp, dễ đọc trên mobile.',
+          '- Zalo OA: có tiêu đề, trích dẫn ngắn, nội dung có cấu trúc, tính ứng dụng cao.',
+          '- YouTube Post: cô đọng hơn Facebook, tập trung 1 insight hoặc 1 câu hỏi.',
+          '',
+          'QUY TẮC VISUAL:',
+          '- Tự quyết single hoặc carousel3; không hỏi lại user.',
+          '- Ưu tiên frame thật từ video làm hình nền.',
+          '- Headline trên ảnh phải ngắn, đọc được trong khoảng 2 giây.',
+          '- Nếu carousel3, chỉ cần 3 slide; không kéo dài.',
+          '- Không mặc định dùng ảnh AI.',
+          '',
+          ctx,
+          ctx ? '' : '',
+          'KỊCH BẢN / LỜI THOẠI THỰC TẾ:',
+          '---',
+          script,
+          '---',
+          '',
+          'OUTPUT BẮT BUỘC THEO THỨ TỰ:',
+          '1. GÓC MỞ RỘNG — 1–2 câu giải thích bài mới thêm gì so với video.',
+          '2. TIKTOK — caption và slide nếu có.',
+          '3. FACEBOOK — bài hoàn chỉnh.',
+          '4. ZALO OA — tiêu đề + trích dẫn + nội dung + CTA nếu cần.',
+          '5. YOUTUBE POST — nội dung ngắn.',
+          '6. VISUAL BRIEF — frame nên lấy + headline + subline + lý do single/carousel3.',
+          '7. Cuối cùng bắt buộc có một JSON hợp lệ nằm giữa hai tag <VISUAL_JSON> và </VISUAL_JSON>.',
+          '',
+          'Nếu single, dùng schema:',
+          '<VISUAL_JSON>',
+          '{',
+          '  "mode": "single",',
+          '  "frame_hint": "mô tả frame nên lấy từ video",',
+          '  "hero": {"headline": "headline ngắn", "subline": "subline ngắn"},',
+          '  "slides": []',
+          '}',
+          '</VISUAL_JSON>',
+          '',
+          'Nếu carousel3, dùng schema:',
+          '<VISUAL_JSON>',
+          '{',
+          '  "mode": "carousel3",',
+          '  "frame_hint": "mô tả frame nên lấy từ video",',
+          '  "hero": {"headline": "headline đại diện", "subline": "subline ngắn"},',
+          '  "slides": [',
+          '    {"headline":"...", "body":"..."},',
+          '    {"headline":"...", "body":"..."},',
+          '    {"headline":"...", "body":"..."}',
+          '  ]',
+          '}',
+          '</VISUAL_JSON>',
+          '',
+          'Trước khi trả lời, tự kiểm tra: có lặp video không, có thêm giá trị mới không, có lấy mất ý RESERVED không, và 4 nền tảng có thực sự khác cách đóng gói không.'
+        ].filter(function(x){ return x !== null && x !== undefined; }).join('\n');
+
+        promptOutput.value = prompt;
+        buildStatus.textContent = 'Đã tạo prompt. Không cần chỉnh thêm nếu không có yêu cầu đặc biệt.';
+      }
+
+      async function copyPrompt(){
+        if (!promptOutput.value.trim()) return;
+        try{
+          await navigator.clipboard.writeText(promptOutput.value);
+          buildStatus.textContent = 'Đã copy prompt.';
+        }catch(e){
+          promptOutput.select();
+          document.execCommand('copy');
+          buildStatus.textContent = 'Đã copy prompt.';
+        }
+      }
+
+      document.getElementById('buildBtn').addEventListener('click', buildPrompt);
+      document.getElementById('copyBtn').addEventListener('click', copyPrompt);
+      document.getElementById('clearBtn').addEventListener('click', function(){
+        scriptInput.value = '';
+        promptOutput.value = '';
+        contextSelect.value = '';
+        buildStatus.textContent = '';
+      });
+
+      function parseVisualJSON(text){
+        var m = text.match(/<VISUAL_JSON>\s*([\s\S]*?)\s*<\/VISUAL_JSON>/i);
+        if (!m) throw new Error('Không tìm thấy khối <VISUAL_JSON>.');
+        return JSON.parse(m[1]);
+      }
+
+      function fileToImage(file){
+        return new Promise(function(resolve,reject){
+          if (!file) return resolve(null);
+          var img = new Image();
+          img.onload = function(){ resolve(img); };
+          img.onerror = reject;
+          img.src = URL.createObjectURL(file);
+        });
+      }
+
+      function drawCover(ctx,img,w,h){
+        if (!img){
+          var g = ctx.createLinearGradient(0,0,w,h);
+          g.addColorStop(0,'#1c3428');
+          g.addColorStop(1,'#0d1712');
+          ctx.fillStyle = g;
+          ctx.fillRect(0,0,w,h);
+          return;
+        }
+        var s = Math.max(w/img.width,h/img.height);
+        var nw = img.width*s, nh = img.height*s;
+        var x = (w-nw)/2, y = (h-nh)/2;
+        ctx.drawImage(img,x,y,nw,nh);
+      }
+
+      function wrapLines(ctx,text,maxWidth){
+        var words = String(text || '').trim().split(/\s+/).filter(Boolean);
+        var lines = [];
+        var line = '';
+        words.forEach(function(word){
+          var test = line ? line + ' ' + word : word;
+          if (ctx.measureText(test).width > maxWidth && line){
+            lines.push(line);
+            line = word;
+          } else {
+            line = test;
+          }
+        });
+        if (line) lines.push(line);
+        return lines;
+      }
+
+      function fitFont(ctx,text,maxWidth,start,min){
+        var size = start;
+        while(size > min){
+          ctx.font = '800 ' + size + 'px Arial, sans-serif';
+          if (wrapLines(ctx,text,maxWidth).length <= 4) return size;
+          size -= 4;
+        }
+        return min;
+      }
+
+      function drawTextBlock(ctx,w,h,headline,subline,platform){
+        var margin = Math.round(w * 0.075);
+        var bottom = Math.round(h * 0.10);
+        var maxWidth = w - margin*2;
+        var start = platform === 'zalo' ? 66 : platform === 'youtube' ? 74 : platform === 'facebook' ? 82 : 96;
+        var min = platform === 'zalo' ? 44 : 48;
+
+        var size = fitFont(ctx,headline,maxWidth,start,min);
+        ctx.font = '800 ' + size + 'px Arial, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'alphabetic';
+
+        var lines = wrapLines(ctx,headline,maxWidth);
+        var lineHeight = size * 1.06;
+        var subSize = Math.max(28, Math.round(size * .38));
+        var total = lines.length*lineHeight + (subline ? subSize*2.2 : 0);
+        var y = h - bottom - total;
+
+        ctx.fillStyle = '#ffffff';
+        lines.forEach(function(line){
+          ctx.fillText(line,margin,y);
+          y += lineHeight;
+        });
+
+        if (subline){
+          y += subSize*.45;
+          ctx.font = '500 ' + subSize + 'px Arial, sans-serif';
+          ctx.fillStyle = 'rgba(255,255,255,.82)';
+          var subLines = wrapLines(ctx,subline,maxWidth);
+          subLines.slice(0,3).forEach(function(line){
+            ctx.fillText(line,margin,y);
+            y += subSize*1.25;
+          });
+        }
+      }
+
+      function drawBrand(ctx,w,h,logoImg,platform){
+        var margin = Math.round(w*.075);
+        if (logoImg){
+          var maxW = Math.round(w*.22);
+          var maxH = Math.round(h*.065);
+          var s = Math.min(maxW/logoImg.width,maxH/logoImg.height,1);
+          var lw = logoImg.width*s, lh = logoImg.height*s;
+          ctx.drawImage(logoImg,margin,margin,lw,lh);
+        } else {
+          ctx.font = '700 ' + Math.max(18,Math.round(w*.022)) + 'px Arial, sans-serif';
+          ctx.fillStyle = 'rgba(255,255,255,.78)';
+          ctx.fillText('KẾ TOÁN DIỆU TÂM',margin,margin + Math.round(w*.025));
+        }
+
+        if (platform === 'zalo'){
+          ctx.strokeStyle = 'rgba(255,255,255,.12)';
+          ctx.lineWidth = 2;
+          var safeW = Math.round(h * 14/9);
+          safeW = Math.min(safeW,w);
+          ctx.strokeRect((w-safeW)/2,0,safeW,h);
+        }
+      }
+
+      function makeCanvas(spec,frameImg,logoImg,headline,subline,platform){
+        var canvas = document.createElement('canvas');
+        canvas.width = spec.w;
+        canvas.height = spec.h;
+        var ctx = canvas.getContext('2d');
+        drawCover(ctx,frameImg,spec.w,spec.h);
+
+        var grd = ctx.createLinearGradient(0,0,0,spec.h);
+        grd.addColorStop(0,'rgba(4,12,8,.18)');
+        grd.addColorStop(.44,'rgba(4,12,8,.20)');
+        grd.addColorStop(1,'rgba(4,12,8,.88)');
+        ctx.fillStyle = grd;
+        ctx.fillRect(0,0,spec.w,spec.h);
+
+        drawBrand(ctx,spec.w,spec.h,logoImg,platform);
+        drawTextBlock(ctx,spec.w,spec.h,headline,subline,platform);
+        return canvas;
+      }
+
+      function addPreview(canvas,label,filename){
+        var box = document.createElement('div');
+        box.className = 'preview';
+        box.appendChild(canvas);
+
+        var meta = document.createElement('div');
+        meta.className = 'meta';
+
+        var txt = document.createElement('span');
+        txt.textContent = label;
+
+        var btn = document.createElement('button');
+        btn.textContent = 'Tải PNG';
+        btn.addEventListener('click',function(){
+          var a = document.createElement('a');
+          a.download = filename;
+          a.href = canvas.toDataURL('image/png');
+          a.click();
+        });
+
+        meta.appendChild(txt);
+        meta.appendChild(btn);
+        box.appendChild(meta);
+        previewGrid.appendChild(box);
+      }
+
+      async function renderAssets(){
+        previewGrid.innerHTML = '';
+        renderStatus.textContent = '';
+        var raw = document.getElementById('aiOutput').value.trim();
+        if (!raw){
+          renderStatus.textContent = 'Hãy dán câu trả lời AI.';
+          return;
+        }
+
+        var data;
+        try{
+          data = parseVisualJSON(raw);
+        }catch(e){
+          renderStatus.textContent = 'Lỗi: ' + e.message;
+          return;
+        }
+
+        var frameFile = document.getElementById('frameInput').files[0] || null;
+        var logoFile = document.getElementById('logoInput').files[0] || null;
+
+        try{
+          var imgs = await Promise.all([fileToImage(frameFile),fileToImage(logoFile)]);
+          var frameImg = imgs[0], logoImg = imgs[1];
+          var hero = data.hero || {};
+          var heroHeadline = hero.headline || 'KẾ TOÁN DIỆU TÂM';
+          var heroSubline = hero.subline || '';
+
+          var specs = {
+            facebook:{w:1080,h:1350},
+            youtube:{w:1080,h:1080},
+            zalo:{w:1280,h:720},
+            tiktok:{w:1080,h:1920}
+          };
+
+          if (data.mode === 'carousel3' && Array.isArray(data.slides) && data.slides.length >= 3){
+            data.slides.slice(0,3).forEach(function(slide,idx){
+              var c = makeCanvas(
+                specs.tiktok,frameImg,logoImg,
+                slide.headline || heroHeadline,
+                slide.body || '',
+                'tiktok'
+              );
+              addPreview(c,'TikTok · slide ' + (idx+1),'ketoandieutam-tiktok-slide-' + (idx+1) + '.png');
+            });
+          } else {
+            var ct = makeCanvas(specs.tiktok,frameImg,logoImg,heroHeadline,heroSubline,'tiktok');
+            addPreview(ct,'TikTok · 9:16','ketoandieutam-tiktok.png');
+          }
+
+          var cf = makeCanvas(specs.facebook,frameImg,logoImg,heroHeadline,heroSubline,'facebook');
+          addPreview(cf,'Facebook · 4:5','ketoandieutam-facebook.png');
+
+          var cy = makeCanvas(specs.youtube,frameImg,logoImg,heroHeadline,heroSubline,'youtube');
+          addPreview(cy,'YouTube Post · 1:1','ketoandieutam-youtube.png');
+
+          var cz = makeCanvas(specs.zalo,frameImg,logoImg,heroHeadline,heroSubline,'zalo');
+          addPreview(cz,'Zalo OA · 16:9','ketoandieutam-zalo.png');
+
+          renderStatus.textContent = frameImg
+            ? 'Đã tạo ảnh từ frame video. Tải từng file PNG bên dưới.'
+            : 'Đã tạo typography card. Để đồng nhất series hơn, nên upload một frame thật từ video.';
+        }catch(e){
+          renderStatus.textContent = 'Không thể render ảnh: ' + e.message;
+        }
+      }
+
+      document.getElementById('renderBtn').addEventListener('click',renderAssets);
+    })();
+  </script>
+</body>
+</html>
