@@ -114,6 +114,7 @@ Nếu môi trường hỗ trợ tạo/chỉnh ảnh mà không làm mất phần
 - Một ý chỉ được nhắc tên không có nghĩa video đã bao phủ chủ đề chuyên sâu đó.
 - Dùng `next_title` trong map như hàng rào: bài xen kẽ không được biến thành chính chủ đề của ngày kế.
 - Nếu không khớp rõ, dùng `custom`; không ép.
+- `video-11` là SOURCE GAP trong file production và tuyệt đối không được dùng để match.
 
 ## 8. Kiểm tra trước khi trả lời
 
