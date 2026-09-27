@@ -75,6 +75,14 @@ Nếu công cụ không thể giữ logo chính xác, **không vẽ lại logo**
 
 Nếu công cụ không đảm bảo chữ tiếng Việt chính xác, tạo ảnh **không chữ** với vùng text-safe và trả headline riêng; không cố render chữ sai.
 
+Các lỗi production phải chủ động tránh:
+- không tự tạo label tên nhân vật;
+- không đặt text dài hoặc chữ tiếng Việt lớn nếu không cần;
+- không để nhân vật che headline;
+- không tự tái tạo thương hiệu/logo với màu hoặc chữ sai;
+- không tự tạo “nhân vật Diệu Tâm” nếu user chưa cung cấp frame/reference đúng người; khi không có reference, dùng chủ shop/nhân vật đời thường hoặc scene không cần nhận diện gương mặt;
+- nếu asset thật và ảnh AI xung đột, ưu tiên độ chính xác thương hiệu hơn việc cố nhét logo/nhân vật vào ảnh.
+
 Mặc định:
 - primary master: 9:16, chủ thể/headline trong vùng trung tâm an toàn để crop 4:5 và 1:1;
 - adaptation: 16:9 cho Zalo;
@@ -115,3 +123,4 @@ Nếu môi trường hỗ trợ tạo/chỉnh ảnh mà không làm mất phần
 - 4 nền tảng có cùng tư tưởng nhưng khác cách đóng gói không?
 - Headline ảnh có đọc được trong khoảng 2 giây không?
 - Visual có đời thật, tối giản, không stock/cyber quá bóng bẩy không?
+- Logo, chữ tiếng Việt và nhân vật thương hiệu có nguy cơ bị AI tạo sai không? Nếu có, đã chuyển sang vùng trống/text-safe hoặc bỏ yếu tố đó chưa?
