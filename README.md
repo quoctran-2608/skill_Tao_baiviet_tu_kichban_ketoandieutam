@@ -1,86 +1,87 @@
-# Kế Toán Diệu Tâm — Video → Bài viết đa nền tảng
+# Kế Toán Diệu Tâm — Kịch bản → Bài viết kiến thức đa nền tảng
 
-Một **Prompt Engine** chạy trong trình duyệt. HTML ghép kịch bản + Brand DNA + Content Map 32 ngày + quy tắc nền tảng thành prompt để dùng với ChatGPT.
+Repo này chứa skill/prompt engine giúp AI biến một kịch bản video đã đăng thành bài viết và bộ ảnh cho:
+- TikTok Photo Post;
+- Facebook;
+- Zalo OA;
+- YouTube Community.
 
-## Workflow
+## Triết lý v2
 
-1. Mở `index.html`.
-2. Dán kịch bản/lời thoại video đã đăng.
-3. Bấm **Tạo prompt**.
-4. Copy prompt sang ChatGPT.
-5. ChatGPT trả lượt 1:
-   - TikTok trong writing block riêng;
-   - Facebook trong writing block riêng;
-   - Zalo OA trong writing block riêng.
-6. Gõ **TIẾP**.
-7. ChatGPT trả lượt 2:
-   - YouTube Post trong writing block riêng;
-   - Prompt tạo ảnh trong writing block riêng.
-8. Copy **Prompt tạo ảnh**, có thể đính kèm:
-   - frame từ video;
-   - logo thương hiệu;
-   - cả hai;
-   - hoặc không đính kèm gì.
-9. Dán prompt ảnh lại **ngay trong cùng chat**. Chỉ lúc này AI mới tạo ảnh.
+Kịch bản là hạt giống, không phải khuôn bài viết.
 
-## Vì sao chia 2 lượt?
+Video có nhiệm vụ gợi mở.
+Bài viết phải mở rộng thêm kiến thức, cơ chế, ví dụ hoặc ứng dụng.
 
-Mục tiêu là mỗi nền tảng có một writing block riêng để copy nhanh. ChatGPT nên dùng tối đa 3 writing blocks trong một lượt, nên 4 nền tảng + 1 prompt ảnh được chia thành 2 lượt thay vì trộn artifact.
+Câu hỏi bắt buộc trước khi viết:
 
-## Nguyên tắc lõi
+> Người đã xem video sẽ học thêm điều gì khi đọc bài này?
 
-> Bài viết xen kẽ không kể lại video. Nó phải bổ sung một giá trị mới, nhưng không được lấy mất luận điểm chính của video ngày kế tiếp.
+## Workflow production khuyến nghị
 
-## Content Map
+1. Nạp kịch bản mới.
+2. AI phân tích câu chuyện + knowledge wedge.
+3. Làm TikTok:
+   - tiêu đề nếu cần;
+   - caption;
+   - 4–5 ảnh 9:16.
+4. Làm Facebook:
+   - bài sâu hơn;
+   - đúng 4 ảnh 4:5.
+5. Làm Zalo OA:
+   - tiêu đề;
+   - trích dẫn;
+   - bài sâu nhất;
+   - 1 cover 16:9 + 2 body images 500×320.
+6. Làm YouTube Community:
+   - bài cô đọng;
+   - đúng 4 ảnh 1:1 riêng biệt.
 
-`content-map.js` bám theo nguồn production thực tế:
-- Ngày 1–10 và 12–32: file production;
-- Ngày 11: `Ngay11.srt` do user cung cấp.
+User có thể đi từng bước như production thực tế hoặc yêu cầu nhiều nền tảng một lần.
 
-AI tự khớp kịch bản user dán với map. User không phải chọn số video.
+## Output
 
-## Output writing blocks
+Mọi bài đăng phải nằm trong writing block riêng để copy nhanh.
 
-Lượt 1:
-- TikTok → `social_post`
-- Facebook → `social_post`
-- Zalo OA → `document`
+Bên trong writing block:
+- plain text sạch;
+- không `##`;
+- không `**`;
+- không `---`;
+- giữ xuống dòng, bullet, emoji và khoảng thở.
 
-Lượt 2 sau “TIẾP”:
-- YouTube → `social_post`
-- Prompt tạo ảnh → `standard`
+## Nội dung
 
-Nếu model không hỗ trợ writing block, fallback mỗi artifact thành một code block riêng.
+AI không được chỉ kể lại video.
+
+Bài tốt thường có:
+- hook đời thực;
+- nghịch lý/câu hỏi;
+- ví dụ;
+- cơ chế;
+- takeaway áp dụng.
+
+Brand ratio mục tiêu:
+- 30–40% tư tưởng;
+- 60–70% kiến thức thực tế.
 
 ## Hình ảnh
 
-Ở lượt viết bài, **AI không được tạo ảnh**.
+Trong một bộ:
+- cùng nhân vật;
+- cùng visual world.
 
-AI chỉ tạo một **Prompt tạo ảnh** hoàn chỉnh. User copy block này, đính kèm frame/logo nếu muốn, rồi dán lại trong cùng chat để tạo ảnh.
+Sang kịch bản/ngày mới:
+- mặc định đổi nhân vật hoặc business context nếu không có yêu cầu continuity.
 
-Prompt ảnh tự xử lý:
-- có frame → ưu tiên frame thật;
-- có logo → coi logo là asset khóa;
-- có cả hai → frame chính, logo nhỏ;
-- không có asset → tự tạo scene chân thật;
-- single hoặc TikTok carousel3 do AI tự quyết;
-- primary 9:16;
-- safe crop Facebook 4:5 + YouTube 1:1;
-- adaptation Zalo 16:9.
+Không tự vẽ lại logo.
+Nếu có logo thật, dùng đúng asset.
 
-## Triết lý kỹ thuật
+## Files
 
-- Không API.
-- Không backend.
-- Không database.
-- Không bắt user chọn tone, CTA, số slide, tỷ lệ ảnh.
-- Kịch bản thực tế luôn ưu tiên hơn Content Map.
-- Tối ưu thao tác copy/paste trong ChatGPT.
-
-## Cấu trúc repo
-
+- `SKILL.md` — luật chính để AI làm việc.
+- `research/editorial-playbook.md` — kinh nghiệm production và tư duy biên tập.
+- `research/platform-defaults.md` — preset nền tảng.
+- `content-map.js` — Content Map series.
 - `index.html` — Prompt Builder.
-- `content-map.js` — Content Map 32 ngày.
-- `SKILL.md` — luật biên tập và output contract.
-- `research/platform-defaults.md` — cơ sở preset nền tảng.
-- `examples/` — fixture dùng để test.
+- `examples/` — output mẫu dùng để calibrate/test.
