@@ -19,7 +19,7 @@
     <div class="eyebrow">Kế Toán Diệu Tâm · Canonical Skill Prompt Builder</div>
     <h1>Dán kịch bản → tạo prompt đã ghép Skill</h1>
     <p>HTML không giữ một bộ luật biên tập riêng. Mỗi lần tạo prompt, nó tải trực tiếp Skill canonical từ chính repo này rồi ghép với kịch bản và nhiệm vụ bạn chọn.</p>
-    <div class="meta"><span class="pill" id="skillState">Skill: chưa tải</span><span class="pill">Source of truth: skills/ke-toan-dieu-tam-content/</span><span class="pill">Không API AI · Không backend</span></div>
+    <div class="meta"><span class="pill" id="skillState">Skill: tải khi tạo prompt</span><span class="pill">Source of truth: skills/ke-toan-dieu-tam-content/</span><span class="pill">Không API AI · Không backend</span></div>
   </section>
 
   <section class="grid">
@@ -76,19 +76,30 @@
 
   const $ = id => document.getElementById(id);
   const script = $('script'), notes = $('notes'), task = $('task'), output = $('output'), status = $('status');
-  let cachedSkill = null;
+  async function fetchText(path){
+    try {
+      const raw = await fetch(BASE + path, {cache:'no-store'});
+      if (raw.ok) return await raw.text();
+    } catch (_) {}
+
+    const api = `https://api.github.com/repos/${REPO}/contents/${path}?ref=main`;
+    const res = await fetch(api, {cache:'no-store', headers:{'Accept':'application/vnd.github+json'}});
+    if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+    const data = await res.json();
+    if (!data.content || data.encoding !== 'base64') throw new Error(`${path}: GitHub không trả nội dung base64`);
+    const binary = atob(data.content.replace(/\n/g,''));
+    const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+    return new TextDecoder('utf-8').decode(bytes);
+  }
 
   async function loadSkill(){
-    if (cachedSkill) return cachedSkill;
-    $('skillState').textContent = 'Skill: đang tải…';
+    $('skillState').textContent = 'Skill: đang tải canonical…';
     const docs = await Promise.all(SKILL_FILES.map(async path => {
-      const res = await fetch(BASE + path, {cache:'no-store'});
-      if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
-      return `===== ${path} =====\n${(await res.text()).trim()}`;
+      const text = await fetchText(path);
+      return `===== ${path} =====\n${text.trim()}`;
     }));
-    cachedSkill = docs.join('\n\n');
-    $('skillState').textContent = 'Skill: đã tải canonical';
-    return cachedSkill;
+    $('skillState').textContent = 'Skill: đã tải canonical mới nhất';
+    return docs.join('\n\n');
   }
 
   function stats(){
@@ -133,7 +144,6 @@
   $('save').onclick = () => { if(!output.value)return; const blob=new Blob([output.value],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`ke-toan-dieu-tam-${task.value}.txt`;a.click();URL.revokeObjectURL(url); };
   $('clear').onclick = () => {script.value='';notes.value='';output.value='';status.textContent='';stats();};
   script.addEventListener('input',stats); stats();
-  loadSkill().catch(()=>{});
 })();
 </script>
 </body>
