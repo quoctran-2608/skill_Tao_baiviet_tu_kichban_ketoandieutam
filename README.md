@@ -1,87 +1,69 @@
-# Kế Toán Diệu Tâm — Kịch bản → Bài viết kiến thức đa nền tảng
+# Kế Toán Diệu Tâm — Canonical Skill + Prompt Builder
 
-Repo này chứa skill/prompt engine giúp AI biến một kịch bản video đã đăng thành bài viết và bộ ảnh cho:
-- TikTok Photo Post;
-- Facebook;
-- Zalo OA;
-- YouTube Community.
+Repo này đã được dựng lại từ đầu. Phiên bản hiện tại không dùng Content Map, prompt engine hoặc editorial rules của repo cũ.
 
-## Triết lý v2
+## Kiến trúc
 
-Kịch bản là hạt giống, không phải khuôn bài viết.
+Nguồn chân lý duy nhất là:
 
-Video có nhiệm vụ gợi mở.
-Bài viết phải mở rộng thêm kiến thức, cơ chế, ví dụ hoặc ứng dụng.
+`skills/ke-toan-dieu-tam-content/`
 
-Câu hỏi bắt buộc trước khi viết:
+Gồm:
+- `SKILL.md` — workflow và quality gates chính;
+- `references/editorial-depth.md` — cách mở rộng kịch bản thành bài có substance;
+- `references/platform-playbook.md` — preset từng nền tảng;
+- `examples/gold-standard.md` — mẫu calibrate chất lượng.
 
-> Người đã xem video sẽ học thêm điều gì khi đọc bài này?
+`index.html` chỉ làm UI + prompt assembler. Nó không giữ một bản editorial skill thứ hai.
 
-## Workflow production khuyến nghị
+## Cách HTML hoạt động
 
-1. Nạp kịch bản mới.
-2. AI phân tích câu chuyện + knowledge wedge.
-3. Làm TikTok:
-   - tiêu đề nếu cần;
-   - caption;
-   - 4–5 ảnh 9:16.
-4. Làm Facebook:
-   - bài sâu hơn;
-   - đúng 4 ảnh 4:5.
-5. Làm Zalo OA:
-   - tiêu đề;
-   - trích dẫn;
-   - bài sâu nhất;
-   - 1 cover 16:9 + 2 body images 500×320.
-6. Làm YouTube Community:
-   - bài cô đọng;
-   - đúng 4 ảnh 1:1 riêng biệt.
+Khi bấm `Tạo prompt`, HTML tải trực tiếp các file Skill canonical từ nhánh `main` của chính repo này bằng `raw.githubusercontent.com`, sau đó ghép:
 
-User có thể đi từng bước như production thực tế hoặc yêu cầu nhiều nền tảng một lần.
+1. Skill canonical;
+2. kịch bản bạn dán;
+3. ghi chú tùy chọn;
+4. nhiệm vụ hiện tại.
 
-## Output
+Kịch bản được đặt trong vùng DATA và được chỉ dẫn rõ là không phải instruction.
 
-Mọi bài đăng phải nằm trong writing block riêng để copy nhanh.
+## Cách dùng
 
-Bên trong writing block:
-- plain text sạch;
-- không `##`;
-- không `**`;
-- không `---`;
-- giữ xuống dòng, bullet, emoji và khoảng thở.
+1. Mở `index.html` trong trình duyệt khi có Internet.
+2. Dán toàn bộ kịch bản video.
+3. Chọn nhiệm vụ. Mặc định là `Bắt đầu workflow — TikTok`.
+4. Điền ghi chú nếu cần.
+5. Bấm `Tạo prompt`.
+6. Copy prompt sang một chat AI mới.
+7. Tiếp tục trong cùng chat đó bằng các yêu cầu tự nhiên: `tạo ảnh TikTok`, `qua Facebook`, `tạo ảnh Facebook`, `qua Zalo`, `qua YouTube`...
 
-## Nội dung
+Vì prompt đầu tiên đã chứa toàn bộ Skill, AI có context để tiếp tục workflow.
 
-AI không được chỉ kể lại video.
+## Nguyên tắc bảo trì
 
-Bài tốt thường có:
-- hook đời thực;
-- nghịch lý/câu hỏi;
-- ví dụ;
-- cơ chế;
-- takeaway áp dụng.
+- Muốn thay đổi chất lượng biên tập: sửa Skill, không sửa rules trong HTML.
+- Muốn thay đổi giao diện/nút/task selector: sửa `index.html`.
+- Không đưa Content Map 32 video vào core skill.
+- Không tạo hai bộ rule song song.
+- Spec nền tảng có thể thay đổi; Skill yêu cầu research lại khi cần claim “chuẩn hiện tại”.
 
-Brand ratio mục tiêu:
-- 30–40% tư tưởng;
-- 60–70% kiến thức thực tế.
+## Cấu trúc repo
 
-## Hình ảnh
+```text
+.
+├── plugin.json
+├── README.md
+├── index.html
+└── skills/
+    └── ke-toan-dieu-tam-content/
+        ├── SKILL.md
+        ├── references/
+        │   ├── editorial-depth.md
+        │   └── platform-playbook.md
+        └── examples/
+            └── gold-standard.md
+```
 
-Trong một bộ:
-- cùng nhân vật;
-- cùng visual world.
+## Lưu ý
 
-Sang kịch bản/ngày mới:
-- mặc định đổi nhân vật hoặc business context nếu không có yêu cầu continuity.
-
-Không tự vẽ lại logo.
-Nếu có logo thật, dùng đúng asset.
-
-## Files
-
-- `SKILL.md` — luật chính để AI làm việc.
-- `research/editorial-playbook.md` — kinh nghiệm production và tư duy biên tập.
-- `research/platform-defaults.md` — preset nền tảng.
-- `content-map.js` — Content Map series.
-- `index.html` — Prompt Builder.
-- `examples/` — output mẫu dùng để calibrate/test.
+HTML cần Internet để tải Skill canonical từ GitHub. Đây là lựa chọn có chủ đích để tránh `SKILL.md` và một bundle nhúng trong HTML bị lệch phiên bản.
