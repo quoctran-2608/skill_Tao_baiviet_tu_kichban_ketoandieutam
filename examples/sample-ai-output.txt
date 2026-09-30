@@ -1,71 +1,104 @@
-SLOT ĐÃ KHỚP
-video-05 — Doanh thu không phải là tiền của bạn.
-Lý do: luận điểm trung tâm là phân biệt doanh thu nhìn thấy với lượng tiền thực sự còn lại.
+GOLD STANDARD — KỊCH BẢN “MỘT ĐƠN HÀNG ĐI QUA NHỮNG AI?”
 
-GÓC MỞ RỘNG
-Bài xen kẽ không kể lại khái niệm “doanh thu không phải tiền”, mà đưa người đọc vào một tình huống cụ thể: bán tốt nhưng cuối tháng vẫn thấy tài khoản mỏng. Không đi sang luận điểm chính của ngày 06.
+Mục tiêu ví dụ này không phải để copy nguyên văn, mà để calibrate độ sâu và cách khác biệt giữa 4 nền tảng.
 
-[LƯỢT 1]
+====================
+TIKTOK
+====================
 
-:::writing{variant="social_post" id="42173" title="TikTok — Doanh thu tăng, tiền đâu?"}
-Doanh thu tăng mà cuối tháng vẫn thấy thiếu tiền — chuyện này không hề lạ.
+Tiêu đề:
+Một đơn hàng 500.000đ, bạn thực sự giữ lại bao nhiêu?
 
-Slide 1
-DOANH THU TĂNG
-TIỀN ĐÂU?
+Writing block phải chứa plain text sạch.
 
-Slide 2
-Tiền có thể đang nằm ở:
-• hàng tồn
-• công nợ
-• những khoản chi đã phát sinh
+Logic bài:
+- Hook: 500.000đ đơn hàng ≠ 500.000đ tiền kiếm được.
+- Giải thích nhanh: phía sau còn giá vốn, quảng cáo, vận chuyển, phí.
+- Tách 3 khái niệm: doanh thu / dòng tiền / lợi nhuận.
+- Chốt 3 câu hỏi cuối tháng.
+- Caption ngắn vừa phải.
+- 4–5 slide 9:16.
 
-Slide 3
-ĐỪNG CHỈ NHÌN DOANH THU.
-HÃY NHÌN ĐƯỜNG ĐI CỦA TIỀN.
-:::
+Slide gợi ý:
+1. Một đơn hàng 500.000đ có phải bạn kiếm được 500.000đ?
+2. Breakdown: 500k - 250k - 80k - 30k - 40k = 100k.
+3. Doanh thu ≠ Dòng tiền ≠ Lợi nhuận.
+4. Cuối tháng: tiền thực thu? tốn bao nhiêu? còn lại bao nhiêu?
+5. Hiểu hệ thống để biết mỗi đơn thực sự tạo ra điều gì.
 
-:::writing{variant="social_post" id="58314" title="Facebook — Bán tốt nhưng tài khoản vẫn mỏng"}
-[Bài Facebook hoàn chỉnh, chỉ chứa nội dung để đăng.]
-:::
+====================
+FACEBOOK
+====================
 
-:::writing{variant="document" id="73620" title="Zalo OA — Doanh thu tăng nhưng tiền không tăng theo"}
-Tiêu đề: Doanh thu tăng nhưng tiền không tăng theo — vì sao?
+Bài phải sâu hơn TikTok:
+- mở bằng đơn hàng 500.000đ;
+- giải thích vì sao 100.000đ còn lại chưa chắc là lợi nhuận cuối;
+- phân biệt doanh thu/dòng tiền/lợi nhuận;
+- cho ví dụ COD/đối soát;
+- giải thích vì sao doanh nghiệp có lời vẫn có thể thiếu tiền;
+- kết bằng 3 câu hỏi áp dụng.
 
-Trích dẫn: Một con số doanh thu đẹp chưa trả lời được doanh nghiệp đang thật sự còn bao nhiêu tiền.
+Ảnh:
+- đúng 4 ảnh 4:5.
+1. Hook.
+2. Breakdown số.
+3. Doanh thu ≠ dòng tiền ≠ lợi nhuận.
+4. Checklist cuối tháng.
 
-[Nội dung Zalo OA hoàn chỉnh.]
-:::
+====================
+ZALO OA
+====================
 
-Gõ TIẾP để nhận YouTube Post + Prompt tạo ảnh.
+Tiêu đề mẫu:
+Một đơn hàng 500.000đ: Doanh thu, dòng tiền và lợi nhuận khác nhau thế nào?
 
-[LƯỢT 2 — SAU KHI USER GÕ TIẾP]
+Trích dẫn mẫu:
+Bán được 500.000đ không có nghĩa doanh nghiệp vừa kiếm được 500.000đ. Bóc tách một đơn hàng để thấy tiền đi đâu và vì sao bán nhiều vẫn có thể thiếu tiền.
 
-:::writing{variant="social_post" id="19482" title="YouTube Post — Doanh thu và tiền"}
-Doanh thu tăng nhưng số dư không tăng tương ứng.
+Thân bài:
+- sâu nhất trong 4 nền tảng;
+- chia mục 1, 2, 3… bằng plain text;
+- có breakdown chi phí;
+- giải thích chu kỳ tiền;
+- giải thích vốn lưu động bằng ngôn ngữ đời thường;
+- có 5 câu hỏi cuối tháng;
+- có bài tập nhỏ: lấy 10 đơn gần nhất và bóc tách.
 
-Theo bạn, tiền thường “kẹt” ở đâu trong doanh nghiệp?
-:::
+Ảnh:
+- cover 16:9;
+- body 1: 500×320 breakdown 500k;
+- body 2: 500×320 doanh thu ≠ dòng tiền ≠ lợi nhuận / 3 câu hỏi.
 
-:::writing{variant="standard" id="30561" title="Prompt tạo ảnh — Doanh thu tăng, tiền đâu?"}
-Tạo hình ảnh social cho thương hiệu Kế Toán Diệu Tâm dựa trên chủ đề “doanh thu tăng nhưng tiền thực có không tăng tương ứng”.
+====================
+YOUTUBE COMMUNITY
+====================
 
-Nếu trong tin nhắn này có frame video đính kèm, dùng frame đó làm base/reference chính và giữ cảm giác đời thật của series. Nếu có logo thật, coi logo là asset khóa: không thay đổi chữ, biểu tượng, màu hoặc tỷ lệ. Nếu không thể tái hiện logo chính xác, không vẽ lại logo; để vùng sạch để chèn sau. Nếu không có frame hay logo, tự dựng cảnh một chủ shop/doanh nghiệp nhỏ Việt Nam cuối ngày, nhìn màn hình doanh thu và điện thoại ngân hàng, ánh sáng tự nhiên cinematic nhẹ, chân thật, không stock bóng bẩy, không cyber.
+Bài:
+- ngắn hơn Facebook;
+- vẫn có breakdown 500k;
+- định nghĩa ngắn doanh thu/dòng tiền/lợi nhuận;
+- 3 câu hỏi cuối tháng;
+- một câu hỏi tương tác.
 
-Visual mode: carousel 3 slide dọc cho TikTok.
+Ảnh:
+- đúng 4 ảnh 1:1 riêng biệt;
+- không collage;
+- không logo mặc định.
+1. Hook.
+2. Breakdown.
+3. 3 khái niệm.
+4. 3 câu hỏi cuối tháng.
 
-Slide 1: cảm giác nghịch lý — bán tốt nhưng tiền còn ít.
-Headline riêng: “DOANH THU TĂNG. TIỀN ĐÂU?”
+====================
+BÀI HỌC QA
+====================
 
-Slide 2: trực quan tiền đang bị giữ ở hàng tồn, công nợ và các khoản chi.
-
-Slide 3: kết luận trực quan về việc phải nhìn đường đi của tiền, tối giản.
-
-Thiết kế primary 9:16. Giữ chủ thể và vùng headline trong center-safe area để có thể crop sang Facebook 4:5 và YouTube 1:1. Đồng thời tạo adaptation 16:9 cho Zalo OA với cùng concept, không thêm luận điểm mới.
-
-Không tự tạo nhân vật Diệu Tâm nếu không có reference đúng người. Không dùng label tên nhân vật. Nếu không đảm bảo chữ tiếng Việt chính xác, tạo ảnh không chữ nhưng chừa vùng text-safe và giữ headline trên như nội dung overlay riêng.
-
-Tiến hành tạo ảnh theo hướng dẫn trên.
-:::
-
-Copy block Prompt tạo ảnh, đính kèm frame/logo nếu có, rồi dán lại ngay trong chat này để tạo ảnh.
+Không đạt nếu:
+- chỉ paraphrase kịch bản;
+- caption TikTok dài như bài Zalo;
+- Facebook hơn/ít hơn 4 ảnh khi user không đổi yêu cầu;
+- Zalo body vẫn dùng 16:9;
+- YouTube tạo collage;
+- content trong writing block có Markdown;
+- toàn bài chỉ nói “hiểu cuộc chơi” mà không cho kiến thức;
+- ảnh và caption dùng số khác nhau.
