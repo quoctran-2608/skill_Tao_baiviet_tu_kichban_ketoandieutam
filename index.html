@@ -95,7 +95,7 @@
     <section class="hero">
       <div class="badge">Kế Toán Diệu Tâm · Prompt Engine</div>
       <h1>Video → Bài viết → Ảnh đăng</h1>
-      <p>Dán kịch bản. HTML tạo prompt để ChatGPT trả từng nền tảng trong writing block riêng. Prompt tạo ảnh cũng là một block riêng để bạn chủ động copy và chạy sau.</p>
+      <p>Dán kịch bản. HTML tạo prompt để AI mở rộng video thành bài viết có kiến thức, tối ưu riêng cho từng nền tảng và tạo bộ ảnh đúng chuẩn khi bạn yêu cầu.</p>
     </section>
 
     <div class="grid two">
@@ -113,7 +113,7 @@
 
       <section class="card">
         <h2>2. Copy prompt sang AI</h2>
-        <p class="help">Prompt yêu cầu mỗi nền tảng nằm trong writing block riêng; prompt tạo ảnh được tách riêng để copy dùng ở lượt sau.</p>
+        <p class="help">Prompt yêu cầu AI dùng kịch bản như hạt giống, không chép lại video, và bắt đầu production theo từng nền tảng.</p>
         <textarea id="promptOutput" class="output" readonly placeholder="Prompt sẽ xuất hiện ở đây..."></textarea>
         <div class="row">
           <button id="copyBtn" class="secondary">Copy prompt</button>
@@ -129,9 +129,9 @@
       <h2>3. Dán prompt vào ChatGPT</h2>
       <p class="help">ChatGPT trả nội dung thành các writing block riêng để bạn copy nhanh. Hình ảnh chưa được tạo ở lượt này.</p>
       <div class="note">
-        <strong>Lượt 1:</strong> TikTok + Facebook + Zalo OA, mỗi nền tảng một writing block.<br>
-        <strong>Sau đó gõ “TIẾP”:</strong> nhận YouTube Post + một writing block Prompt tạo ảnh.<br>
-        <strong>Khi muốn tạo ảnh:</strong> copy riêng block Prompt tạo ảnh, đính kèm frame/logo nếu có, rồi dán lại ngay trong cùng chat. Chỉ lúc đó AI mới tạo ảnh.
+        <strong>Khuyến nghị:</strong> làm từng nền tảng theo vòng lặp: TikTok → ảnh → Facebook → ảnh → Zalo → ảnh → YouTube → ảnh.<br>
+        <strong>Bài viết:</strong> luôn nằm trong writing block, nhưng nội dung bên trong là plain text sạch, không Markdown.<br>
+        <strong>Hình ảnh:</strong> khi bạn yêu cầu “tạo ảnh”, AI tạo đúng số ảnh và đúng tỷ lệ của nền tảng hiện tại.
       </div>
     </section>
 
@@ -177,30 +177,33 @@
           'Bạn là biên tập viên nội dung của Kế Toán Diệu Tâm.',
           '',
           'MỤC TIÊU:',
-          'Từ video đã đăng dưới đây, hãy tạo bài đăng cho ngày kế tiếp trên TikTok, Facebook, Zalo OA và YouTube Posts.',
+          'Từ video đã đăng dưới đây, hãy biến kịch bản thành bài viết kiến thức đa nền tảng theo SKILL v2. Kịch bản chỉ là hạt giống; bài viết phải bổ sung kiến thức mới. Bắt đầu với TikTok, sau đó chờ tôi yêu cầu ảnh hoặc chuyển nền tảng.',
           '',
           'LUẬT VÀNG:',
           '1) Không kể lại video và không chép lại lời thoại.',
-          '2) Trước khi viết, phải xác định rõ: bài mới thêm giá trị gì mà video chưa nói.',
-          '3) Bài mới phải là câu hỏi/góc nhìn tiếp theo mà video tự nhiên gợi ra.',
-          '4) Dùng bản đồ 32 video THẬT của series để hiểu vị trí kịch bản. Match theo luận điểm trung tâm + độ sâu. Một chủ đề chỉ được nhắc qua không tính là đã bao phủ. Đặc biệt không biến bài xen kẽ thành luận điểm chính của NGÀY KẾ TIẾP.',
-          '5) Bắt đầu từ đời sống thật của người kinh doanh rồi mới dẫn tới kế toán/quản trị.',
-          '6) Giọng bình tĩnh, rõ, có chiều sâu; không hù dọa, không khoa trương, không viết kiểu bài giảng khô.',
-          '7) CTA mềm; không bán dịch vụ trực diện.',
+          '2) Trước khi viết, xác định: người đã xem video sẽ HỌC THÊM điều gì từ bài này.',
+          '3) Mỗi bài phải có một knowledge wedge: cơ chế, ví dụ số, phân biệt khái niệm, checklist hoặc ứng dụng thực tế.',
+          '4) Tỷ lệ mục tiêu: 30–40% tư tưởng thương hiệu, 60–70% kiến thức thực tế.',
+          '5) Dùng bản đồ 32 video để tránh ăn sang luận điểm chính của ngày kế tiếp.',
+          '6) Nếu chạm thuế/pháp luật/chính sách/spec hiện hành, phải research nguồn mới trước khi khẳng định.',
+          '7) Mọi bài phải có khoảng thở: đoạn ngắn 1–3 câu, dòng trống giữa các ý, tránh tường chữ.',
+          '8) Giọng bình tĩnh, rõ, có chiều sâu; CTA mềm; không bán dịch vụ trực diện.',
           '',
           'QUY TẮC NỀN TẢNG:',
-          '- TikTok Photo Post: hook nhanh, caption ngắn. Nếu ý cần 2–3 bước để hiểu thì tạo đúng 3 slide; nếu một câu đã đủ thì 1 ảnh.',
-          '- Facebook: hook 1–2 dòng đầu, triển khai tự nhiên như chia sẻ cho chủ doanh nghiệp, dễ đọc trên mobile.',
-          '- Zalo OA: có tiêu đề, trích dẫn ngắn, nội dung có cấu trúc, tính ứng dụng cao.',
-          '- YouTube Post: cô đọng hơn Facebook, tập trung 1 insight hoặc 1 câu hỏi.',
+          '- TikTok Photo Post: nếu UI có title thì cho title ngắn; caption vừa phải; kiến thức nằm nhiều trên 4–5 ảnh 9:16.',
+          '- Facebook: sâu hơn TikTok; đúng 4 ảnh 4:5.',
+          '- Zalo OA: sâu nhất; title + trích dẫn + bài; 1 cover 16:9 + 2 ảnh body target 500×320.',
+          '- YouTube Community: cô đọng hơn Facebook; đúng 4 ảnh 1:1 riêng, không collage, mặc định không logo.',
           '',
           'QUY TẮC HÌNH ẢNH:',
-          '- Ở lượt trả bài viết, TUYỆT ĐỐI KHÔNG tạo ảnh và không gọi công cụ tạo ảnh.',
-          '- Chỉ chuẩn bị một PROMPT TẠO ẢNH hoàn chỉnh để user chủ động copy và dán lại sau.',
-          '- Prompt ảnh phải tự xử lý 4 trường hợp: có frame, có logo, có cả hai, hoặc không có asset.',
-          '- Tự quyết single hoặc carousel3; không hỏi user.',
-          '- Primary 9:16; safe crop 4:5 Facebook và 1:1 YouTube; adaptation 16:9 Zalo.',
-          '- Không tự vẽ sai logo, không tự tạo nhân vật Diệu Tâm khi thiếu reference, không cố render chữ Việt nếu không chắc.',
+          '- Chỉ tạo ảnh khi tôi yêu cầu tạo ảnh cho nền tảng hiện tại.',
+          '- TikTok: 4–5 ảnh riêng 9:16.',
+          '- Facebook: đúng 4 ảnh riêng 4:5.',
+          '- Zalo: cover 16:9; body target 500×320.',
+          '- YouTube: đúng 4 ảnh riêng 1:1; không collage; mặc định không logo.',
+          '- Trong cùng bộ giữ cùng nhân vật/style; sang ngày mới mặc định đổi nhân vật hoặc bối cảnh nếu không có yêu cầu continuity.',
+          '- Nếu có logo thật: dùng đúng asset; không tự vẽ lại logo.',
+          '- Text/số liệu trên ảnh phải khớp nội dung bài.',
           '',
           ctx,
           ctx ? '' : '',
@@ -209,24 +212,15 @@
           script,
           '---',
           '',
-          'OUTPUT / WRITING BLOCK CONTRACT:',
-          'A. LƯỢT 1:',
-          '0) Trước writing blocks, ghi ngắn: SLOT ĐÃ KHỚP + GÓC MỞ RỘNG.',
-          '1) TikTok trong một writing block riêng: variant="social_post". Chỉ nội dung để copy đăng.',
-          '2) Facebook trong một writing block riêng: variant="social_post". Chỉ bài hoàn chỉnh.',
-          '3) Zalo OA trong một writing block riêng: variant="document". Chỉ tiêu đề + trích dẫn + bài hoàn chỉnh.',
-          '4) Sau 3 block, chỉ ghi: “Gõ TIẾP để nhận YouTube Post + Prompt tạo ảnh.”',
-          '5) KHÔNG tạo ảnh. KHÔNG trả prompt ảnh ở lượt 1.',
-          '',
-          'B. KHI USER GỬI “TIẾP”:',
-          '1) YouTube Post trong một writing block riêng: variant="social_post".',
-          '2) Prompt tạo ảnh trong một writing block riêng: variant="standard".',
-          '3) Prompt ảnh phải độc lập, copy là chạy được ngay; dùng asset đính kèm nếu có và kết thúc bằng yêu cầu tiến hành tạo ảnh.',
-          '4) Sau block prompt ảnh, ghi ngắn: “Copy block Prompt tạo ảnh, đính kèm frame/logo nếu có, rồi dán lại ngay trong chat này để tạo ảnh.”',
-          '',
-          'Mỗi writing block phải có title riêng và id 5 chữ số. Không trộn hai nền tảng vào cùng một block.',
-          'Nếu môi trường không hỗ trợ writing block, fallback mỗi artifact thành một code block riêng.',
-          'Trước khi trả lời, tự kiểm tra: có lặp video không, có thêm giá trị mới không, có ăn sang ngày kế tiếp không, mỗi nền tảng có đúng writing block riêng không, và có vô tình tạo ảnh ở lượt nội dung không. Nếu có thì sửa trước khi trả lời.'
+          'OUTPUT CONTRACT:',
+          '1) Bắt đầu bằng TikTok nếu tôi chưa chỉ định nền tảng khác.',
+          '2) Mỗi bài đăng nằm trong writing block riêng. Bên trong writing block chỉ có plain text sạch để đăng: KHÔNG dùng ##, **, --- hoặc syntax Markdown.',
+          '3) TikTok: cung cấp tiêu đề nếu UI có ô title + caption. Khi tôi yêu cầu ảnh, tạo 4–5 ảnh 9:16.',
+          '4) Facebook: bài sâu hơn, nhiều khoảng thở. Khi tôi yêu cầu ảnh, tạo đúng 4 ảnh 4:5.',
+          '5) Zalo: writing block document gồm TIÊU ĐỀ + TRÍCH DẪN + NỘI DUNG plain text. Khi tôi yêu cầu ảnh, tạo cover 16:9 + body 500×320.',
+          '6) YouTube: bài cô đọng. Khi tôi yêu cầu ảnh, tạo đúng 4 ảnh vuông 1:1 riêng.',
+          '7) Không trộn phần giải thích biên tập vào writing block.',
+          '8) Trước khi trả, QA: bài có thêm kiến thức không; có ví dụ/cơ chế/takeaway không; có tường chữ không; claim hiện hành đã research chưa; đúng số ảnh/tỷ lệ chưa; text ảnh có khớp bài không.'
         ].filter(function(x){ return x !== null && x !== undefined; }).join('\n');
 
         promptOutput.value = prompt;
