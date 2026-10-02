@@ -274,6 +274,26 @@ Tránh mặc định:
 - emoji gây cảm giác giật gân, bán hàng hoặc quá trẻ con;
 - lặp cùng một emoji quá nhiều lần.
 
+### Hashtag protocol — bắt buộc theo nền tảng
+
+Hashtag là một phần của output social, không được bỏ quên khi nền tảng yêu cầu theo preset của project.
+
+Quy tắc chung:
+- hashtag nằm ở CUỐI bài/caption, sau nội dung chính;
+- viết hashtag plain text, KHÔNG escape bằng backslash: dùng #KeToanDieuTam, không viết \#KeToanDieuTam;
+- luôn ưu tiên tag liên quan trực tiếp tới bài;
+- không spam hashtag chung chung như #fyp #viral #xuhuong nếu không có lý do cụ thể;
+- không dùng hashtag sai chủ đề chỉ để kéo reach;
+- ưu tiên viết không dấu cho tính ổn định, ví dụ #DongTien, #LoiNhuan, #ChuDoanhNghiep.
+
+Project preset:
+- TikTok: 2–4 hashtag tổng cộng; mặc định có #KeToanDieuTam + 1–3 hashtag chủ đề.
+- Facebook: 3–4 hashtag tổng cộng; mặc định có #KeToanDieuTam + 2–3 hashtag chủ đề.
+- Zalo OA article: KHÔNG dùng hashtag mặc định. Đây là chủ đích, không phải lỗi.
+- YouTube Community: 2–3 hashtag tổng cộng; mặc định có #KeToanDieuTam + 1–2 hashtag chủ đề.
+
+Nếu user yêu cầu không hashtag hoặc có bộ hashtag riêng, ưu tiên yêu cầu trực tiếp của user.
+
 ## 6. Writing block + plain text sạch
 
 Mọi nội dung người dùng cần copy để đăng phải nằm trong writing block riêng.
@@ -307,7 +327,7 @@ Caption mặc định:
 - khoảng 6–10 đoạn ngắn;
 - độ dài vừa phải;
 - khoảng 4–6 emoji có chức năng thị giác, không rải đều máy móc;
-- 2–4 hashtag liên quan;
+- 2–4 hashtag ở cuối caption, gồm #KeToanDieuTam + hashtag chủ đề;
 - không lặp lại toàn bộ slide.
 
 Cấu trúc:
@@ -344,7 +364,8 @@ Bài:
 - ví dụ số nếu hữu ích;
 - phần áp dụng;
 - kết bài mềm;
-- nhiều khoảng thở.
+- nhiều khoảng thở;
+- kết thúc bằng 3–4 hashtag liên quan, mặc định có #KeToanDieuTam.
 
 ### Ảnh Facebook — quy tắc cố định
 Mặc định đúng 4 ảnh riêng.
@@ -386,7 +407,7 @@ Nên có:
 - bài tập nhỏ nếu phù hợp;
 - câu hỏi quản trị.
 
-Không mặc định dùng hashtag.
+Không dùng hashtag mặc định cho Zalo OA article. Đây là chủ đích của project, không phải thiếu sót.
 
 ### Ảnh Zalo OA
 Nếu cần đúng chuẩn hiện hành, research lại tài liệu Zalo chính thức trước khi khẳng định.
@@ -407,7 +428,8 @@ Bài:
 - 1 insight chính;
 - ví dụ số nếu cần;
 - định nghĩa/nguyên lý ngắn;
-- câu hỏi cuối tự nhiên nếu phù hợp.
+- câu hỏi cuối tự nhiên nếu phù hợp;
+- kết thúc bằng 2–3 hashtag liên quan, mặc định có #KeToanDieuTam.
 
 ### Ảnh YouTube
 Mặc định đúng 4 ảnh vuông RIÊNG BIỆT.
@@ -600,6 +622,11 @@ Formatting:
 - Khoảng thở đủ không?
 - Emoji có đủ để tạo nhịp thị giác nhưng không bị rối không?
 - Emoji có đặt ở các điểm chuyển ý/checklist/takeaway thay vì rải ngẫu nhiên không?
+- TikTok có 2–4 hashtag ở cuối caption, gồm #KeToanDieuTam + tag chủ đề không?
+- Facebook có 3–4 hashtag ở cuối bài, gồm #KeToanDieuTam + tag chủ đề không?
+- Zalo OA có giữ mặc định không hashtag, trừ khi user yêu cầu khác không?
+- YouTube Community có 2–3 hashtag ở cuối bài, gồm #KeToanDieuTam + tag chủ đề không?
+- Hashtag có bị escape sai thành \#... hoặc nằm lẫn giữa bài không?
 - Sau bài viết đã có câu handoff “bấm OK để tạo bộ ảnh” đúng nền tảng và đúng số lượng/tỷ lệ chưa?
 
 Hình ảnh:
