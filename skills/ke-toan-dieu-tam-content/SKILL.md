@@ -364,23 +364,60 @@ Quy tắc:
 - nếu người dùng yêu cầu sửa bài thay vì OK, sửa bài trước rồi lặp lại handoff;
 - nếu người dùng chủ động yêu cầu “tạo ảnh” ngay, coi đó là xác nhận và tiến hành luôn, không bắt họ phải nói đúng chữ “OK”.
 
-## 13. Khi người dùng yêu cầu tạo ảnh
+## 13. Image Execution Protocol — bắt buộc sau khi user duyệt
 
-Dùng công cụ tạo ảnh nếu có.
+Khi user trả lời “OK”, “được”, “tạo ảnh đi”, “làm ảnh”, hoặc một xác nhận tương đương sau bài viết:
+- coi đó là phê duyệt bài vừa viết;
+- dùng BÀI VỪA DUYỆT + nền tảng hiện tại + ghi chú user + asset/reference đã có làm source of truth;
+- KHÔNG hỏi lại số ảnh, tỷ lệ, bố cục, màu sắc hoặc nội dung từng ảnh nếu user không chủ động thay đổi;
+- nếu môi trường có công cụ tạo ảnh, PHẢI gọi công cụ tạo ảnh ngay trong lượt đó; không chỉ trả prompt hoặc kế hoạch ảnh;
+- chỉ fallback sang prompt tạo ảnh khi môi trường thật sự không có công cụ tạo ảnh.
 
-Phải:
-- tạo ảnh riêng, không collage nếu yêu cầu nhiều ảnh;
-- đúng số ảnh mặc định của nền tảng;
-- đúng tỷ lệ;
-- giữ cùng nhân vật trong bộ;
-- giữ số liệu nhất quán;
-- kiểm tra chính tả tiếng Việt;
-- nếu một ảnh sai chữ/số, tạo lại ảnh đó;
-- không thay đổi nội dung kiến thức chỉ vì hình đẹp hơn.
+Trước khi tạo, lập production plan nội bộ:
+1. xác định đúng nền tảng;
+2. khóa đúng số ảnh và tỷ lệ;
+3. gán vai trò cho từng ảnh: hook → case/breakdown → concept → checklist/takeaway;
+4. chốt copy chính xác trên từng ảnh;
+5. chốt nhân vật/bối cảnh/visual identity;
+6. kiểm tra số liệu giữa bài và ảnh.
 
-Nếu ảnh/reference thật được cung cấp trong cuộc trò chuyện:
-- dùng làm reference nếu phù hợp;
-- ưu tiên tính chính xác thương hiệu.
+Quy tắc thực thi:
+- mỗi ảnh là một file/output riêng; không tạo contact sheet, collage hay ảnh ghép nhiều khung;
+- trong cùng bộ phải giữ cùng nhân vật, trang phục, ngành nghề, không gian và tone ánh sáng;
+- nếu trước đó cùng kịch bản đã có bộ ảnh ở nền tảng khác, ưu tiên tiếp tục visual identity/nhân vật của ngày đó để giữ continuity;
+- sang kịch bản/ngày mới, mặc định đổi nhân vật hoặc bối cảnh nếu user không yêu cầu continuity;
+- một ảnh chỉ mang một ý chính;
+- chữ phải đọc nhanh trên điện thoại, không biến ảnh thành trang Word;
+- headline lớn, ít dòng; subtext ngắn; checklist ngắn;
+- text tiếng Việt phải đúng dấu và chính tả;
+- số liệu, phép tính, ký hiệu tiền phải khớp 100% với bài đã duyệt;
+- không tự thêm claim, con số, biểu đồ, phần trăm hoặc dữ kiện mới chỉ để ảnh “trông chuyên nghiệp”;
+- không dùng ký hiệu USD/$ cho bối cảnh Việt Nam trừ khi bài thực sự nói về USD;
+- không tự bịa tên app, dashboard, hóa đơn, ngân hàng hoặc thương hiệu;
+- không tự vẽ lại logo. Có logo thật thì dùng asset thật; không có thì bỏ logo.
+
+Visual language mặc định:
+- realistic, cinematic nhẹ, Việt Nam đời thường;
+- tránh stock quá bóng, cyber, neon tài chính, dashboard giả;
+- typography sans-serif sạch, dễ đọc dấu tiếng Việt;
+- ưu tiên chữ trắng với accent vàng/underline vàng trên nền đủ tương phản khi hợp concept;
+- có dark gradient/overlay nhẹ phía sau chữ nếu ảnh nền phức tạp;
+- giữ khoảng thở, không đặt chữ sát mép.
+
+Nếu model tạo chữ chưa chính xác:
+- không chấp nhận ảnh sai chính tả;
+- tạo lại riêng ảnh lỗi;
+- nếu môi trường có công cụ compositing/resize đáng tin cậy, ưu tiên tạo visual sạch rồi typeset chữ chính xác bằng công cụ đó;
+- không giao ảnh có lỗi chữ rõ ràng chỉ vì hình đẹp.
+
+Nếu công cụ tạo ảnh không hỗ trợ đúng pixel cuối:
+- giữ đúng aspect ratio khi generate;
+- dùng công cụ resize/crop nếu có để xuất final đúng preset;
+- không kéo giãn làm méo người/chữ.
+
+Đọc và áp dụng chi tiết trong:
+- references/image-execution.md
+- references/platform-playbook.md
 
 ## 14. Failure modes — phải tránh
 
@@ -419,18 +456,28 @@ Formatting:
 - Sau bài viết đã có câu handoff “bấm OK để tạo bộ ảnh” đúng nền tảng và đúng số lượng/tỷ lệ chưa?
 
 Hình ảnh:
-- TikTok 4–5 ảnh 9:16?
-- Facebook đúng 4 ảnh 4:5?
-- Zalo cover 16:9 + body target 500×320?
-- YouTube đúng 4 ảnh riêng 1:1?
-- Cùng bộ có nhất quán nhân vật/style không?
+- User đã duyệt bài chưa, hoặc đã chủ động yêu cầu tạo ảnh chưa?
+- Khi có xác nhận, AI đã thực sự gọi công cụ tạo ảnh thay vì chỉ trả prompt chưa?
+- TikTok 4–5 ảnh riêng 9:16?
+- Facebook đúng 4 ảnh riêng 4:5?
+- Zalo đúng 1 cover 16:9 + 2 body target 500×320?
+- YouTube đúng 4 ảnh riêng 1:1, không collage?
+- Mỗi ảnh có đúng một vai trò và một ý chính không?
+- Cùng bộ có nhất quán nhân vật/trang phục/bối cảnh/style không?
+- Cùng kịch bản qua nhiều nền tảng có giữ visual identity của ngày đó không?
 - Ngày mới có tránh lặp nhân vật không?
-- Text và số liệu có chính xác không?
+- Headline có scan được nhanh trên mobile không?
+- Có ảnh nào quá nhiều chữ hoặc chữ sát mép không?
+- Text tiếng Việt có đúng dấu/chính tả không?
+- Số liệu và phép tính có khớp bài 100% không?
+- Có tự thêm dữ kiện/biểu đồ/phần trăm không có trong bài không?
 - Logo có phải asset thật không?
+- Nếu có lỗi rõ ràng, đã tự tạo lại ảnh lỗi trước khi giao chưa?
 
 Nếu còn một điểm không chắc, sửa trước khi trả.
 
 Đọc thêm khi cần:
+- references/image-execution.md
 - references/platform-playbook.md
 - references/editorial-depth.md
 - examples/gold-standard.md
