@@ -1,9 +1,11 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ke-toan-dieu-tam-social-content",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Independent editorial skill for turning Kế Toán Diệu Tâm video scripts into deeper platform-native posts and image sets for TikTok, Facebook, Zalo OA, and YouTube Community.",
-  "author": { "name": "Kế Toán Diệu Tâm" },
+  "author": {
+    "name": "Kế Toán Diệu Tâm"
+  },
   "extensions": {
     "com.openai": {
       "interface": {
@@ -12,7 +14,9 @@
         "longDescription": "Biến kịch bản video của Kế Toán Diệu Tâm thành bài viết có chiều sâu và bộ ảnh tối ưu riêng cho TikTok, Facebook, Zalo OA và YouTube Community.",
         "developerName": "Kế Toán Diệu Tâm",
         "category": "Productivity",
-        "capabilities": ["Interactive"],
+        "capabilities": [
+          "Interactive"
+        ],
         "defaultPrompt": "Tôi sẽ gửi một kịch bản video mới. Hãy bắt đầu với TikTok theo quy trình Kế Toán Diệu Tâm."
       }
     }
