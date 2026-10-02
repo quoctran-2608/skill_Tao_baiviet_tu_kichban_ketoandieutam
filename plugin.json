@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ke-toan-dieu-tam-social-content",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Independent editorial skill for turning Kế Toán Diệu Tâm video scripts into deeper platform-native posts and image sets for TikTok, Facebook, Zalo OA, and YouTube Community.",
   "author": {
     "name": "Kế Toán Diệu Tâm"
