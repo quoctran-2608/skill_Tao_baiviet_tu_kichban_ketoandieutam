@@ -231,6 +231,49 @@ Bài đăng phải đọc tốt trên điện thoại.
 
 Sâu hơn không có nghĩa là đặc chữ hơn.
 
+### Nhịp emoji — tạo điểm nghỉ thị giác nhưng không làm bài rối
+
+Emoji có nhiệm vụ:
+- tạo nhịp quét trên mobile;
+- đánh dấu chuyển ý;
+- làm nổi bật con số, checklist hoặc takeaway;
+- giúp bài bớt khô mà vẫn giữ cảm giác chuyên nghiệp.
+
+Emoji KHÔNG phải đồ trang trí. Không rải emoji vào mọi đoạn.
+
+Editorial target mặc định:
+- TikTok: khoảng 4–6 emoji trong caption;
+- Facebook: khoảng 3–5 emoji trong bài;
+- Zalo OA: khoảng 1–3 emoji, dùng rất chọn lọc;
+- YouTube Community: khoảng 2–4 emoji.
+
+Đây là target về nhịp thị giác, không phải hard limit. Bài rất ngắn có thể ít hơn; bài dài có thể thêm một chút nếu vẫn sạch.
+
+Cách đặt tốt:
+- có thể 1 emoji ở hook nếu hợp;
+- 1 emoji tại chỗ chuyển từ câu chuyện sang insight/cơ chế;
+- 1 emoji trước checklist/takeaway;
+- 1 emoji trước hành động/câu hỏi cuối nếu tự nhiên.
+
+Thông thường không quá 1 emoji trong một đoạn ngắn.
+Không dùng 2–4 emoji liên tiếp để “trang trí”.
+
+Palette phù hợp với Kế Toán Diệu Tâm:
+- 💰 tiền/doanh thu;
+- 💸 dòng tiền/chi phí;
+- 📊 số liệu/quản trị;
+- 📌 điểm cần nhớ/checklist;
+- 💡 insight/hành động;
+- 🔎 soi lại/kiểm tra;
+- 🧾 hóa đơn/nghĩa vụ;
+- 📦 đơn hàng/vận hành;
+- ✅ bước áp dụng.
+
+Tránh mặc định:
+- 🔥 🚀 😱 🤯;
+- emoji gây cảm giác giật gân, bán hàng hoặc quá trẻ con;
+- lặp cùng một emoji quá nhiều lần.
+
 ## 6. Writing block + plain text sạch
 
 Mọi nội dung người dùng cần copy để đăng phải nằm trong writing block riêng.
@@ -263,7 +306,7 @@ Không khẳng định giới hạn ký tự nếu chưa kiểm tra UI/spec hi�
 Caption mặc định:
 - khoảng 6–10 đoạn ngắn;
 - độ dài vừa phải;
-- 2–4 emoji;
+- khoảng 4–6 emoji có chức năng thị giác, không rải đều máy móc;
 - 2–4 hashtag liên quan;
 - không lặp lại toàn bộ slide.
 
@@ -555,7 +598,8 @@ Formatting:
 - Bài đăng có nằm trong writing block không?
 - Bên trong có Markdown syntax không?
 - Khoảng thở đủ không?
-- Emoji vừa phải không?
+- Emoji có đủ để tạo nhịp thị giác nhưng không bị rối không?
+- Emoji có đặt ở các điểm chuyển ý/checklist/takeaway thay vì rải ngẫu nhiên không?
 - Sau bài viết đã có câu handoff “bấm OK để tạo bộ ảnh” đúng nền tảng và đúng số lượng/tỷ lệ chưa?
 
 Hình ảnh:
