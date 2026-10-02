@@ -11,7 +11,8 @@ Nguồn chân lý duy nhất là:
 Gồm:
 - `SKILL.md` — workflow và quality gates chính;
 - `references/editorial-depth.md` — cách mở rộng kịch bản thành bài có substance;
-- `references/platform-playbook.md` — preset từng nền tảng;
+- `references/platform-playbook.md` — official facts + preset từng nền tảng;
+- `references/image-execution.md` — cách tạo ảnh, continuity, text density và Auto-QA;
 - `examples/gold-standard.md` — mẫu calibrate chất lượng.
 
 `index.html` chỉ làm UI + prompt assembler. Nó không giữ một bản editorial skill thứ hai.
@@ -59,7 +60,8 @@ Vì prompt đầu tiên đã chứa toàn bộ Skill, AI có context để tiế
         ├── SKILL.md
         ├── references/
         │   ├── editorial-depth.md
-        │   └── platform-playbook.md
+        │   ├── platform-playbook.md
+        │   └── image-execution.md
         └── examples/
             └── gold-standard.md
 ```
