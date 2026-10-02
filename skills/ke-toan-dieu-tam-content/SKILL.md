@@ -56,25 +56,37 @@ Tỷ trọng nội dung mục tiêu:
 
 ## 3. Content Expansion Engine
 
-Trước mỗi bài, thực hiện 5 bước nội bộ.
+Trước mỗi bài, thực hiện workflow nội bộ này. Không hiển thị phân tích dài dòng cho user trừ khi họ yêu cầu.
 
-### Bước 1 — Tìm tình huống đời thực
-Ví dụ:
-- có đơn hàng mới;
-- doanh thu tăng;
-- cuối tháng vẫn thiếu tiền;
-- hàng đã bán nhưng tiền chưa về;
-- chủ shop bận nhưng không biết có lời hay không.
+### Bước 1 — Tách “video đã nói” và “bài viết phải thêm”
 
-### Bước 2 — Tìm câu hỏi thật
-Ví dụ:
-- Một đơn 500.000đ thực sự để lại bao nhiêu?
-- Vì sao có lời mà vẫn thiếu tiền?
-- Tiền đang nằm ở đâu?
-- Doanh thu tăng có đồng nghĩa doanh nghiệp khỏe lên không?
+Ghi nhận ngắn trong đầu:
+- luận điểm video;
+- ví dụ/tình huống video đã dùng;
+- điều video mới chỉ gợi ra nhưng chưa giải thích;
+- câu hỏi tự nhiên mà một chủ kinh doanh sẽ hỏi tiếp.
 
-### Bước 3 — Chọn MỘT knowledge wedge chính
-Ví dụ:
+Mục tiêu là tránh paraphrase. Bài viết phải có ít nhất một lớp giá trị mới.
+
+### Bước 2 — Tìm tình huống đời thực
+
+Ưu tiên tình huống người kinh doanh dễ nhận ra:
+- có đơn nhưng chưa chắc có tiền;
+- doanh thu tăng nhưng tài khoản mỏng;
+- bán chạy nhưng không biết sản phẩm nào thật sự có lời;
+- phải trả nhà cung cấp trước khi tiền bán hàng quay về;
+- nhiều việc hơn nhưng chưa chắc doanh nghiệp khỏe hơn.
+
+### Bước 3 — Sinh 2–3 knowledge wedge nội bộ rồi chọn MỘT wedge chính
+
+Một wedge tốt phải đồng thời:
+- bám sát kịch bản;
+- mới hơn video;
+- hữu ích cho người đọc;
+- giải thích được bằng ngôn ngữ đời thường;
+- có thể chuyển thành ví dụ, câu hỏi hoặc hành động.
+
+Ví dụ wedge:
 - doanh thu ≠ dòng tiền ≠ lợi nhuận;
 - giá vốn và chi phí vận hành;
 - biên lợi nhuận;
@@ -83,23 +95,108 @@ Ví dụ:
 - công nợ;
 - hàng tồn;
 - điểm hòa vốn;
-- thời điểm tiền về khác thời điểm bán hàng.
+- thời điểm bán hàng khác thời điểm tiền về.
 
-Không cố nhồi tất cả các khái niệm vào một bài ngắn.
+Không chọn wedge chỉ vì nghe “chuyên môn”. Chọn wedge giúp user nhìn doanh nghiệp rõ hơn.
 
-### Bước 4 — Tạo ví dụ dễ hiểu
+### Bước 4 — Chọn hook có lực nhưng không clickbait
+
+Ưu tiên một trong các kiểu:
+- nghịch lý thật: “Bán được 500.000đ chưa chắc đã kiếm được 500.000đ.”
+- câu hỏi chủ doanh nghiệp thật sự quan tâm;
+- một con số cụ thể;
+- một sai lầm nhận thức phổ biến;
+- một tình huống rất đời.
+
+Hook phải được phần thân “trả lời”. Không dùng:
+- “99% chủ doanh nghiệp…” nếu không có dữ liệu;
+- “bí mật”, “sốc”, “không ai nói cho bạn”;
+- hù dọa thuế/pháp luật để kéo tương tác.
+
+### Bước 5 — Giải thích cơ chế
+
+Không dừng ở lời khuyên chung chung.
+
+Một bài có chiều sâu thường phải trả lời ít nhất một câu “vì sao” hoặc “tiền đi đâu / điều gì xảy ra tiếp theo?”.
+
+Cách giải thích:
+1. nêu hiện tượng;
+2. bóc cơ chế;
+3. cho ví dụ;
+4. chỉ ra hệ quả quản trị;
+5. kết thành câu hỏi/hành động.
+
+### Bước 6 — Tạo ví dụ dễ hiểu
+
 Nếu ví dụ số giúp hiểu nhanh, hãy dùng.
 
-Ví dụ phải được hiểu là minh họa/giả định, không phải benchmark ngành.
-Phép tính phải đúng và đồng nhất giữa caption và hình ảnh.
+Ví dụ phải:
+- đơn giản;
+- phép tính đúng;
+- ghi/hiểu là minh họa giả định;
+- không giả thành benchmark ngành;
+- đồng nhất giữa bài viết và ảnh.
 
-### Bước 5 — Cho người đọc thứ có thể làm ngay
-Mỗi bài nên kết tinh thành:
+Không dùng số chỉ để làm bài “có vẻ chuyên môn”.
+
+### Bước 7 — Cho người đọc thứ có thể làm ngay
+
+Mỗi bài nên để lại ít nhất một trong các tài sản thực hành:
 - 3 câu hỏi;
 - checklist;
 - bài tập nhỏ;
-- cách quan sát một con số;
-- hoặc một thay đổi trong cách ra quyết định.
+- công thức quan sát;
+- cách bóc tách một đơn hàng;
+- cách kiểm tra một con số cuối tháng;
+- nguyên tắc ra quyết định.
+
+Nếu bỏ tên thương hiệu ra mà bài không còn giá trị độc lập, bài vẫn chưa đủ sâu.
+
+## 3A. Editorial Value Test — bắt buộc
+
+Trước khi viết xong, tự hỏi:
+- User học thêm được điều gì cụ thể so với video?
+- Họ có hiểu được một cơ chế hay chỉ nhận một khẩu hiệu?
+- Có ví dụ/case đủ cụ thể không?
+- Có một hành động hoặc câu hỏi họ dùng được ngay không?
+- Hook có được phần thân trả lời không?
+- Có đoạn nào nghe đúng nhưng quá chung chung không?
+- Có thể bỏ 20% chữ mà bài vẫn rõ hơn không?
+
+Mức giá trị mục tiêu:
+- TikTok: ít nhất 1 insight + 1 takeaway.
+- Facebook: ít nhất 1 cơ chế + 1 ví dụ + 1 takeaway.
+- Zalo OA: cơ chế + ví dụ + hệ quả + checklist/bài tập.
+- YouTube Community: 1 insight rõ + 1 minh họa/takeaway.
+
+## 3B. Cross-platform transformation — không làm 4 bản copy
+
+Cùng một tư tưởng nhưng mỗi nền tảng phải có vai trò khác:
+
+TikTok = NHẬN RA
+- “Ồ, hóa ra điều này khác mình nghĩ.”
+- nhanh, cụ thể, dễ swipe.
+
+Facebook = HIỂU VÌ SAO
+- giải thích nguyên nhân/cơ chế;
+- cho ví dụ gần đời;
+- giúp user liên hệ với doanh nghiệp của mình.
+
+Zalo OA = HỌC VÀ ÁP DỤNG
+- hệ thống hóa;
+- phân biệt khái niệm;
+- đi sâu thêm một cấp;
+- checklist/bài tập/câu hỏi quản trị.
+
+YouTube Community = CỦNG CỐ VÀ TƯƠNG TÁC
+- cô đọng insight;
+- một ví dụ đủ hiểu;
+- kết bằng câu hỏi tự nhiên.
+
+Không tạo Facebook bằng cách kéo dài TikTok.
+Không tạo Zalo bằng cách nối thêm vài đoạn vào Facebook.
+Không tạo YouTube bằng cách cắt ngẫu nhiên Facebook.
+Mỗi nền tảng phải được đóng gói lại theo hành vi đọc của nền tảng đó.
 
 ## 4. Research Gate
 
@@ -441,10 +538,16 @@ Nếu công cụ tạo ảnh không hỗ trợ đúng pixel cuối:
 Trước khi trả lời, tự kiểm tra:
 
 Nội dung:
-- Có thêm kiến thức mới so với video không?
-- Knowledge wedge có rõ không?
-- Có ví dụ/cơ chế/takeaway không?
-- Có quá nhiều slogan không?
+- Có thêm kiến thức mới rõ ràng so với video không?
+- Knowledge wedge có bám kịch bản nhưng không paraphrase không?
+- Hook có đủ cụ thể và được phần thân trả lời không?
+- Có ít nhất một cơ chế “vì sao / tiền đi đâu / điều gì xảy ra tiếp” không?
+- Có ví dụ/case đủ cụ thể không?
+- Ví dụ giả định có bị viết như dữ liệu thật không?
+- Có takeaway/checklist/bài tập/câu hỏi quản trị dùng được ngay không?
+- Nếu bỏ tên thương hiệu, bài vẫn có giá trị độc lập không?
+- Bốn nền tảng có khác cách đóng gói, hay chỉ là bản dài/ngắn của cùng một bài?
+- Có quá nhiều slogan hoặc câu đúng nhưng chung chung không?
 - Có tường chữ không?
 - Claim hiện hành đã research chưa?
 
