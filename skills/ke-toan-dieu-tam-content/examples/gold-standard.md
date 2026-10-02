@@ -89,3 +89,30 @@ Bài cô đọng:
 - writing block có Markdown syntax;
 - ảnh/caption dùng số khác nhau;
 - toàn bài chỉ nói “hiểu cuộc chơi”.
+
+
+## Editorial calibration — vì sao ví dụ này đạt
+
+Bài này đạt không phải vì dùng con số 500.000đ, mà vì nó thực hiện đủ chuỗi:
+
+VIDEO:
+“Một đơn hàng đi qua nhiều mắt xích.”
+
+BÀI VIẾT MỞ RỘNG:
+“Vậy mỗi đơn thực sự tạo ra bao nhiêu tiền cho doanh nghiệp?”
+
+CƠ CHẾ:
+- doanh thu;
+- chi phí trực tiếp;
+- dòng tiền;
+- lợi nhuận;
+- timing thu tiền.
+
+ỨNG DỤNG:
+- bóc 10 đơn gần nhất;
+- hỏi tiền thực thu, chi phí để tạo doanh thu và phần còn lại.
+
+Điều AI phải học từ mẫu:
+- không copy con số 500.000đ sang mọi bài;
+- không mặc định mọi script đều dẫn tới doanh thu/dòng tiền/lợi nhuận;
+- học PHƯƠNG PHÁP: tìm câu hỏi tiếp theo → giải thích cơ chế → ví dụ → hành động.
