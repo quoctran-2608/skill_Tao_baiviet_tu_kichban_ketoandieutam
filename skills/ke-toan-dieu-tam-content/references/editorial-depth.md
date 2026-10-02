@@ -286,7 +286,38 @@ Cấu trúc:
 Không rút Facebook theo kiểu cắt còn 50%.
 Viết lại từ đầu theo hành vi feed.
 
-## 10. CTA
+## 10. Hashtag strategy
+
+Hashtag phải được coi là một phần của deliverable, không phải chi tiết tùy hứng ở cuối.
+
+TikTok:
+- 2–4 hashtag;
+- luôn ưu tiên #KeToanDieuTam;
+- thêm 1–3 tag đúng chủ đề như #KinhDoanh #DongTien #LoiNhuan #ChuDoanhNghiep;
+- không mặc định #fyp / #viral / #xuhuong.
+
+Facebook:
+- 3–4 hashtag;
+- đặt ở cuối bài, tách khỏi đoạn kết;
+- #KeToanDieuTam + 2–3 tag chủ đề;
+- không biến cuối bài thành một “đám mây hashtag”.
+
+Zalo OA:
+- mặc định 0 hashtag;
+- đây là article format của project, nên không thêm hashtag chỉ để đồng bộ với mạng xã hội khác.
+
+YouTube Community:
+- 2–3 hashtag;
+- #KeToanDieuTam + 1–2 tag chủ đề;
+- đặt ở cuối post.
+
+Formatting:
+- không escape dấu #;
+- không dùng hashtag có khoảng trắng;
+- ưu tiên không dấu;
+- tránh lặp cùng một bộ tag bất kể chủ đề; tag chủ đề phải thay đổi theo knowledge wedge.
+
+## 11. CTA
 
 CTA tốt:
 - liên quan trực tiếp tới nội dung;
@@ -303,7 +334,7 @@ CTA kém:
 
 CTA không bắt buộc. Nếu không có câu hỏi tự nhiên, có thể kết bằng takeaway.
 
-## 11. Anti-repetition
+## 12. Anti-repetition
 
 Series dài dễ mắc lỗi:
 - ngày nào cũng “hiểu cuộc chơi”;
@@ -329,7 +360,7 @@ Nếu script mới dẫn đến wedge cũ, tìm một cấp khác:
 - break-even;
 - capacity pressure.
 
-## 12. Research depth
+## 13. Research depth
 
 Research không chỉ để “đúng luật”.
 
@@ -350,7 +381,7 @@ Nếu là thuế/pháp luật/chính sách:
 - nêu đúng phạm vi/thời điểm;
 - tránh tổng quát hóa.
 
-## 13. Editorial QA — trước khi trả bài
+## 14. Editorial QA — trước khi trả bài
 
 Value:
 - Người xem video có học thêm gì không?
@@ -370,10 +401,10 @@ Clarity:
 - Có thể cắt chữ để rõ hơn không?
 
 Platform fit:
-- TikTok có đủ nhanh không?
-- Facebook có đủ explanation không?
-- Zalo có đủ hệ thống/checklist không?
-- YouTube có đủ cô đọng không?
+- TikTok có đủ nhanh và có 2–4 hashtag phù hợp ở cuối không?
+- Facebook có đủ explanation và có 3–4 hashtag phù hợp ở cuối không?
+- Zalo có đủ hệ thống/checklist và không tự thêm hashtag mặc định không?
+- YouTube có đủ cô đọng và có 2–3 hashtag phù hợp ở cuối không?
 
 Brand:
 - Brand có tự nhiên không?
@@ -388,7 +419,7 @@ Accuracy:
 Nếu một mục chưa đạt, sửa trước khi trả.
 
 
-## 14. Visual rhythm audit — tránh bài đúng nhưng khô
+## 15. Visual rhythm audit — tránh bài đúng nhưng khô
 
 Trước khi trả bài, nhìn lại như một người đang lướt điện thoại.
 
