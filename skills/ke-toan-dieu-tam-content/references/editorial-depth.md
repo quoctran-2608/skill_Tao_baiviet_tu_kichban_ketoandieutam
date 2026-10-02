@@ -176,8 +176,16 @@ Project target:
 - title ngắn, specific;
 - caption khoảng 6–10 đoạn ngắn;
 - thường 600–1.200 ký tự tiếng Việt là vùng editorial hữu ích, KHÔNG phải hard limit;
-- 2–4 emoji;
+- khoảng 4–6 emoji có ý nghĩa thị giác;
 - 2–4 hashtag liên quan.
+
+Nhịp emoji gợi ý:
+- hook: có thể dùng 💰 / 📦 / 📊 nếu thật sự hợp nội dung;
+- điểm chuyển sang cơ chế: 📊 / 🔎;
+- takeaway/checklist: 📌;
+- hành động cụ thể: 💡 / ✅.
+
+Không cần đủ cả 4 vị trí. Mục tiêu là tạo nhịp đọc, không biến caption thành chuỗi icon.
 
 Caption nên:
 1. mở bằng hook;
@@ -197,6 +205,12 @@ Mục tiêu:
 - giải thích đủ sâu để user thấy mình trong tình huống;
 - thân thiện hơn bài báo;
 - substantive hơn caption TikTok.
+
+Emoji target:
+- khoảng 3–5 emoji cho một bài Facebook thông thường;
+- ưu tiên đặt tại 3–4 điểm neo: hook/chuyển ý/checklist/takeaway;
+- không đặt emoji ở đầu mọi paragraph;
+- khi đã dùng numbered list 1, 2, 3 thì không cần thêm emoji cho từng dòng.
 
 Cấu trúc tốt:
 1. 1–2 dòng hook.
@@ -220,6 +234,11 @@ Mục tiêu:
 - bài sâu nhất;
 - đọc như mini educational article;
 - có cấu trúc rõ nhưng không khô.
+
+Emoji target:
+- khoảng 1–3 emoji cho toàn bài;
+- dùng như điểm nhấn ở mở bài, checklist hoặc kết luận;
+- không để Zalo OA trông như caption mạng xã hội ngắn.
 
 Cấu trúc mẫu:
 TIÊU ĐỀ
@@ -251,6 +270,11 @@ Mục tiêu:
 - đọc nhanh;
 - vẫn học được một điều;
 - tạo tương tác tự nhiên.
+
+Emoji target:
+- khoảng 2–4 emoji;
+- dùng để neo hook, concept và câu hỏi cuối;
+- không lặp lại emoji chỉ để làm bài “nhiều màu”.
 
 Cấu trúc:
 1. hook/nghịch lý;
@@ -362,3 +386,21 @@ Accuracy:
 - Có biến giả định thành fact không?
 
 Nếu một mục chưa đạt, sửa trước khi trả.
+
+
+## 14. Visual rhythm audit — tránh bài đúng nhưng khô
+
+Trước khi trả bài, nhìn lại như một người đang lướt điện thoại.
+
+Nếu bài có nhiều đoạn chữ liên tiếp mà không có điểm neo thị giác:
+- thêm một emoji có ý nghĩa ở điểm chuyển ý phù hợp;
+- hoặc tách một câu quan trọng đứng riêng;
+- hoặc chuyển một cụm thành checklist ngắn.
+
+Không chữa “khô” bằng cách rải emoji khắp nơi.
+
+Mục tiêu:
+- TikTok: sinh động nhất nhưng vẫn sạch;
+- Facebook: ấm và dễ quét, không trẻ con;
+- Zalo: chuyên nghiệp nhất, emoji rất tiết chế;
+- YouTube: gọn, rõ, có vài điểm neo để feed không thành tường chữ.
