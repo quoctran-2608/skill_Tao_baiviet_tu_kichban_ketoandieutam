@@ -37,6 +37,9 @@ Một đơn hàng 500.000đ, bạn thực sự giữ lại bao nhiêu?
 
 Caption chỉ giải thích vừa đủ, không viết lại toàn bộ slide.
 
+Hashtag mẫu:
+#KeToanDieuTam #KinhDoanh #DongTien
+
 ## Facebook
 
 Bài sâu hơn TikTok:
@@ -46,6 +49,9 @@ Bài sâu hơn TikTok:
 - ví dụ COD/đối soát;
 - giải thích “có lời vẫn thiếu tiền”; 
 - kết bằng 3 câu hỏi áp dụng.
+
+Hashtag mẫu:
+#KeToanDieuTam #KinhDoanh #DongTien #LoiNhuan
 
 Ảnh: đúng 4 ảnh 4:5.
 
@@ -63,6 +69,9 @@ Bài sâu nhất:
 - 5 câu hỏi cuối tháng;
 - bài tập lấy 10 đơn gần nhất để bóc tách.
 
+Hashtag:
+- mặc định không dùng cho Zalo OA article.
+
 Ảnh:
 - cover 16:9;
 - body 500×320 breakdown;
@@ -76,6 +85,9 @@ Bài cô đọng:
 - 3 khái niệm;
 - 3 câu hỏi cuối tháng;
 - câu hỏi tương tác.
+
+Hashtag mẫu:
+#KeToanDieuTam #DongTien #KinhDoanh
 
 Ảnh: đúng 4 ảnh 1:1 riêng, không collage, không logo mặc định.
 
