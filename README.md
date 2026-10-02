@@ -10,7 +10,7 @@ Nguồn chân lý duy nhất là:
 
 Gồm:
 - `SKILL.md` — workflow và quality gates chính;
-- `references/editorial-depth.md` — cách mở rộng kịch bản thành bài có substance;
+- `references/editorial-depth.md` — editorial execution: chọn angle, hook, cơ chế, ví dụ, practicality và cách viết riêng từng nền tảng;
 - `references/platform-playbook.md` — official facts + preset từng nền tảng;
 - `references/image-execution.md` — cách tạo ảnh, continuity, text density và Auto-QA;
 - `examples/gold-standard.md` — mẫu calibrate chất lượng.
